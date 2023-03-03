@@ -17,16 +17,16 @@ const router = createRouter({
         },
       ],
     },
-    {
-      path: "/login",
-      component: () => import("../views/LoginView.vue"),
-    },
-    {
-      path: "/admin",
-      component: () => import("../views/admin/IndexView.vue"),
-      children: [
-      ],
-    },
+    // {
+    //   path: "/login",
+    //   component: () => import("../views/LoginView.vue"),
+    // },
+    // {
+    //   path: "/admin",
+    //   component: () => import("../views/admin/IndexView.vue"),
+    //   children: [
+    //   ],
+    // },
   ],
 });
 
