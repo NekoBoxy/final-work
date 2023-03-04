@@ -1,7 +1,5 @@
 <template>
-  <div class="body">
-    <span>CArraval</span>
-  </div>
+  <div>CartView</div>
 </template>
 
 <script>

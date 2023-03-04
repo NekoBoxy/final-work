@@ -12,6 +12,15 @@ const router = createRouter({
           component: () => import("../views/HomeView.vue"),
         },
         {
+          path: "/products",
+          component: () => import("../views/ProductsView.vue"),
+        },
+        {
+          path: "/product",
+          // path: "/product/:id",
+          component: () => import("../views/ProductsView.vue"),
+        },
+        {
           path: "/:pathMatch(.*)*",
           component: () => import("../views/HomeView.vue"),
         },
@@ -21,12 +30,12 @@ const router = createRouter({
     //   path: "/login",
     //   component: () => import("../views/LoginView.vue"),
     // },
-    // {
-    //   path: "/admin",
-    //   component: () => import("../views/admin/IndexView.vue"),
-    //   children: [
-    //   ],
-    // },
+    {
+      path: "/admin",
+      component: () => import("../views/admin/IndexView.vue"),
+      children: [
+      ],
+    },
   ],
 });
 

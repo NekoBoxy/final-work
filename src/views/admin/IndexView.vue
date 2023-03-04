@@ -1,28 +1,28 @@
 <template>
-<div class="container-fluid" v-if="visible">
-  <div>你在後台</div>
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item nav-link p-3">
-            <RouterLink to="/">回前台首頁</RouterLink>
-          </li>
-          <li class="nav-item nav-link p-3">
-            <RouterLink to="/admin/products">產品一覽</RouterLink>
-          </li>
-          <li class="nav-item nav-link p-3">
-            <RouterLink to="/admin/orders">訂單一覽</RouterLink>
-          </li>
-          <li class="nav-item nav-link p-3">
-            <RouterLink to="/admin/coupons">優惠碼一覽</RouterLink>
-          </li>
-        </ul>
+  <div class="container-fluid" v-if="visible">
+    <div>你在後台</div>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item nav-link p-3">
+              <RouterLink to="/">回前台首頁</RouterLink>
+            </li>
+            <li class="nav-item nav-link p-3">
+              <RouterLink to="/admin/products">產品一覽</RouterLink>
+            </li>
+            <li class="nav-item nav-link p-3">
+              <RouterLink to="/admin/orders">訂單一覽</RouterLink>
+            </li>
+            <li class="nav-item nav-link p-3">
+              <RouterLink to="/admin/coupons">優惠碼一覽</RouterLink>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  <RouterView />
-</div>
+    </nav>
+    <RouterView />
+  </div>
 </template>
 
 <script>

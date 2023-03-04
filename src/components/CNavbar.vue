@@ -16,13 +16,13 @@
                 </li>
                 <!-- <li class="nav-item nav-link p-3">
                   <RouterLink to="/about">關於我們</RouterLink>
+                </li> -->
+                <li class="nav-item nav-link p-3">
+                  <RouterLink to="/products">產品一覽</RouterLink>
                 </li>
                 <li class="nav-item nav-link p-3">
                   <RouterLink to="/cart">購物車</RouterLink>
                 </li>
-                <li class="nav-item nav-link p-3">
-                  <RouterLink to="/products">產品一覽</RouterLink>
-                </li> -->
               </ul>
             </div>
           </nav>
