@@ -5,12 +5,12 @@
 
 前台：
 首頁區塊 (先刻)
-  輪播 CCarousel.vue
-  新品上架 CArrival.vue
-  產品分類 CCategory
-  talk 1 CTalkA
-  talk 2 CTalkB
-  Q&A CQA
+  輪播 
+  新品上架 
+  產品分類 
+  talk 1 
+  talk 2 
+  Q&A 
 產品一覽頁 (ProductsView)
 單項產品頁 (ProductView)
 購物車頁面 (CartsView)
