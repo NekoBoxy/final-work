@@ -46,9 +46,9 @@
     </div>
   </div>
   <!-- 最近新品 card -->
-  <div class="latestCard">
+  <div class="latestArea">
     <div class="row">
-      <div class="col" v-for="product in products" v-bind:key="product.id">
+      <div class="col-4" v-for="product in products" v-bind:key="product.id">
         <div class="card h-50">
           <img v-bind:src="product.imageUrl" class="card-img-top" alt="latestCardImg">
           <div class="card-img-overlay">
@@ -59,9 +59,9 @@
     </div>
   </div>
   <!-- 產品分區 category -->
-  <div class="categoryCard">
+  <div class="categoryArea">
     <div class="row">
-      <div class="col">
+      <div class="col-4">
         <div class="card h-25">
           <img src="../assets/Rectangle 34 (3).png" class="card-img-top" alt="categoryCardImg">
           <div class="card-img-overlay">
@@ -88,7 +88,7 @@
     </div>
   </div>
   <!-- 心靈小語 storys -->
-  <div class="storys">
+  <div class="storyArea">
     <div class="row">
       <div class="col">
         <div class="texts">
@@ -104,7 +104,7 @@
     </div>
   </div>
   <!-- 關於我們 about -->
-  <div class="about">
+  <div class="aboutArea">
     <div class="row">
       <div class="col">
         <div class="pic">
@@ -119,9 +119,27 @@
       </div>
     </div>
   </div>
-
-
-
+  <!-- QA area -->
+  <div class="QAArea">
+    <div class="row">
+      <div class="col-12">
+        <h5>Q：請問運送方式？</h5>
+        <p>A：為了保護嬌嫩的花草們，我們全面採用黑貓宅急便運送，呵護每一株花草。若有折損請洽0800-000-000，由專人為您服務。</p>
+      </div>
+      <div class="col-12">
+        <h5>Q：請問怎麼付款呢？</h5>
+        <p>A：瑤草琪花一律使用信用卡付款，讓您可以快速便捷的選購喜愛的花草。</p>
+      </div>
+      <div class="col-12">
+        <h5>Q：網頁上沒有我喜歡的花束款式，可以客製嗎？要怎麼客製呢？價格多少？</h5>
+        <p>A：若有任何客製需求，歡迎來電或寄 email，與我們的花藝師一同討論出最符合您需求的花束款式。花藝師會依您的預算規畫並設計客製花束。</p>
+      </div>
+      <div class="col-12">
+        <h5>Q：小編好棒棒，請問怎麼幫小編加雞腿呢？</h5>
+        <p>A：您可以按下方 Octocat 替小編加雞腿唷：）</p>
+      </div>
+    </div>
+  </div>
   <CFooter></CFooter>
 </template>
 

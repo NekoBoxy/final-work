@@ -45,7 +45,7 @@
         </div>
       </div>
       <div style="text-align: center">
-        <div>本網頁僅供練習，不做任何商用</div>
+        <div>此網頁僅供練習，不做任何商用</div>
         <div>Copyright © 2023 CatBoxy</div>
       </div>
     </div>
