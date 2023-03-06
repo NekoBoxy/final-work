@@ -1,7 +1,7 @@
 <template>
   <CNavbar></CNavbar>
   <!-- Carousel 輪播 -->
-  <div class="carouselBox">
+  <div class="carouselArea">
     <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -99,6 +99,22 @@
       <div class="col">
         <div class="pic">
           <img src="../assets/green.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 關於我們 about -->
+  <div class="about">
+    <div class="row">
+      <div class="col">
+        <div class="pic">
+          <img src="../assets/Rectangle 37.png" alt="" srcset="">
+        </div>
+      </div>
+      <div class="col">
+        <div class="text">
+          <p>想從生活中親近自然，最簡單的就是從自家做起。</p>
+          <p>但居家空間有限，不如就以小巧的盆栽與花卉，來為自己的私空間妝點顏色吧。</p>
         </div>
       </div>
     </div>
