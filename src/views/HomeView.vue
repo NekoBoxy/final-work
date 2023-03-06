@@ -14,21 +14,21 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="10000">
-          <img src="../assets/home004.png" class="d-block w-100" alt="...">
+          <img src="../assets/images/home004.png" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>為生活增添點自然的氣息吧！</h5>
           </div>
         </div>
 
         <div class="carousel-item" data-bs-interval="5000">
-          <img src="../assets/home002.png" class="d-block w-100" alt="...">
+          <img src="../assets/images/home002.png" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <p>兔年吉祥！新春限定優惠，即日起至2/15，輸入優惠碼happyTUyear全品項享八折優惠！</p>
           </div>
         </div>
 
         <div class="carousel-item" data-bs-interval="5000">
-          <img src="../assets/home001.png" class="d-block w-100" alt="...">
+          <img src="../assets/images/home001.png" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>Third slide label</h5>
             <p>Some representative placeholder content for the third slide.</p>
@@ -63,7 +63,7 @@
     <div class="row">
       <div class="col-4">
         <div class="card h-25">
-          <img src="../assets/Rectangle 34 (3).png" class="card-img-top" alt="categoryCardImg">
+          <img src="../assets/images/Rectangle 34 (3).png" class="card-img-top" alt="categoryCardImg">
           <div class="card-img-overlay">
             <h5 class="card-title">盆栽</h5>
           </div>
@@ -71,7 +71,7 @@
       </div>
       <div class="col">
         <div class="card h-25">
-          <img src="../assets/Rectangle 34 (4).png" class="card-img-top" alt="categoryCardImg">
+          <img src="../assets/images/Rectangle 34 (4).png" class="card-img-top" alt="categoryCardImg">
           <div class="card-img-overlay">
             <h5 class="card-title">盆花</h5>
           </div>
@@ -79,7 +79,7 @@
       </div>
       <div class="col">
         <div class="card h-25">
-          <img src="../assets/Rectangle 34.png" class="card-img-top" alt="categoryCardImg">
+          <img src="../assets/images/Rectangle 34.png" class="card-img-top" alt="categoryCardImg">
           <div class="card-img-overlay">
             <h5 class="card-title">花束</h5>
           </div>
@@ -98,7 +98,7 @@
       </div>
       <div class="col">
         <div class="pic">
-          <img src="../assets/green.png" alt="">
+          <img src="../assets/images/green.png" alt="">
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@
     <div class="row">
       <div class="col">
         <div class="pic">
-          <img src="../assets/Rectangle 37.png" alt="" srcset="">
+          <img src="../assets/images/Rectangle 37.png" alt="" srcset="">
         </div>
       </div>
       <div class="col">
@@ -182,18 +182,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.latestCard {
-  /* width: 416px;
-  height: 416px; */
-
-  border-radius: 6px;
-}
-
-;
-
-.storys .texts {
-  background-color: #FEFDFCDE;
-  /* background-image: '../assets/green.png'; */
-}
-</style>
+<style scoped></style>

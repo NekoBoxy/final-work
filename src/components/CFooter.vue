@@ -65,6 +65,5 @@ export default {
   bottom: 0;
   width: 100%;
   height: 80px;
-  background-color: #F6F2ED;
 }
 </style>
