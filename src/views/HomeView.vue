@@ -1,8 +1,8 @@
 <template>
   <CNavbar></CNavbar>
   <!-- Carousel 輪播 -->
-  <div class="carouselItem">
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carouselBox">
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
           aria-current="true" aria-label="Slide 1"></button>
@@ -11,23 +11,26 @@
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
           aria-label="Slide 3"></button>
       </div>
+
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="..." class="d-block w-100" alt="...">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="../assets/home004.png" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
+            <h5>為生活增添點顏色吧！</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
+
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="../assets/home002.png" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>Second slide label</h5>
             <p>Some representative placeholder content for the second slide.</p>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
+
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="../assets/home001.png" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>Third slide label</h5>
             <p>Some representative placeholder content for the third slide.</p>
@@ -43,6 +46,9 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <div class="slogan">
+      <p>兔年吉祥！新春限定優惠，即日起至2/15，輸入優惠碼happyTUyear全品項享八折優惠！</p>
+    </div>
   </div>
   <CFooter></CFooter>
 </template>
@@ -50,6 +56,8 @@
 <script>
 import CNavbar from '../components/CNavbar.vue';
 import CFooter from '../components/CFooter.vue';
+
+
 
 
 export default {
