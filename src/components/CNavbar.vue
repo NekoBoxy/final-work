@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="nav">
     <div class="row">
       <div class="col-12">
         <nav class="navbar navbar-expand-lg">
@@ -35,4 +35,10 @@ export default {
 
 }
 
-</script>
+</script >
+
+<style scoped>
+.nav {
+  background-color: #F6F2ED;
+}
+</style>

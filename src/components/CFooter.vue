@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="bottonArea">
     <div class="text-center">
       <div class="row justify-content-center">
         <div class="col-auto">
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <div style="text-align: center;">
+      <div style="text-align: center">
         <div>本網頁僅供練習，不做任何商用</div>
         <div>Copyright © 2023 CatBoxy</div>
       </div>
@@ -59,4 +59,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.bottonArea {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #F6F2ED;
+}
+</style>
