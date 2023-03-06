@@ -87,6 +87,22 @@
       </div>
     </div>
   </div>
+  <!-- 心靈小語 storys -->
+  <div class="storys">
+    <div class="row">
+      <div class="col">
+        <div class="texts">
+          <p>生活在水林叢林裡，想找尋一點綠意，卻發現放眼望去都是沉重的顏色</p>
+          <p>有多久沒有接觸花卉與植物了？</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="pic">
+          <img src="../assets/green.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -138,5 +154,12 @@ export default {
   height: 416px; */
 
   border-radius: 6px;
+}
+
+;
+
+.storys .texts {
+  background-color: #FEFDFCDE;
+  /* background-image: '../assets/green.png'; */
 }
 </style>
