@@ -2,54 +2,57 @@
   <CNavbar></CNavbar>
   <!-- Carousel 輪播 -->
   <div class="carouselArea">
-    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-          aria-label="Slide 3"></button>
+    <div class="row">
+      <div class="col">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="../assets/images/home004.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>為生活增添點自然的氣息吧！</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img src="../assets/images/home002.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <p>兔年吉祥！新春限定優惠，即日起至2/15，輸入優惠碼happyTUyear全品項享八折優惠！</p>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img src="../assets/images/home001.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
-
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000">
-          <img src="../assets/images/home004.png" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>為生活增添點自然的氣息吧！</h5>
-          </div>
-        </div>
-
-        <div class="carousel-item" data-bs-interval="5000">
-          <img src="../assets/images/home002.png" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <p>兔年吉祥！新春限定優惠，即日起至2/15，輸入優惠碼happyTUyear全品項享八折優惠！</p>
-          </div>
-        </div>
-
-        <div class="carousel-item" data-bs-interval="5000">
-          <img src="../assets/images/home001.png" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </div>
   <!-- 最近新品 card -->
   <div class="latestArea">
     <div class="row">
-      <div class="col-4" v-for="product in products" v-bind:key="product.id">
-        <div class="card h-50">
+      <div class="col-4 p-4" v-for="product in products" v-bind:key="product.id">
+        <div class="card">
           <img v-bind:src="product.imageUrl" class="card-img-top" alt="latestCardImg">
           <div class="card-img-overlay">
             <h5 class="card-title">{{ product.title }}</h5>
@@ -63,23 +66,23 @@
     <div class="row">
       <div class="col-4">
         <div class="card h-25">
-          <img src="../assets/images/Rectangle 34 (3).png" class="card-img-top" alt="categoryCardImg">
+          <img src="../assets/images/nkut.png" class="card-img-top" alt="categoryCardImg">
           <div class="card-img-overlay">
             <h5 class="card-title">盆栽</h5>
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-4">
         <div class="card h-25">
-          <img src="../assets/images/Rectangle 34 (4).png" class="card-img-top" alt="categoryCardImg">
+          <img src="../assets/images/nyryj.png" class="card-img-top" alt="categoryCardImg">
           <div class="card-img-overlay">
             <h5 class="card-title">盆花</h5>
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-4">
         <div class="card h-25">
-          <img src="../assets/images/Rectangle 34.png" class="card-img-top" alt="categoryCardImg">
+          <img src="../assets/images/jrsj.png" class="card-img-top" alt="categoryCardImg">
           <div class="card-img-overlay">
             <h5 class="card-title">花束</h5>
           </div>
@@ -108,7 +111,7 @@
     <div class="row">
       <div class="col">
         <div class="pic">
-          <img src="../assets/images/Rectangle 37.png" alt="" srcset="">
+          <img src="../assets/images/jyrsj.png" alt="" srcset="">
         </div>
       </div>
       <div class="col">
@@ -122,19 +125,19 @@
   <!-- QA area -->
   <div class="QAArea">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 p-2 g-2">
         <h5>Q：請問運送方式？</h5>
-        <p>A：為了保護嬌嫩的花草們，我們全面採用黑貓宅急便運送，呵護每一株花草。若有折損請洽0800-000-000，由專人為您服務。</p>
+        <p>A：為了保護嬌嫩的花草們，我們全面採用黑貓宅急便運送，呵護每一株花草。若有折損請洽 0800-000-000，由專人為您服務。</p>
       </div>
-      <div class="col-12">
+      <div class="col-12 p-2 g-2">
         <h5>Q：請問怎麼付款呢？</h5>
         <p>A：瑤草琪花一律使用信用卡付款，讓您可以快速便捷的選購喜愛的花草。</p>
       </div>
-      <div class="col-12">
+      <div class="col-12 p-2 g-2">
         <h5>Q：網頁上沒有我喜歡的花束款式，可以客製嗎？要怎麼客製呢？價格多少？</h5>
         <p>A：若有任何客製需求，歡迎來電或寄 email，與我們的花藝師一同討論出最符合您需求的花束款式。花藝師會依您的預算規畫並設計客製花束。</p>
       </div>
-      <div class="col-12">
+      <div class="col-12 p-2 g-2">
         <h5>Q：小編好棒棒，請問怎麼幫小編加雞腿呢？</h5>
         <p>A：您可以按下方 Octocat 替小編加雞腿唷：）</p>
       </div>
