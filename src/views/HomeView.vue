@@ -4,33 +4,48 @@
   <div class="carouselArea">
     <div class="container-fluid">
       <div class="row">
-        <div class="col">
+        <div class="col-12">
           <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-            </div>
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="10000">
                 <img src="../assets/images/home004.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>為生活增添點自然的氣息吧！</h5>
+                  <div class="row justify-content-between align-items-center carousel-text">
+                    <div class="col-3">
+                      <span>為生活注入自然的氣息</span>
+                    </div>
+                    <div class="col-2">
+                      <RouterLink to="/products">
+                        <button type="button" class="btn btn-outline-primary carousel-btn">帶我回家</button>
+                      </RouterLink>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="5000">
                 <img src="../assets/images/home002.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <p>兔年吉祥！新春限定優惠，即日起至2/15，輸入優惠碼happyTUyear全品項享八折優惠！</p>
+                  <div class="row justify-content-between align-items-center carousel-text">
+                    <div class="col-10">
+                      <span>兔年吉祥！新春限定優惠，即日起至2/15，輸入優惠碼 happyTUyear 全品項享八折優惠！</span>
+                    </div>
+                    <div class="col-2">
+                      <button type="button" class="btn btn-outline-primary carousel-btn">帶我回家</button>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="5000">
                 <img src="../assets/images/home001.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>第三張圖</h5>
+                  <div class="row justify-content-between align-items-center carousel-text">
+                    <div class="col-10">
+                      <span>塵世喧鬧中，尋一方心靈綠地</span>
+                    </div>
+                    <div class="col-2">
+                      <button type="button" class="btn btn-outline-primary carousel-btn">帶我回家</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -163,9 +178,6 @@ import axios from 'axios';
 import CNavbar from '../components/CNavbar.vue';
 import CFooter from '../components/CFooter.vue';
 
-
-
-
 export default {
   data() {
     return {
@@ -196,4 +208,17 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.carousel-text {
+  color: #123025;
+  align-items: center;
+  background-color: #FEFDFCDE;
+  padding: 16px 24px;
+  font-size: 24px;
+}
+
+.carousel-btn {
+  position: relative;
+  z-index: 2;
+}
+</style>
