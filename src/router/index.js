@@ -12,17 +12,25 @@ const router = createRouter({
           component: () => import("../views/HomeView.vue"),
         },
         {
+          path: "/about",
+          component: () => import("../views/AboutView.vue"),
+        },
+        {
           path: "/products",
           component: () => import("../views/ProductsView.vue"),
         },
-        {
-          path: "/product",
-          // path: "/product/:id",
-          component: () => import("../views/ProductsView.vue"),
-        },
+        // {
+        //   path: "/product",
+        //   // path: "/product/:id",
+        //   component: () => import("../views/ProductsView.vue"),
+        // },
         {
           path: "/cart",
           component: () => import("../views/CartView.vue"),
+        },
+        {
+          path: "/contactus",
+          component: () => import("../views/ContactView.vue"),
         },
         {
           path: "/:pathMatch(.*)*",
@@ -30,10 +38,10 @@ const router = createRouter({
         },
       ],
     },
-    // {
-    //   path: "/login",
-    //   component: () => import("../views/LoginView.vue"),
-    // },
+    {
+      path: "/login",
+      component: () => import("../views/LoginView.vue"),
+    },
     {
       path: "/admin",
       component: () => import("../views/admin/IndexView.vue"),

@@ -1,6 +1,6 @@
 <template>
   <div class="nav-area">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12">
           <nav class="navbar navbar-expand-lg">
@@ -26,33 +26,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
-                <li class="nav-item p-3">
-                  <RouterLink to="/">首頁</RouterLink>
-                </li>
-                <!-- <li class="nav-item nav-link p-3">
-                  <RouterLink to="/about">關於我們</RouterLink>
-                </li> -->
+                <template v-for="item in menu" :key="item.title">
+                  <li class="nav-item nav-link p-3">
+                    <RouterLink :to="item.url">
+                      <button type="button">{{ item.title }}</button>
+                    </RouterLink>
+                  </li>
+                </template>
                 <li class="nav-item nav-link p-3">
-                  <RouterLink to="/products">產品一覽</RouterLink>
+                  <RouterLink to="/login">
+                    <button>
+                      <img src="../assets/images/loginicon.png" alt="" srcset="">
+                    </button>
+                  </RouterLink>
                 </li>
-                <li class="nav-item nav-link p-3">
-                  <RouterLink to="/cart">購物車</RouterLink>
-                </li>
-                <li class="nav-item nav-link p-3">
-                  <button type="button">
-                    <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M15.0166 15.2461C18.8848 15.2461 21.9893 11.8428 21.9893 7.60938C21.9893 3.47559 18.8682 0.155273 15.0166 0.155273C11.1816 0.155273 8.02734 3.50879 8.04395 7.62598C8.06055 11.8594 11.1484 15.2461 15.0166 15.2461ZM15.0166 13.3037C12.3105 13.3037 10.1025 10.8301 10.1025 7.62598C10.0693 4.55469 12.3105 2.11426 15.0166 2.11426C17.7227 2.11426 19.9307 4.52148 19.9307 7.60938C19.9307 10.7969 17.7393 13.3037 15.0166 13.3037ZM4.27539 30.4697H25.708C28.1484 30.4697 29.2939 29.6895 29.2939 28.0127C29.2939 23.6797 23.8486 17.5205 15 17.5205C6.13477 17.5205 0.689453 23.6797 0.689453 28.0127C0.689453 29.6895 1.85156 30.4697 4.27539 30.4697ZM3.76074 28.5107C2.99707 28.5107 2.74805 28.3281 2.74805 27.7969C2.74805 24.6592 7.18066 19.4629 15 19.4629C22.8027 19.4629 27.252 24.6592 27.252 27.7969C27.252 28.3281 26.9863 28.5107 26.2393 28.5107H3.76074Z"
-                        fill="#123025" fill-opacity="0.66" />
-                    </svg>
-                  </button>
-                  <button type="button">
-                    <svg width="39" height="33" viewBox="0 0 39 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M13.8906 24.3271H33.5469C34.0283 24.3271 34.4766 23.9121 34.4766 23.3643C34.4766 22.8164 34.0283 22.4014 33.5469 22.4014H14.1729C13.127 22.4014 12.4795 21.7373 12.3135 20.6084L11.998 18.4502H33.4141C35.6553 18.4502 36.7344 17.1221 37.0664 14.9473L38.4277 5.91602C38.4609 5.7334 38.4941 5.45117 38.4941 5.33496C38.4941 4.62109 37.9961 4.15625 37.1992 4.15625H9.85645L9.47461 1.5332C9.3252 0.553711 8.97656 0.0556641 7.64844 0.0556641H1.60547C1.09082 0.0556641 0.65918 0.487305 0.65918 1.01855C0.65918 1.5332 1.09082 1.98145 1.60547 1.98145H7.53223L10.3213 20.9072C10.6201 23.0156 11.7324 24.3271 13.8906 24.3271ZM36.3525 6.08203L35.0576 14.7314C34.875 15.8604 34.3271 16.5244 33.2812 16.5244H11.6992L10.1553 6.08203H36.3525ZM15.6006 32.3125C17.0449 32.3125 18.1904 31.167 18.1904 29.7227C18.1904 28.2783 17.0449 27.1328 15.6006 27.1328C14.1562 27.1328 13.0107 28.2783 13.0107 29.7227C13.0107 31.167 14.1562 32.3125 15.6006 32.3125ZM30.8574 32.3125C32.3018 32.3125 33.4473 31.167 33.4473 29.7227C33.4473 28.2783 32.3018 27.1328 30.8574 27.1328C29.4131 27.1328 28.251 28.2783 28.251 29.7227C28.251 31.167 29.4131 32.3125 30.8574 32.3125Z"
-                        fill="#123025" fill-opacity="0.66" />
-                    </svg>
-                  </button>
+                <li class="nav-item nav-link">
+                  <RouterLink to="/cart">
+                    <button>
+                      <img src="../assets/images/carticon.png" alt="" srcset="">
+                    </button>
+                  </RouterLink>
                 </li>
               </ul>
             </div>
@@ -64,20 +57,59 @@
 </template>
 
 <script>
-export default {
 
+export default {
+  data() {
+    return {
+      menu: [
+        {
+          title: "首頁",
+          url: "/",
+        },
+        {
+          title: "關於我們",
+          url: "/about",
+        },
+        {
+          title: "產品一覽",
+          url: "/products",
+        },
+        {
+          title: "購物車",
+          url: "/cart",
+        },
+        {
+          title: "聯絡我們",
+          url: "/contact",
+        },
+      ],
+    }
+  },
+  methods: {
+
+  },
+  mounted() {
+
+  },
 }
 
 </script >
 
 <style scoped>
-a:link {
-  text-decoration: none;
-}
-
 li {
   display: flex;
   align-items: center;
+}
 
+li:hover {
+  background-color: #457B5F;
+  color: #ffffff;
+  border-radius: 15px;
+  padding: 16px 32px;
+  gap: 10px;
+}
+
+a:link {
+  text-decoration: none;
 }
 </style>
