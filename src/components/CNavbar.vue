@@ -27,22 +27,27 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
                 <template v-for="item in menu" :key="item.title">
-                  <li class="nav-item nav-link p-3">
+                  <li class="nav-item nav-link menu-item" v-if="$route.path === item.url">
                     <RouterLink :to="item.url">
-                      <button type="button">{{ item.title }}</button>
+                      <button type="button" class="btn btn-outline-primary">{{ item.title }}</button>
+                    </RouterLink>
+                  </li>
+                  <li class="nav-item nav-link menu-item" v-else>
+                    <RouterLink :to="item.url">
+                      <div class="div-button">{{ item.title }}</div>
                     </RouterLink>
                   </li>
                 </template>
-                <li class="nav-item nav-link p-3">
+                <li class="nav-item nav-link menu-item">
                   <RouterLink to="/login">
-                    <button>
+                    <button class="btn btn-outline-secondary">
                       <img src="../assets/images/loginicon.png" alt="" srcset="">
                     </button>
                   </RouterLink>
                 </li>
-                <li class="nav-item nav-link">
+                <li class="nav-item nav-link menu-item">
                   <RouterLink to="/cart">
-                    <button>
+                    <button class="btn btn-outline-secondary">
                       <img src="../assets/images/carticon.png" alt="" srcset="">
                     </button>
                   </RouterLink>
@@ -96,20 +101,37 @@ export default {
 </script >
 
 <style scoped>
-li {
+a {
+  text-decoration: none;
+}
+
+.menu-item {
   display: flex;
   align-items: center;
 }
 
-li:hover {
-  background-color: #457B5F;
-  color: #ffffff;
-  border-radius: 15px;
-  padding: 16px 32px;
-  gap: 10px;
+button {
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  border-width: 1px;
+
 }
 
-a:link {
-  text-decoration: none;
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+/* .div-button:hover {
+  border-radius: 100px;
+  background-color: #326A4D;
+  color: white;
+  padding: 0px 15.667px 0px 15.667px;
+} */
+
+.div-button {
+  padding: 0px 15.667px 0px 15.667px;
+  font-size: 20px;
 }
 </style>
