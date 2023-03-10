@@ -109,8 +109,12 @@
     </div>
   </div>
   <!-- 最近新品 card -->
-  <div class="latestArea">
+
+  <div class="latest-area">
     <div class="container">
+      <div class="row">
+        <div class="col-2 p-2 justify-content-start"><span>最近新品</span></div>
+      </div>
       <div class="row g-4 justify-content-center">
         <div class="col-12 col-md-3 mx-auto" v-for="product in recentProducts" :key="product.id">
           <div class="card text-white" style="max-width: 416px;">
@@ -134,48 +138,42 @@
       </div>
     </div>
   </div>
-  <!-- 舊版最近新品 card + button -->
-  <!-- <div class="latestArea">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-3 mx-auto" v-for="product in recentProducts" v-bind:key="product.id">
-          <div class="card card-style">
-            <img v-bind:src="product.imageUrl" class="card-img-top" alt="latestCardImg">
-            <div class="card-img-overlay">
-              <button class="btn btn-outline-primary">
-                <span class="card-title">{{ product.title }}</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
   <!-- 產品分區 category -->
-  <div class="categoryArea">
+  <div class="category-area">
     <div class="container">
       <div class="row">
-        <div class="col-4">
-          <div class="card h-25">
-            <img src="../assets/images/nkut.png" class="card-img-top" alt="categoryCardImg">
-            <div class="card-img-overlay">
-              <h5 class="card-title">盆栽</h5>
+        <div class="col-4 p-5">
+          <div class="card">
+            <img src="../assets/images/nkut.png" class="card-img-top" alt="category-area-img">
+            <div class="category-card-title-div">
+              <div class="row justify-content-between">
+                <div class="col text-start">
+                  <span>盆栽</span>
+                </div>
+                <div class="col text-end">
+                  <svg width="13" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12.6138 11.1865C12.6138 11.0319 12.5812 10.8895 12.5161 10.7593C12.4591 10.6209 12.3737 10.4948 12.2598 10.3809L2.5918 0.908203C2.37207 0.696615 2.10352 0.59082 1.78613 0.59082C1.58268 0.59082 1.39551 0.639648 1.22461 0.737305C1.05371 0.834961 0.919434 0.969238 0.821777 1.14014C0.724121 1.3029 0.675293 1.49007 0.675293 1.70166C0.675293 2.00277 0.781087 2.26725 0.992676 2.49512L9.87939 11.1865L0.992676 19.8779C0.781087 20.1058 0.675293 20.3703 0.675293 20.6714C0.675293 20.883 0.724121 21.0701 0.821777 21.2329C0.919434 21.4038 1.05371 21.5381 1.22461 21.6357C1.39551 21.7334 1.58268 21.7822 1.78613 21.7822C2.10352 21.7822 2.37207 21.6724 2.5918 21.4526L12.2598 11.9922C12.3737 11.8783 12.4591 11.7562 12.5161 11.626C12.5812 11.4876 12.6138 11.3411 12.6138 11.1865Z"
+                      fill="#F8FBF9" />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-4">
-          <div class="card h-25">
-            <img src="../assets/images/nyryj.png" class="card-img-top" alt="categoryCardImg">
-            <div class="card-img-overlay">
-              <h5 class="card-title">盆花</h5>
+        <div class="col-4 p-5">
+          <div class="card">
+            <img src="../assets/images/nyryj.png" class="card-img-top" alt="category-area-img">
+            <div class="category-card-title-div">
+              <span>盆花</span>
             </div>
           </div>
         </div>
-        <div class="col-4">
-          <div class="card h-25">
-            <img src="../assets/images/jrsj.png" class="card-img-top" alt="categoryCardImg">
-            <div class="card-img-overlay">
-              <h5 class="card-title">花束</h5>
+        <div class="col-4 p-5">
+          <div class="card">
+            <img src="../assets/images/jrsj.png" class="card-img-top" alt="category-area-img">
+            <div class="category-card-title-div">
+              <span>花束</span>
             </div>
           </div>
         </div>
@@ -189,7 +187,7 @@
         <div class="col">
           <div class="texts">
             <p>生活在水林叢林裡，想找尋一點綠意，卻發現放眼望去都是沉重的顏色</p>
-            <p>有多久沒有接觸花卉與植物了？</p>
+            <span>有多久沒有接觸花卉與植物了？</span>
           </div>
         </div>
         <div class="col">
@@ -229,7 +227,7 @@
           </button>
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
-              <p>A：為了保護嬌嫩的花草們，我們全面採用黑貓宅急便運送，呵護每一株花草。若有折損請洽 0800-000-000，由專人為您服務。</p>
+              <span>A：為了保護嬌嫩的花草們，我們全面採用黑貓宅急便運送，呵護每一株花草。若有折損請洽 0800-000-000，由專人為您服務。</span>
             </div>
           </div>
         </div>
@@ -240,7 +238,7 @@
           </button>
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
-              <p>A：瑤草琪花一律使用信用卡付款，讓您可以快速便捷的選購喜愛的花草。</p>
+              <span>A：瑤草琪花一律使用信用卡付款，讓您可以快速便捷的選購喜愛的花草。</span>
             </div>
           </div>
         </div>
@@ -251,7 +249,7 @@
           </button>
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
-              <p>A：若有任何客製需求，歡迎來電或寄 email，與我們的花藝師一同討論出最符合您需求的花束款式。花藝師會依您的預算規畫並設計客製花束。</p>
+              <span>A：若有任何客製需求，歡迎來電或寄 email，與我們的花藝師一同討論出最符合您需求的花束款式。花藝師會依您的預算規畫並設計客製花束。</span>
             </div>
           </div>
         </div>
@@ -262,7 +260,7 @@
           </button>
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
-              <p>A：您可以按下方 Octocat 替小編加雞腿唷：）</p>
+              <span>A：您可以按下方 Octocat 替小編加雞腿唷：）</span>
             </div>
           </div>
         </div>
@@ -342,9 +340,28 @@ export default {
   justify-content: end;
 }
 
-.card-img-top {
+/* .card-img-top {
   width: 100%;
   height: 20vw;
   object-fit: cover;
+} */
+.category-card-title-div {
+  background-color: #457B5FDE;
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 25vw;
+  object-fit: cover;
+}
+
+.QAArea button {
+  border: none;
 }
 </style>
