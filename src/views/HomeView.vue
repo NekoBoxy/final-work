@@ -204,18 +204,22 @@
   <!-- 小故事/形象 storys -->
   <div class="story-area">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-9">
-          <div class="texts" style="background-color: #FEFDFCDE;">
-            <p>生活在水林叢林裡，</p>
-            <p>想找尋一點綠意，</p>
-            <p>卻發現放眼望去都是沉重的顏色</p>
-            <p>有多久沒有接觸花卉與植物了？</p>
+      <div class="row align-items-center">
+        <div class="col-6">
+          <div class="texts p-5">
+            <div>
+              生活在水林叢林裡，<br>
+              想找尋一點綠意，<br>
+              卻發現放眼望去都是沉重的顏色<br>
+              有多久沒有接觸花卉與植物了？<br>
+              <br>
+              <button class="button btn btn-primary">帶我回家</button>
+            </div>
           </div>
         </div>
-        <div class="col-3">
+        <div class="col-6">
           <div class="pic">
-            <img src="../assets/images/green.png" alt="">
+            <img class="img-fluid" src="../assets/images/green.png" alt="">
           </div>
         </div>
       </div>
@@ -397,4 +401,14 @@ export default {
 
 /* .story-area .texts {
 } */
+
+.story-area .texts {
+  display: flex;
+  justify-content: center;
+  background-color: #FEFDFCDE;
+}
+
+.story-area .pic {
+  height: 25%;
+}
 </style>
