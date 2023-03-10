@@ -115,7 +115,7 @@
         <div class="col-12 g-3 text-start"><span>最近新品</span></div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-4 g-5" v-for="product in recentProducts" :key="product.id">
+        <div class="col-12 col-md-3 col-lg-4 col-xxl-5 g-2" v-for="product in recentProducts" :key="product.id">
           <div class="card">
             <img :src="product.imageUrl" class="card-img-top" alt="latest-area-img">
             <div class="q-card-title">
@@ -201,17 +201,19 @@
       </div>
     </div>
   </div>
-  <!-- 心靈小語 storys -->
-  <div class="storyArea">
-    <div class="container">
+  <!-- 小故事/形象 storys -->
+  <div class="story-area">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col">
-          <div class="texts">
-            <p>生活在水林叢林裡，想找尋一點綠意，卻發現放眼望去都是沉重的顏色</p>
-            <span>有多久沒有接觸花卉與植物了？</span>
+        <div class="col-9">
+          <div class="texts" style="background-color: #FEFDFCDE;">
+            <p>生活在水林叢林裡，</p>
+            <p>想找尋一點綠意，</p>
+            <p>卻發現放眼望去都是沉重的顏色</p>
+            <p>有多久沒有接觸花卉與植物了？</p>
           </div>
         </div>
-        <div class="col">
+        <div class="col-3">
           <div class="pic">
             <img src="../assets/images/green.png" alt="">
           </div>
@@ -220,6 +222,7 @@
     </div>
   </div>
   <!-- 關於我們 about -->
+
   <div class="aboutArea">
     <div class="container">
       <div class="row">
@@ -390,5 +393,8 @@ export default {
   width: 100%;
   height: 20vw;
   object-fit: cover;
+} */
+
+/* .story-area .texts {
 } */
 </style>
