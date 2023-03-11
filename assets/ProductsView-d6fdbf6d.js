@@ -1,0 +1,1 @@
+import{C as r,a as s}from"./CFooter-b2c2acf7.js";import{_ as n,r as o,o as c,a as _,b as e,F as p,d}from"./index-0fe2661f.js";const m={components:{CNavbar:r,CFooter:s}},i=d("div",null,"ProductsView",-1);function l(u,C,f,v,F,N){const t=o("CNavbar"),a=o("CFooter");return c(),_(p,null,[e(t),i,e(a)],64)}const $=n(m,[["render",l]]);export{$ as default};
