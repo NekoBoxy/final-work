@@ -202,43 +202,41 @@
     </div>
   </div>
   <!-- 小故事/形象 storys -->
-  <div class="story-area">
-    <div class="container-fluid">
-      <div class="row align-items-center">
-        <div class="col-6">
-          <div class="texts p-5">
-            <div>
-              生活在水林叢林裡，<br>
-              想找尋一點綠意，<br>
-              卻發現放眼望去都是沉重的顏色<br>
-              有多久沒有接觸花卉與植物了？<br>
-              <br>
-              <button class="button btn btn-primary">帶我回家</button>
-            </div>
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-6">
+        <div class="context-area p-5">
+          <div>
+            生活在水林叢林裡，<br>
+            想找尋一點綠意，<br>
+            卻發現放眼望去都是沉重的顏色<br>
+            有多久沒有接觸花卉與植物了？<br>
+            <br>
+            <button class="button btn btn-primary">帶我回家</button>
           </div>
         </div>
-        <div class="col-6">
-          <div class="pic">
-            <img class="img-fluid" src="../assets/images/green.png" alt="">
-          </div>
-        </div>
+      </div>
+      <div class="col-6">
+        <img class="img-fluid" src="../assets/images/green.png" alt="">
       </div>
     </div>
   </div>
   <!-- 關於我們 about -->
-
-  <div class="aboutArea">
+  <div>
     <div class="container">
       <div class="row">
-        <div class="col">
-          <div class="pic">
-            <img src="../assets/images/jyrsj.png" alt="" srcset="">
-          </div>
+        <div class="col-6">
+          <img class="img-fluid" style="height: 300px;" src="../assets/images/jyrsj.png" alt="" srcset="">
         </div>
-        <div class="col">
-          <div class="text">
-            <p>想從生活中親近自然，最簡單的就是從自家做起。</p>
-            <p>但居家空間有限，不如就以小巧的盆栽與花卉，來為自己的私空間妝點顏色吧。</p>
+        <div class="col-6">
+          <div class="context-area p-4" style="height: 300px;">
+            <div>
+              <h5>關於瑤草琪花</h5>
+              <br>
+              想從生活中親近自然，最簡單的就是從自家做起。<br>
+              <br>
+              但居家空間有限，不如就以小巧的盆栽與花卉，來為自己的私空間妝點顏色吧。
+            </div>
           </div>
         </div>
       </div>
@@ -399,16 +397,12 @@ export default {
   object-fit: cover;
 } */
 
-/* .story-area .texts {
+/* .context-area .texts {
 } */
 
-.story-area .texts {
+.context-area {
   display: flex;
   justify-content: center;
   background-color: #FEFDFCDE;
-}
-
-.story-area .pic {
-  height: 25%;
 }
 </style>
