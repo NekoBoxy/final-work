@@ -2,7 +2,7 @@
   <CNavbar></CNavbar>
   <!-- 輪播 Carousel -->
   <div class="carouselArea">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col-12 mx-auto">
           <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
