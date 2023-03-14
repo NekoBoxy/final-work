@@ -220,71 +220,108 @@
     </div>
   </div>
   <!-- 關於我們 about -->
-  <div>
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <img class="img-fluid" style="height: 300px;" src="../assets/images/jyrsj.png" alt="" srcset="">
-        </div>
-        <div class="col-6">
-          <div class="context-area p-4" style="height: 300px;">
-            <div>
-              <h5>關於瑤草琪花</h5>
-              <br>
-              想從生活中親近自然，最簡單的就是從自家做起。<br>
-              <br>
-              但居家空間有限，不如就以小巧的盆栽與花卉，來為自己的私空間妝點顏色吧。
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <img class="img-fluid" style="height: 300px;" src="../assets/images/jyrsj.png" alt="" srcset="">
+      </div>
+      <div class="col-6">
+        <div class="context-area p-4" style="height: 300px;">
+          <div>
+            <h5>關於瑤草琪花</h5>
+            <br>
+            想從生活中親近自然，最簡單的就是從自家做起。<br>
+            <br>
+            但居家空間有限，不如就以小巧的盆栽與花卉，來為自己的私空間妝點顏色吧。
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- QA area 折疊 Collapse-->
+  <!-- QA area 手風琴 Accordion-->
   <div class="QAArea">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            <span>Q：請問運送方式？</span>
-          </button>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              <span>A：為了保護嬌嫩的花草們，我們全面採用黑貓宅急便運送，呵護每一株花草。若有折損請洽 0800-000-000，由專人為您服務。</span>
+        <div class="col g-3 ps-3 pb-3 text-start">
+          <span>常見問與答</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="accordion" id="accordion1">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                  <span>Q：請問運送方式？</span>
+                </button>
+              </h2>
+              <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordion1">
+                <div class="accordion-body">
+                  <span>A：為了保護嬌嫩的花草們，我們全面採用黑貓宅急便運送，呵護每一株花草。若有折損請洽 0800-000-000，由專人為您服務。</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-12">
-          <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            <span>Q：請問怎麼付款呢？</span><span>+</span>
-          </button>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              <span>A：瑤草琪花一律使用信用卡付款，讓您可以快速便捷的選購喜愛的花草。</span>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="accordion" id="accordion2">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                  <span>Q：請問怎麼付款呢？</span>
+                </button>
+              </h2>
+              <div id="collapse2" class="accordion-collapse collapse show" aria-labelledby="heading2"
+                data-bs-parent="#accordion2">
+                <div class="accordion-body">
+                  <span>A：瑤草琪花一律使用信用卡付款，讓您可以快速便捷的選購喜愛的花草。</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-12">
-          <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            <span>Q：網頁上沒有我喜歡的花束款式，可以客製嗎？要怎麼客製呢？價格多少？</span><span>+</span>
-          </button>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              <span>A：若有任何客製需求，歡迎來電或寄 email，與我們的花藝師一同討論出最符合您需求的花束款式。花藝師會依您的預算規畫並設計客製花束。</span>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="accordion" id="accordion3">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                  <span>Q：網頁上沒有我喜歡的花束款式，可以客製嗎？要怎麼客製呢？價格多少？</span>
+                </button>
+              </h2>
+              <div id="collapse3" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordion3">
+                <div class="accordion-body">
+                  <span>A：若有任何客製需求，歡迎來電或寄 email，與我們的花藝師一同討論出最符合您需求的花束款式。花藝師會依您的預算規畫並設計客製花束。</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-12">
-          <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            <span>Q：小編好棒棒，請問怎麼幫小編加雞腿呢？</span><span>+</span>
-          </button>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              <span>A：您可以按下方 Octocat 替小編加雞腿唷：）</span>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="accordion" id="accordion4">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                  <span>Q：小編好棒棒，請問怎麼幫小編加雞腿呢？</span>
+                </button>
+              </h2>
+              <div id="collapse4" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordion4">
+                <div class="accordion-body">
+                  <span>A：您可以按下方 Octocat 替小編加雞腿唷：）</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -359,8 +396,8 @@ export default {
 
 /* QA 文字內容 */
 .QAArea .card-body {
-  text-align: left;
-  background-color: transparent;
+  /* text-align: left; */
+  /* background-color: transparent; */
 }
 
 .QAArea button {
