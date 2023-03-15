@@ -6,9 +6,13 @@
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Library</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data</li>
+            <li class="breadcrumb-item">
+              <RouterLink to="/">首頁</RouterLink>
+            </li>
+            <li class="breadcrumb-item">
+              <RouterLink to="/products">產品一覽</RouterLink>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{ category || "全部" }}</li>
           </ol>
         </nav>
       </div>
@@ -16,7 +20,7 @@
     <div class="row">
       <div class="col-2 d-flex flex-column">
         <input type="radio" class="btn-check" name="options-outlined" id="outlined1" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="outlined1" @click="handleCategory('')">產品一覽</label>
+        <label class="btn btn-outline-primary" for="outlined1" @click="handleCategory('')">全部</label>
         <input type="radio" class="btn-check" name="options-outlined" id="outlined2" autocomplete="off">
         <label class="btn btn-outline-primary" for="outlined2" @click="handleCategory('盆栽')">盆栽</label>
         <input type="radio" class="btn-check" name="options-outlined" id="outlined3" autocomplete="off">
