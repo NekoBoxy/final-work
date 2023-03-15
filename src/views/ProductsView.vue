@@ -114,7 +114,6 @@ export default {
         router.push({ path: "/products" });
       }
       this.getProducts();
-
     },
   },
   async mounted() {
@@ -125,7 +124,6 @@ export default {
 
   },
 };
-
 </script>
 
 <style scoped></style>
