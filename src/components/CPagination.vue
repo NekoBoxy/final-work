@@ -1,6 +1,6 @@
 <template>
   <nav aria-label="Page navigation">
-    <ul class="pagination">
+    <ul class="pagination justify-content-center">
       <!-- class 內容是變數時要綁 v-bind，不然會被當字串然後失效 -->
       <li :class="{ 'page-item': true, disabled: currentPage == 1 }">
         <a class="page-link" style="cursor: pointer;" v-on:click="handlePrePage()">
