@@ -17,28 +17,29 @@
         </nav>
       </div>
     </div>
+    <!-- 左側選單 -->
     <div class="row">
       <div class="col-2 d-flex flex-column">
         <input type="radio" class="btn-check" name="options-outlined" id="outlined1" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="outlined1" @click="handleCategory('')">全部</label>
+        <label class="btn btn-outline-primary mb-2" for="outlined1" @click="handleCategory('')">全部</label>
         <input type="radio" class="btn-check" name="options-outlined" id="outlined2" autocomplete="off">
-        <label class="btn btn-outline-primary" for="outlined2" @click="handleCategory('盆栽')">盆栽</label>
+        <label class="btn btn-outline-primary mb-2" for="outlined2" @click="handleCategory('盆栽')">盆栽</label>
         <input type="radio" class="btn-check" name="options-outlined" id="outlined3" autocomplete="off">
-        <label class="btn btn-outline-primary" for="outlined3" @click="handleCategory('盆花')">盆花</label>
+        <label class="btn btn-outline-primary mb-2" for="outlined3" @click="handleCategory('盆花')">盆花</label>
         <input type="radio" class="btn-check" name="options-outlined" id="outlined4" autocomplete="off">
-        <label class="btn btn-outline-primary" for="outlined4" @click="handleCategory('花束')">花束</label>
-
+        <label class="btn btn-outline-primary mb-2" for="outlined4" @click="handleCategory('花束')">花束</label>
       </div>
+      <!-- 右側產品內容 -->
       <div class="col-10">
         <div class="row">
           <div class="col pb-3">
             <div class="row">
               <div class="col-sm-12 col-md-4" v-for="item in products" :key="item.id">
                 <div class="card mb-3">
-                  <div class="boxy">
+                  <RouterLink :to="{ path: `/product/${item.id}` }">
                     <img :src="item.imageUrl" class="img-fluid card-img-top boxy"
                       style="object-fit: cover; height: 300px;" alt="...">
-                  </div>
+                  </RouterLink>
                   <div class="card-body">
                     <h5 class="card-title text-truncate" :title="item.title">{{ item.title }}</h5>
                     <a href="#" class="btn btn-primary">加入購物車</a>

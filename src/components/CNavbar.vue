@@ -1,6 +1,6 @@
 <template>
   <div class="nav-area">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <nav class="navbar navbar-expand-lg">

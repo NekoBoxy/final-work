@@ -1,6 +1,6 @@
 <template>
   <CNavbar></CNavbar>
-  <div>ProductsView</div>
+  <div></div>
   <CFooter></CFooter>
 </template>
 
@@ -12,7 +12,19 @@ export default {
   components: {
     CNavbar,
     CFooter,
-  }
+  },
+  data() {
+    return {
+      id: "",
+    }
+  },
+  methods: {
+
+  },
+  mounted() {
+    this.id = this.$route.params.id;
+    console.log(this.id);
+  },
 };
 
 </script>
