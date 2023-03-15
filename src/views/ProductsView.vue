@@ -14,47 +14,44 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-2">
-        <div>
-          <h5>新品上架</h5>
-        </div>
-        <div>盆栽</div>
-        <div>盆花</div>
-        <div>花束</div>
-      </div>
+      <div class="col-2 d-flex flex-column">
+        <input type="radio" class="btn-check" name="options-outlined" id="outlined1" autocomplete="off" checked>
+        <label class="btn btn-outline-primary" for="outlined1" @click="handleCategory('')">產品一覽</label>
+        <input type="radio" class="btn-check" name="options-outlined" id="outlined2" autocomplete="off">
+        <label class="btn btn-outline-primary" for="outlined2" @click="handleCategory('盆栽')">盆栽</label>
+        <input type="radio" class="btn-check" name="options-outlined" id="outlined3" autocomplete="off">
+        <label class="btn btn-outline-primary" for="outlined3" @click="handleCategory('盆花')">盆花</label>
+        <input type="radio" class="btn-check" name="options-outlined" id="outlined4" autocomplete="off">
+        <label class="btn btn-outline-primary" for="outlined4" @click="handleCategory('花束')">花束</label>
 
+      </div>
       <div class="col-10">
         <div class="row">
-          <div class="gx-4 col col-md-3 col-lg-3 col-xl-4 col-xxl-4">
-            <div class="card-group" v-for="item in products" :key="item.id">
-              <div class="card thumbnail">
-                <img :src="item.imageUrl" class="img-fluid card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{ item.title }}</h5>
-                  <p class="card-text">text</p>
-                  <a href="#" class="btn btn-primary">加入購物車</a>
+          <div class="col pb-3">
+            <div class="row">
+              <div class="col-sm-12 col-md-4" v-for="item in products" :key="item.id">
+                <div class="card mb-3">
+                  <div class="boxy">
+                    <img :src="item.imageUrl" class="img-fluid card-img-top boxy"
+                      style="object-fit: cover; height: 300px;" alt="...">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate" :title="item.title">{{ item.title }}</h5>
+                    <a href="#" class="btn btn-primary">加入購物車</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-
-
-
-
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <CPagination :total_pages="pagination.total_pages" @on_page="getProducts"></CPagination>
+        <div class="row">
+          <div class="col">
+            <CPagination :total_pages="pagination.total_pages" @on_page="getProducts"></CPagination>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-
-
   <CFooter></CFooter>
 </template>
 
@@ -63,7 +60,7 @@ import CNavbar from '../components/CNavbar.vue';
 import CFooter from '../components/CFooter.vue';
 import CPagination from '../components/CPagination.vue';
 
-
+import router from '../router';
 import axios from 'axios';
 
 export default {
@@ -77,10 +74,11 @@ export default {
   },
   data() {
     return {
+      // data: {},
+      category: "",
       products: {},
-      data: {},
       pagination: {
-        total_pages: "",
+        total_pages: 1,
         current_page: 1,
         has_pre: false,
         has_next: false,
@@ -94,17 +92,28 @@ export default {
         method: 'get',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/products`,
         params: {
-          page: page || this.pagination.current_page
+          page: page || this.pagination.current_page,
+          category: this.category
         }
       });
       // console.log(response.data.products[0]);
       this.products = response.data.products;
       this.pagination = response.data.pagination;
-      // this.data = response;
-      console.log(response);
-    }
+      // console.log("response", response);
+    },
+    handleCategory(category) {
+      this.category = category;
+      if (category) {
+        router.push({ path: "/products", query: { category } });
+      } else {
+        router.push({ path: "/products" });
+      }
+      this.getProducts();
+
+    },
   },
-  mounted() {
+  async mounted() {
+    this.category = this.$route.query.category;
     this.getProducts();
   },
   computed: {
@@ -114,15 +123,4 @@ export default {
 
 </script>
 
-<style scoped>
-/* .card img {
-  width: 100%;
-  height: 25vw;
-  object-fit: cover;
-} */
-.row>.col-2 {
-  border-radius: 10px;
-  background-color: transparent;
-  /* padding-top: 1rem; */
-}
-</style>
+<style scoped></style>
