@@ -358,7 +358,6 @@ export default {
         response.data.products[1],
         response.data.products[2],
       ];
-      console.log(this.recentProducts);
     },
   },
   async mounted() {

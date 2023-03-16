@@ -104,7 +104,6 @@ export default {
       // console.log(response.data.products[0]);
       this.products = response.data.products;
       this.pagination = response.data.pagination;
-      // console.log("response", response);
     },
     handleCategory(category) {
       this.category = category;
