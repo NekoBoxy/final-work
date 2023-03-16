@@ -139,8 +139,11 @@
   </div>
   <!-- 產品分類 category -->
   <div class="container">
+    <div class="row">
+      <div class="col-12 g-3 text-start"><span>產品分類</span></div>
+    </div>
     <div class="row justify-content-center">
-      <div class="col-4 p-5">
+      <div class="col-12 col-md-3 col-lg-4 col-xxl-5 g-4">
         <div class="card">
           <img src="../assets/images/nkut.png" class="card-img-top" alt="category-area-img">
           <div class="q-card-title">
@@ -159,7 +162,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4 p-5">
+      <div class="col-12 col-md-3 col-lg-4 col-xxl-5 g-4">
         <div class="card">
           <img src="../assets/images/nyryj.png" class="card-img-top" alt="category-area-img">
           <div class="q-card-title">
@@ -178,7 +181,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4 p-5">
+      <div class="col-12 col-md-3 col-lg-4 col-xxl-5 g-4">
         <div class="card">
           <img src="../assets/images/jrsj.png" class="card-img-top" alt="category-area-img">
           <div class="q-card-title">
