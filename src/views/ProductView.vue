@@ -45,7 +45,7 @@
           </div>
           <div class="col-12 pb-1">
             <div class="input-group">
-              <select class="form-select" id="selectNum" required>
+              <select class="form-select" id="selectNum" v-model="qty" required>
                 <option selected>請選擇數量</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -63,7 +63,6 @@
               </button>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -107,14 +106,11 @@ export default {
         data: {
           data: {
             product_id: this.product.id,
-            qty: this.qty,
+            qty: parseInt(this.qty, 10),
           },
         },
       });
       console.log("已加入購物車");
-      console.log("qty", this.qty);
-      console.log("product_id", this.product.id);
-
     },
 
   },
