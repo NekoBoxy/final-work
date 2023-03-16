@@ -112,7 +112,6 @@ export default {
       });
       console.log("已加入購物車");
     },
-
   },
   mounted() {
     this.id = this.$route.params.id;
