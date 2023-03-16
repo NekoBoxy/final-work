@@ -30,7 +30,11 @@
                       <span>兔年吉祥！新春限定優惠，即日起至2/15，輸入優惠碼 happyTUyear 全品項享八折優惠！</span>
                     </div>
                     <div class="col-2">
-                      <button type="button" class="btn btn-outline-primary">帶我回家</button>
+                      <RouterLink to="/products">
+                        <button type="button" class="button btn btn-primary">
+                          帶我回家
+                        </button>
+                      </RouterLink>
                     </div>
                   </div>
                 </div>
@@ -43,7 +47,11 @@
                       <span>塵世喧鬧中，尋一方心靈綠地</span>
                     </div>
                     <div class="col-2">
-                      <button type="button" class="btn btn-outline-primary">帶我回家</button>
+                      <RouterLink to="/products">
+                        <button type="button" class="button btn btn-primary">
+                          帶我回家
+                        </button>
+                      </RouterLink>
                     </div>
                   </div>
                 </div>
@@ -213,7 +221,11 @@
             卻發現放眼望去都是沉重的顏色<br>
             有多久沒有接觸花卉與植物了？<br>
             <br>
-            <button class="button btn btn-primary">帶我回家</button>
+            <RouterLink to="/products">
+              <button class="button btn btn-primary">
+                帶我回家
+              </button>
+            </RouterLink>
           </div>
         </div>
       </div>
