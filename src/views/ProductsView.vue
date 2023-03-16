@@ -42,7 +42,7 @@
                   </RouterLink>
                   <div class="card-body">
                     <h5 class="card-title text-truncate" :title="item.title">{{ item.title }}</h5>
-                    <a href="#" class="btn btn-primary">加入購物車</a>
+                    <button type="button" class="btn btn-outline-primary" @click="addCart(item.id)">加入購物車</button>
                   </div>
                 </div>
               </div>
@@ -113,6 +113,15 @@ export default {
         router.push({ path: "/products" });
       }
       this.getProducts();
+    },
+    async addCart(product_id, qty = 1) {
+      await axios({
+        method: 'post',
+        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
+        data: {
+          data: { product_id, qty }
+        }
+      });
     },
   },
   async mounted() {
