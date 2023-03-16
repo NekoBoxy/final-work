@@ -29,6 +29,9 @@
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="confirm-tab-pane" role="tabpanel" aria-labelledby="confirm-tab"
             tabindex="0">
+            <div class="my-3">
+              <h5>確認訂單資訊</h5>
+            </div>
             <div class="row">
               <div class="col-12">
                 <table class="table">
@@ -75,112 +78,170 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-12 g-3 text-start">
-                <h5>確認訂單資訊</h5>
+              <v-form v-on:submit="handleCouponSubmit" ref="couponForm" class="col">
+                <div class="row">
+                  <label for="staticTotal" class="col-sm-3 col-form-label">訂單金額小計：</label>
+                  <div class="col-sm-9">
+                    <div class="mb-3">
+                      <input type="text" readonly class="form-control-plaintext" id="staticTotal" :value="`${total} 元`">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <label for="code" class="col-sm-3 col-form-label">使用優惠碼：</label>
+                  <div class="col-sm-3 mb-3">
+                    <v-field id="code" name="code" type="text" class="form-control" placeholder="請輸入優惠碼"></v-field>
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <button type="submit" class="btn btn-primary">
+                      套用優惠碼
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <label for="staticTotal" class="col-sm-3 col-form-label">您的優惠折扣：</label>
+                  <div class="col-sm-9">
+                    <div class="mb-3">
+                      <input type="text" readonly class="form-control-plaintext" id="staticTotal"
+                        :value="final_total !== total ? `${parseInt(100 * final_total / total, 10)} ％` : '無'">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <label for="staticTotal" class="col-sm-3 col-form-label">折扣後訂單總金額：</label>
+                  <div class="col-sm-9">
+                    <div class="mb-3">
+                      <input type="text" readonly class="form-control-plaintext" id="staticTotal"
+                        :value="`${final_total} 元`">
+                    </div>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <button type="button" class="btn btn-primary" @click="handleConfirmSubmit">下一步</button>
+                </div>
+              </v-form>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <div class="my-3">
+              <h5>填寫收件資訊</h5>
+            </div>
+            <div class="row">
+              <div class="col-12 justify-content-center">
+                <v-form v-on:submit="handleProfileSubmit" ref="profileForm" class="col" v-slot="{ errors }">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">收件人姓名</label>
+                    <v-field id="name" name="name" type="text" class="form-control" placeholder="請輸入姓名"
+                      :class="{ 'is-invalid': errors['name'] }" rules="required">
+                    </v-field>
+                    <error-message name="name" class="invalid-feedback"></error-message>
+                  </div>
+                  <div class="mb-3">
+                    <label for="mobilePhone" class="form-label">收件人手機號碼</label>
+                    <v-field id="mobilePhone" name="mobilePhone" type="text" class="form-control" placeholder="請輸入手機號碼"
+                      :class="{ 'is-invalid': errors['mobilePhone'] }" v-bind:rules="checkMobilePhone">
+                    </v-field>
+                    <error-message name="mobilePhone" class="invalid-feedback"></error-message>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <v-field id="email" name="email" type="email" class="form-control" placeholder="請輸入 Email"
+                      :class="{ 'is-invalid': errors['email'] }" rules="email|required">
+                    </v-field>
+                    <error-message name="email" class="invalid-feedback"></error-message>
+                  </div>
+                  <div class="mb-3">
+                    <label for="address" class="form-label">收件人地址</label>
+                    <v-field id="address" name="address" type="text" class="form-control" placeholder="請輸入地址"
+                      :class="{ 'is-invalid': errors['address'] }" rules="required">
+                    </v-field>
+                    <error-message name="address" class="invalid-feedback"></error-message>
+                  </div>
+                  <div class="mb-3">
+                    <label for="message" class="form-label">留言</label>
+                    <v-field id="message" name="message" class="form-control" cols="30" rows="10" rules="required"
+                      as="textarea"></v-field>
+                  </div>
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-primary">
+                      送出訂單
+                    </button>
+                  </div>
+                </v-form>
               </div>
-              <v-form v-on:submit="handleConfirmSubmit" ref="confirmForm" class="col" v-slot="{ errors }">
-                <div class="mb-3">
-                  <label for="total" class="form-label">訂單金額小計</label>
-                  <input id="total" name="total" type="text" class="form-control" :value="total" /> 元
-                </div>
-                <div class="mb-3">
-                  <label for="mobilePhone" class="form-label">收件人手機號碼</label>
-                  <v-field id="mobilePhone" name="mobilePhone" type="text" class="form-control" placeholder="請輸入手機號碼"
-                    :class="{ 'is-invalid': errors['mobilePhone'] }" v-bind:rules="checkMobilePhone">
-                  </v-field>
-                  <error-message name="mobilePhone" class="invalid-feedback"></error-message>
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <v-field id="email" name="email" type="email" class="form-control" placeholder="請輸入 Email"
-                    :class="{ 'is-invalid': errors['email'] }" rules="email|required">
-                  </v-field>
-                  <error-message name="email" class="invalid-feedback"></error-message>
-                </div>
-                <div class="mb-3">
-                  <label for="address" class="form-label">收件人地址</label>
-                  <v-field id="address" name="address" type="text" class="form-control" placeholder="請輸入地址"
-                    :class="{ 'is-invalid': errors['address'] }" rules="required">
-                  </v-field>
-                  <error-message name="address" class="invalid-feedback"></error-message>
-                </div>
-                <div class="mb-3">
-                  <label for="message" class="form-label">留言</label>
-                  <v-field id="message" name="message" class="form-control" cols="30" rows="10" rules="required"
-                    as="textarea"></v-field>
-                </div>
-                <div class="text-end">
-                  <button type="submit" class="btn btn-danger">
-                    送出訂單
-                  </button>
-                </div>
-              </v-form>
-
-              <!-- <table class="table">
-                <tbody>
-                  <tr>
-                    <td>{{ this.total }} 元</td>
-                  </tr>
-                  <tr>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table> -->
             </div>
           </div>
-        </div>
-        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-          <div class="row">
-            <div class="col-12 justify-content-center">
-              <v-form v-on:submit="handleProfileSubmit" ref="profileForm" class="col" v-slot="{ errors }">
-                <div class="mb-3">
-                  <label for="name" class="form-label">收件人姓名</label>
-                  <v-field id="name" name="name" type="text" class="form-control" placeholder="請輸入姓名"
-                    :class="{ 'is-invalid': errors['name'] }" rules="required">
-                  </v-field>
-                  <error-message name="name" class="invalid-feedback"></error-message>
-                </div>
-                <div class="mb-3">
-                  <label for="mobilePhone" class="form-label">收件人手機號碼</label>
-                  <v-field id="mobilePhone" name="mobilePhone" type="text" class="form-control" placeholder="請輸入手機號碼"
-                    :class="{ 'is-invalid': errors['mobilePhone'] }" v-bind:rules="checkMobilePhone">
-                  </v-field>
-                  <error-message name="mobilePhone" class="invalid-feedback"></error-message>
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <v-field id="email" name="email" type="email" class="form-control" placeholder="請輸入 Email"
-                    :class="{ 'is-invalid': errors['email'] }" rules="email|required">
-                  </v-field>
-                  <error-message name="email" class="invalid-feedback"></error-message>
-                </div>
-                <div class="mb-3">
-                  <label for="address" class="form-label">收件人地址</label>
-                  <v-field id="address" name="address" type="text" class="form-control" placeholder="請輸入地址"
-                    :class="{ 'is-invalid': errors['address'] }" rules="required">
-                  </v-field>
-                  <error-message name="address" class="invalid-feedback"></error-message>
-                </div>
-                <div class="mb-3">
-                  <label for="message" class="form-label">留言</label>
-                  <v-field id="message" name="message" class="form-control" cols="30" rows="10" rules="required"
-                    as="textarea"></v-field>
-                </div>
-                <div class="text-end">
-                  <button type="submit" class="btn btn-danger">
-                    送出訂單
-                  </button>
-                </div>
-              </v-form>
+          <div class="tab-pane fade" id="pay-tab-pane" role="tabpanel" aria-labelledby="pay-tab" tabindex="0">
+            <div class="my-3">
+              <h5>填寫信用卡資訊</h5>
+            </div>
+            <div class="row">
+              <div class="col-12 justify-content-center">
+                <v-form v-on:submit="handlePaySubmit" ref="payForm" class="col" v-slot="{ errors }">
+                  <div class="mb-3">
+                    <label for="creditCard" class="form-label">信用卡號</label>
+                    <v-field id="creditCard" name="creditCard" type="text" class="form-control"
+                      :class="{ 'is-invalid': errors['creditCard'] }" placeholder="請輸入信用卡號"
+                      :rules="{ required: true, regex: /^\d{4}-\d{4}-\d{4}-\d{4}$/ }"></v-field>
+                    <error-message name="creditCard" class="invalid-feedback"></error-message>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="firstName" class="form-label">持卡人姓名</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mb-3 col-md-6">
+                      <v-field id="firstName" name="firstName" type="text" class="form-control"
+                        :class="{ 'is-invalid': errors['firstName'] }" placeholder="請輸入姓氏" rules="required"></v-field>
+                      <error-message name="firstName" class="invalid-feedback"></error-message>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <v-field id="lastName" name="lastName" type="text" class="form-control"
+                        :class="{ 'is-invalid': errors['lastName'] }" placeholder="請輸入名字" rules="required"></v-field>
+                      <error-message name="lastName" class="invalid-feedback"></error-message>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="month" class="form-label">有效期限</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mb-3 col-md-6">
+                      <v-field id="month" name="month" type="text" class="form-control"
+                        :class="{ 'is-invalid': errors['month'] }" placeholder="請輸入月份" rules="required"></v-field>
+                      <error-message name="month" class="invalid-feedback"></error-message>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <v-field id="year" name="year" type="text" class="form-control"
+                        :class="{ 'is-invalid': errors['year'] }" placeholder="請輸入年份" rules="required"></v-field>
+                      <error-message name="year" class="invalid-feedback"></error-message>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="security" class="form-label">安全碼</label>
+                    <v-field id="security" name="security" type="text" class="form-control"
+                      :class="{ 'is-invalid': errors['security'] }" placeholder="請輸入安全碼" rules="required"></v-field>
+                    <error-message name="security" class="invalid-feedback"></error-message>
+                  </div>
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-primary">
+                      付款
+                    </button>
+                  </div>
+                </v-form>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="tab-pane fade" id="pay-tab-pane" role="tabpanel" aria-labelledby="pay-tab" tabindex="0">...
-        </div>
-        <div class="tab-pane fade" id="success-tab-pane" role="tabpanel" aria-labelledby="success-tab" tabindex="0">...
+          <div class="tab-pane fade" id="success-tab-pane" role="tabpanel" aria-labelledby="success-tab" tabindex="0">
+            <div class="my-3">
+              <h5>完成訂購</h5>
+            </div>
+            <div>交易已完成，您可於三至五分鐘後至電子信箱收取訂單資訊郵件。</div>
+            <div>謝謝您的購買與支持，小幫手正快馬加鞭包裝與出貨中。</div>
+            <div>關於訂單若有任何需求，請洽0800-000-000，將由專人為您服務。</div>
+          </div>
         </div>
       </div>
     </div>
@@ -218,7 +279,6 @@ export default {
       this.carts = response.data.data.carts;
       this.final_total = response.data.data.final_total;
       this.total = response.data.data.total;
-      // console.log("response:", response);
       // console.log("carts:", this.carts);
       // console.log("total:", this.total);
       // console.log("final_total:", this.final_total);
@@ -257,19 +317,22 @@ export default {
       const mobilePhone = /^09[0-9]{8}$/ // 正規表達式
       return mobilePhone.test(value) ? true : '需要正確的電話號碼'
     },
-    async handleConfirmSubmit() {
+    async handleCouponSubmit(values) {
       await axios({
         method: 'post',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/coupon`,
         data: {
           data: {
-            code: "testCode"
+            code: values.code
           }
         }
       }).catch((error) => {
         alert(error.response.data.message);
       });
-      this.$refs.confirmForm.resetForm();
+      this.$refs.couponForm.resetForm();
+      await this.getCart();
+    },
+    async handleConfirmSubmit() {
       const tabTrigger = new Tab(this.$refs["profile-tab"]);
       tabTrigger.show();
       this.$router.push({
@@ -277,6 +340,7 @@ export default {
           step: "profile",
         }
       });
+      document.documentElement.scrollTop = 0; // 捲到頂端
     },
     async handleProfileSubmit(values) {
       const res = await axios({
@@ -307,6 +371,24 @@ export default {
           orderId: this.orderId
         }
       });
+      document.documentElement.scrollTop = 0; // 捲到頂端
+    },
+    async handlePaySubmit() {
+      await axios({
+        method: 'post',
+        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/pay/${this.orderId}`,
+      }).catch((error) => {
+        alert(error.response.data.message);
+      });
+      this.$refs.payForm.resetForm();
+      const tabTrigger = new Tab(this.$refs["success-tab"]);
+      tabTrigger.show();
+      this.$router.push({
+        path: "/cart", query: {
+          step: "success"
+        }
+      });
+      document.documentElement.scrollTop = 0; // 捲到頂端
     },
   },
   async mounted() {
@@ -328,5 +410,4 @@ export default {
     }
   },
 };
-
 </script>
