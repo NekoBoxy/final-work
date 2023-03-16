@@ -39,7 +39,7 @@
                       <th scope="col">商品名稱</th>
                       <th scope="col">原價</th>
                       <th scope="col">單價</th>
-                      <th scope="col">數量/單位</th>
+                      <th scope="col">數量 / 單位</th>
                       <th scope="col">金額小計</th>
                       <th scope="col">取消</th>
                     </tr>
@@ -48,7 +48,7 @@
                     <tr v-for="(item, index) in carts" :key="item.id">
                       <th scope="row"> {{ index + 1 }} </th>
                       <td>
-                        <img :src="item.product.imageUrl" class="img-fluid" style="object-fit: cover; height: 150px;"
+                        <img :src="item.product.imageUrl" style="object-fit: cover; height: 150px; max-width: 150px;"
                           alt="" srcset="">
                       </td>
                       <td>{{ item.product.title }}</td>
@@ -64,38 +64,123 @@
                           </div>
                         </div>
                       </td>
-                      <td>{{ item.total }}</td>
+                      <td>{{ item.total }} 元</td>
                       <td>
                         <button type="button" class="btn btn-danger"
                           @click="deleteCart(item.id, item.product.id)">刪除</button>
                       </td>
                     </tr>
                   </tbody>
-                  <tfoot>
-                    <tr>
-                      <td>總計</td>
-                      <td>{{ this.total }}</td>
-                    </tr>
-                  </tfoot>
                 </table>
               </div>
             </div>
             <div class="row">
-              <div class="col">
-                Title
+              <div class="col-12 g-3 text-start">
+                <h5>確認訂單資訊</h5>
               </div>
+              <v-form v-on:submit="handleConfirmSubmit" ref="confirmForm" class="col" v-slot="{ errors }">
+                <div class="mb-3">
+                  <label for="total" class="form-label">訂單金額小計</label>
+                  <input id="total" name="total" type="text" class="form-control" :value="total" /> 元
+                </div>
+                <div class="mb-3">
+                  <label for="mobilePhone" class="form-label">收件人手機號碼</label>
+                  <v-field id="mobilePhone" name="mobilePhone" type="text" class="form-control" placeholder="請輸入手機號碼"
+                    :class="{ 'is-invalid': errors['mobilePhone'] }" v-bind:rules="checkMobilePhone">
+                  </v-field>
+                  <error-message name="mobilePhone" class="invalid-feedback"></error-message>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <v-field id="email" name="email" type="email" class="form-control" placeholder="請輸入 Email"
+                    :class="{ 'is-invalid': errors['email'] }" rules="email|required">
+                  </v-field>
+                  <error-message name="email" class="invalid-feedback"></error-message>
+                </div>
+                <div class="mb-3">
+                  <label for="address" class="form-label">收件人地址</label>
+                  <v-field id="address" name="address" type="text" class="form-control" placeholder="請輸入地址"
+                    :class="{ 'is-invalid': errors['address'] }" rules="required">
+                  </v-field>
+                  <error-message name="address" class="invalid-feedback"></error-message>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">留言</label>
+                  <v-field id="message" name="message" class="form-control" cols="30" rows="10" rules="required"
+                    as="textarea"></v-field>
+                </div>
+                <div class="text-end">
+                  <button type="submit" class="btn btn-danger">
+                    送出訂單
+                  </button>
+                </div>
+              </v-form>
 
-              <div class="col">
-
-              </div>
+              <!-- <table class="table">
+                <tbody>
+                  <tr>
+                    <td>{{ this.total }} 元</td>
+                  </tr>
+                  <tr>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table> -->
             </div>
           </div>
-          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...
+        </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+          <div class="row">
+            <div class="col-12 justify-content-center">
+              <v-form v-on:submit="handleProfileSubmit" ref="profileForm" class="col" v-slot="{ errors }">
+                <div class="mb-3">
+                  <label for="name" class="form-label">收件人姓名</label>
+                  <v-field id="name" name="name" type="text" class="form-control" placeholder="請輸入姓名"
+                    :class="{ 'is-invalid': errors['name'] }" rules="required">
+                  </v-field>
+                  <error-message name="name" class="invalid-feedback"></error-message>
+                </div>
+                <div class="mb-3">
+                  <label for="mobilePhone" class="form-label">收件人手機號碼</label>
+                  <v-field id="mobilePhone" name="mobilePhone" type="text" class="form-control" placeholder="請輸入手機號碼"
+                    :class="{ 'is-invalid': errors['mobilePhone'] }" v-bind:rules="checkMobilePhone">
+                  </v-field>
+                  <error-message name="mobilePhone" class="invalid-feedback"></error-message>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <v-field id="email" name="email" type="email" class="form-control" placeholder="請輸入 Email"
+                    :class="{ 'is-invalid': errors['email'] }" rules="email|required">
+                  </v-field>
+                  <error-message name="email" class="invalid-feedback"></error-message>
+                </div>
+                <div class="mb-3">
+                  <label for="address" class="form-label">收件人地址</label>
+                  <v-field id="address" name="address" type="text" class="form-control" placeholder="請輸入地址"
+                    :class="{ 'is-invalid': errors['address'] }" rules="required">
+                  </v-field>
+                  <error-message name="address" class="invalid-feedback"></error-message>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">留言</label>
+                  <v-field id="message" name="message" class="form-control" cols="30" rows="10" rules="required"
+                    as="textarea"></v-field>
+                </div>
+                <div class="text-end">
+                  <button type="submit" class="btn btn-danger">
+                    送出訂單
+                  </button>
+                </div>
+              </v-form>
+            </div>
           </div>
-          <div class="tab-pane fade" id="pay-tab-pane" role="tabpanel" aria-labelledby="pay-tab" tabindex="0">...
-          </div>
-          <div class="tab-pane fade" id="success-tab-pane" role="tabpanel" aria-labelledby="success-tab" tabindex="0">...
-          </div>
+        </div>
+        <div class="tab-pane fade" id="pay-tab-pane" role="tabpanel" aria-labelledby="pay-tab" tabindex="0">...
+        </div>
+        <div class="tab-pane fade" id="success-tab-pane" role="tabpanel" aria-labelledby="success-tab" tabindex="0">...
         </div>
       </div>
     </div>
@@ -117,9 +202,11 @@ export default {
   },
   data() {
     return {
+      step: "",
       carts: null,
       total: 0,
       final_total: 0,
+      orderId: "",
     }
   },
   methods: {
@@ -131,8 +218,8 @@ export default {
       this.carts = response.data.data.carts;
       this.final_total = response.data.data.final_total;
       this.total = response.data.data.total;
-      console.log("response:", response);
-      console.log("carts:", this.carts);
+      // console.log("response:", response);
+      // console.log("carts:", this.carts);
       // console.log("total:", this.total);
       // console.log("final_total:", this.final_total);
       // console.log("已取得購物車清單");
@@ -166,11 +253,79 @@ export default {
       });
       await this.getCart();
     },
+    checkMobilePhone(value) {
+      const mobilePhone = /^09[0-9]{8}$/ // 正規表達式
+      return mobilePhone.test(value) ? true : '需要正確的電話號碼'
+    },
+    async handleConfirmSubmit() {
+      await axios({
+        method: 'post',
+        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/coupon`,
+        data: {
+          data: {
+            code: "testCode"
+          }
+        }
+      }).catch((error) => {
+        alert(error.response.data.message);
+      });
+      this.$refs.confirmForm.resetForm();
+      const tabTrigger = new Tab(this.$refs["profile-tab"]);
+      tabTrigger.show();
+      this.$router.push({
+        path: "/cart", query: {
+          step: "profile",
+        }
+      });
+    },
+    async handleProfileSubmit(values) {
+      const res = await axios({
+        method: 'post',
+        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/order`,
+        data: {
+          data: {
+            user: {
+              email: values.email,
+              name: values.name,
+              tel: values.mobilePhone,
+              address: values.address,
+            },
+            message: values.message,
+          }
+        }
+      }).catch((error) => {
+        alert(error.response.data.message);
+      });
+      this.orderId = res.data.orderId;
+      this.$refs.profileForm.resetForm();
+      await this.getCart();
+      const tabTrigger = new Tab(this.$refs["pay-tab"]);
+      tabTrigger.show();
+      this.$router.push({
+        path: "/cart", query: {
+          step: "pay",
+          orderId: this.orderId
+        }
+      });
+    },
   },
   async mounted() {
     this.getCart();
-    const tabTrigger = new Tab(this.$refs["confirm-tab"]);
-    tabTrigger.show();
+    this.step = this.$route.query.step;
+    if (this.step === "profile") {
+      const tabTrigger = new Tab(this.$refs["profile-tab"]);
+      tabTrigger.show();
+    } else if (this.step === "pay") {
+      const tabTrigger = new Tab(this.$refs["pay-tab"]);
+      tabTrigger.show();
+      this.orderId = this.$route.query.orderId;
+    } else if (this.step === "success") {
+      const tabTrigger = new Tab(this.$refs["success-tab"]);
+      tabTrigger.show();
+    } else {
+      const tabTrigger = new Tab(this.$refs["confirm-tab"]);
+      tabTrigger.show();
+    }
   },
 };
 

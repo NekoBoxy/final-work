@@ -64,8 +64,6 @@
 import CNavbar from '../components/CNavbar.vue';
 import CFooter from '../components/CFooter.vue';
 import CPagination from '../components/CPagination.vue';
-
-import router from '../router';
 import axios from 'axios';
 
 export default {
@@ -108,9 +106,9 @@ export default {
     handleCategory(category) {
       this.category = category;
       if (category) {
-        router.push({ path: "/products", query: { category } });
+        this.$router.push({ path: "/products", query: { category } });
       } else {
-        router.push({ path: "/products" });
+        this.$router.push({ path: "/products" });
       }
       this.getProducts();
     },
