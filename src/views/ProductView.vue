@@ -118,5 +118,4 @@ export default {
     this.getProduct();
   },
 };
-
 </script>
