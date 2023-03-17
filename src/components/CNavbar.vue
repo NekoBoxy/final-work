@@ -70,33 +70,27 @@ export default {
           title: "首頁",
           url: "/",
         },
-        {
-          title: "關於我們",
-          url: "/about",
-        },
+        // {
+        //   title: "關於我們",
+        //   url: "/about",
+        // },
         {
           title: "產品一覽",
           url: "/products",
         },
-        {
-          title: "購物車",
-          url: "/cart",
-        },
-        {
-          title: "聯絡我們",
-          url: "/contact",
-        },
+        // {
+        //   title: "購物車",
+        //   url: "/cart",
+        // },
+        // {
+        //   title: "聯絡我們",
+        //   url: "/contact",
+        // },
       ],
     }
   },
   components: {
     CCart,
-  },
-  methods: {
-
-  },
-  mounted() {
-
   },
 }
 
