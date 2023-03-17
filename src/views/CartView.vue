@@ -62,8 +62,7 @@
                           <div class="input-group mb-3">
                             <input min="1" type="number" class="form-control"
                               @blur="updateCart(item.id, item.product.id, item.qty)" v-model="item.qty">
-                            <span class="input-group-text" id="basic-addon2">{{ item.product.unit
-                            }}</span>
+                            <span class="input-group-text" id="basic-addon2">{{ item.product.unit }}</span>
                           </div>
                         </div>
                       </td>
@@ -255,6 +254,9 @@ import CFooter from '../components/CFooter.vue';
 
 import { Tab } from 'bootstrap';
 import axios from 'axios';
+import { mapActions } from "pinia";
+import { useCartStore } from "../stores/cart";
+
 
 export default {
   components: {
@@ -271,6 +273,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(useCartStore, ["updateNum"]),
     async getCart() {
       const response = await axios({
         method: "get",
@@ -279,19 +282,7 @@ export default {
       this.carts = response.data.data.carts;
       this.final_total = response.data.data.final_total;
       this.total = response.data.data.total;
-      // console.log("carts:", this.carts);
-      // console.log("total:", this.total);
-      // console.log("final_total:", this.final_total);
       // console.log("已取得購物車清單");
-    },
-    async addCart(product_id, qty = 1) {
-      await axios({
-        method: 'post',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
-        data: {
-          data: { product_id, qty }
-        }
-      });
     },
     async updateCart(cart_id, product_id, qty) {
       await axios({
@@ -312,10 +303,11 @@ export default {
         }
       });
       await this.getCart();
+      await this.updateNum();
     },
     checkMobilePhone(value) {
-      const mobilePhone = /^09[0-9]{8}$/ // 正規表達式
-      return mobilePhone.test(value) ? true : '需要正確的電話號碼'
+      const mobilePhone = /^09[0-9]{8}$/;
+      return mobilePhone.test(value) ? true : '需要正確的電話號碼';
     },
     async handleCouponSubmit(values) {
       await axios({
@@ -371,7 +363,7 @@ export default {
           orderId: this.orderId
         }
       });
-      document.documentElement.scrollTop = 0; // 捲到頂端
+      document.documentElement.scrollTop = 0;
     },
     async handlePaySubmit() {
       await axios({
@@ -388,7 +380,7 @@ export default {
           step: "success"
         }
       });
-      document.documentElement.scrollTop = 0; // 捲到頂端
+      document.documentElement.scrollTop = 0;
     },
   },
   async mounted() {

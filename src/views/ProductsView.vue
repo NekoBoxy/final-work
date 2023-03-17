@@ -65,6 +65,8 @@ import CNavbar from '../components/CNavbar.vue';
 import CFooter from '../components/CFooter.vue';
 import CPagination from '../components/CPagination.vue';
 import axios from 'axios';
+import { mapActions } from "pinia";
+import { useCartStore } from "../stores/cart";
 
 export default {
   props: [
@@ -90,6 +92,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(useCartStore, ["updateNum"]),
     async getProducts(page) {
       const response = await axios({
         method: 'get',
@@ -120,14 +123,12 @@ export default {
           data: { product_id, qty }
         }
       });
+      await this.updateNum();
     },
   },
   async mounted() {
     this.category = this.$route.query.category;
     this.getProducts();
-  },
-  computed: {
-
   },
 };
 </script>
