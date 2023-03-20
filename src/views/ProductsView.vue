@@ -19,18 +19,22 @@
     </div>
     <!-- 左側選單 -->
     <div class="row">
-      <div class="col-2 d-flex flex-column">
+      <div class="col-12 col-md-2 d-flex flex-column">
         <input type="radio" class="btn-check" name="options-outlined" id="outlined1" autocomplete="off" checked>
-        <label class="btn btn-outline-primary mb-2" for="outlined1" @click="handleCategory('')">全部</label>
+        <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined1"
+          @click="handleCategory('')">全部</label>
         <input type="radio" class="btn-check" name="options-outlined" id="outlined2" autocomplete="off">
-        <label class="btn btn-outline-primary mb-2" for="outlined2" @click="handleCategory('盆栽')">盆栽</label>
+        <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined2"
+          @click="handleCategory('盆栽')">盆栽</label>
         <input type="radio" class="btn-check" name="options-outlined" id="outlined3" autocomplete="off">
-        <label class="btn btn-outline-primary mb-2" for="outlined3" @click="handleCategory('盆花')">盆花</label>
+        <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined3"
+          @click="handleCategory('盆花')">盆花</label>
         <input type="radio" class="btn-check" name="options-outlined" id="outlined4" autocomplete="off">
-        <label class="btn btn-outline-primary mb-2" for="outlined4" @click="handleCategory('花束')">花束</label>
+        <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined4"
+          @click="handleCategory('花束')">花束</label>
       </div>
       <!-- 右側產品內容 -->
-      <div class="col-10">
+      <div class="col-12 col-md-10">
         <div class="row">
           <div class="col pb-3">
             <div class="row">

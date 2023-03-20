@@ -7,7 +7,8 @@
           上一頁
         </a>
       </li>
-      <li :class="{ 'page-item': true, active: currentPage == page }" v-for="(page, key) in total_pages" v-bind:key="key">
+      <li class="pagination-pc" :class="{ 'page-item': true, active: currentPage == page }"
+        v-for="(page, key) in total_pages" v-bind:key="key">
         <a class="page-link" style="cursor: pointer;" v-on:click="handleCurrentPage(page)">
           {{ page }}
         </a>
@@ -53,3 +54,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.pagination-pc {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .pagination-pc {
+    display: block;
+  }
+}
+</style>
+
