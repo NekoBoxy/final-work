@@ -123,7 +123,7 @@
         <div class="col-12 g-3 text-start"><span>最近新品</span></div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-12 col-md-3 col-lg-4 col-xxl-5 g-4" v-for="product in recentProducts" :key="product.id">
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4" v-for="product in recentProducts" :key="product.id">
           <div class="card">
             <img :src="product.imageUrl" class="card-img-top" alt="latest-area-img">
             <div class="q-card-title">
@@ -151,7 +151,7 @@
       <div class="col-12 g-3 text-start"><span>產品分類</span></div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-12 col-md-3 col-lg-4 col-xxl-5 g-4">
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4">
         <div class="card">
           <img src="../assets/images/nkut.png" class="card-img-top" alt="category-area-img">
           <div class="q-card-title">
@@ -170,7 +170,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-3 col-lg-4 col-xxl-5 g-4">
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4">
         <div class="card">
           <img src="../assets/images/nyryj.png" class="card-img-top" alt="category-area-img">
           <div class="q-card-title">
@@ -189,7 +189,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-3 col-lg-4 col-xxl-5 g-4">
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4 pb-3">
         <div class="card">
           <img src="../assets/images/jrsj.png" class="card-img-top" alt="category-area-img">
           <div class="q-card-title">
@@ -213,7 +213,7 @@
   <!-- 小故事/形象 storys -->
   <div class="container-fluid">
     <div class="row align-items-center">
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="context-area p-5">
           <div>
             生活在水林叢林裡，<br>
@@ -229,7 +229,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <img class="img-fluid" src="../assets/images/green.png" alt="">
       </div>
     </div>
@@ -237,10 +237,10 @@
   <!-- 關於我們 about -->
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <img class="img-fluid" style="height: 300px;" src="../assets/images/jyrsj.png" alt="" srcset="">
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="context-area p-4" style="height: 300px;">
           <div>
             <h5>關於瑤草琪花</h5>
@@ -404,15 +404,15 @@ export default {
 
 .card img {
   width: 100%;
-  height: 25vw;
+  max-height: 288px;
   object-fit: cover;
 }
 
 /* QA 文字內容 */
-.QAArea .card-body {
-  /* text-align: left; */
-  /* background-color: transparent; */
-}
+/* .QAArea .card-body {
+  text-align: left;
+  background-color: transparent; 
+} */
 
 .QAArea button {
   border: none;
