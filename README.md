@@ -29,7 +29,7 @@
 新增產品 & 擬真內容、
 footer 內容更新、
 版面位置與 RWD、
-聯絡我們page，要串 google 地圖 api 嗎、
+新增聯絡我們page，要串 google 地圖 api 嗎、
 新增關於我們page ?、
 navbar搜尋bar與頁面
 
@@ -45,12 +45,6 @@ navbar搜尋bar與頁面
 5 聯絡我們page，要串 google 地圖 api 嗎、
 6 新增關於我們page ?、
 7 navbar搜尋bar與頁面
-
-簡報準備
-3/18
-
-發表
-3/19
 
 再調整
 3/19 - 4/16
