@@ -1,6 +1,6 @@
 <template>
   <CNavbar></CNavbar>
-  <div>LoginView</div>
+  <div>登入後台</div>
   <CFooter></CFooter>
 </template>
 
