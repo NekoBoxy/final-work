@@ -123,8 +123,9 @@
         <div class="col-12 g-3 text-start"><span>最近新品</span></div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4" v-for="product in recentProducts" :key="product.id">
-          <div class="card">
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4" style="display: flex;align-items: stretch;"
+          v-for="product in recentProducts" :key="product.id">
+          <div class="card" style="width: 100%;">
             <img :src="product.imageUrl" class="card-img-top" alt="latest-area-img">
             <div class="q-card-title">
               <div class="row justify-content-between">
@@ -406,6 +407,7 @@ export default {
   width: 100%;
   max-height: 288px;
   object-fit: cover;
+  height: 100%;
 }
 
 /* QA 文字內容 */
