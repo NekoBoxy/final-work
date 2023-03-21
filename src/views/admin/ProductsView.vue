@@ -2,12 +2,14 @@
   <CModalProductDelete :product="product" @on_finish="getAllProducts()" ref="cModalProductDelete"></CModalProductDelete>
   <CModalProductEdit :product="product" :status="status" @on_finish="getAllProducts()" ref="cModalProductEdit">
   </CModalProductEdit>
-  <div class="text-end mt-4">
-    <button class="btn btn-outline-primary" @click="addProduct()">
-      建立新的產品
-    </button>
-  </div>
   <div class="container">
+    <div class="row">
+      <div class="col text-end mt-4">
+        <button class="btn btn-outline-primary" @click="addProduct()">
+          建立新的產品
+        </button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <table class="table align-middle">
