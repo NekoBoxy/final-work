@@ -39,7 +39,7 @@
                   </li>
                 </template>
                 <li class="nav-item nav-link menu-item">
-                  <RouterLink to="/login">
+                  <RouterLink to="/admin/products">
                     <button class="btn btn-outline-secondary">
                       <img src="../assets/images/loginicon.png" alt="" srcset="">
                     </button>
@@ -88,7 +88,7 @@
                   </li>
                 </template>
                 <li class="nav-item nav-link">
-                  <RouterLink to="/login">
+                  <RouterLink to="/admin/products">
                     登入
                   </RouterLink>
                 </li>
