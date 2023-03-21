@@ -47,9 +47,7 @@
                 </li>
                 <li class="nav-item nav-link menu-item">
                   <RouterLink to="/cart">
-                    <button class="btn btn-outline-secondary">
-                      <img src="../assets/images/carticon.png" alt="" srcset="">
-                    </button>
+                    <CCart></CCart>
                   </RouterLink>
                 </li>
               </ul>
@@ -107,6 +105,7 @@
 </template>
 
 <script>
+import CCart from './CCart.vue';
 
 export default {
   data() {
@@ -134,6 +133,9 @@ export default {
         // },
       ],
     }
+  },
+  components: {
+    CCart,
   },
   methods: {
 
