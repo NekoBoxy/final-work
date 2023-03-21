@@ -1,0 +1,1 @@
+import{d as a}from"./index-794ac18e.js";import{a as o}from"./axios-bff3f665.js";const r=a("cart",{state:()=>({cartNum:0}),actions:{async updateNum(){const t=await o({method:"get",url:"https://vue3-course-api.hexschool.io/v2/api/catboxy/cart"});this.cartNum=t.data.data.carts.length}}});export{r as u};
