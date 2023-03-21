@@ -125,7 +125,7 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4" style="display: flex;align-items: stretch;"
           v-for="product in recentProducts" :key="product.id">
-          <div class="card" style="width: 100%;">
+          <div class="card" style="width: 100%; cursor: pointer;" @click="handleProductClick(product)">
             <img :src="product.imageUrl" class="card-img-top" alt="latest-area-img">
             <div class="q-card-title">
               <div class="row justify-content-between">
@@ -153,7 +153,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4">
-        <div class="card">
+        <div class="card" style="cursor: pointer;" @click="handleCategoryClick('盆栽')">
           <img src="../assets/images/nkut.png" class="card-img-top" alt="category-area-img">
           <div class="q-card-title">
             <div class="row justify-content-between">
@@ -172,7 +172,7 @@
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4">
-        <div class="card">
+        <div class="card" style="cursor: pointer;" @click="handleCategoryClick('盆花')">
           <img src="../assets/images/nyryj.png" class="card-img-top" alt="category-area-img">
           <div class="q-card-title">
             <div class="row justify-content-between">
@@ -191,7 +191,7 @@
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4 pb-3">
-        <div class="card">
+        <div class="card" style="cursor: pointer;" @click="handleCategoryClick('花束')">
           <img src="../assets/images/jrsj.png" class="card-img-top" alt="category-area-img">
           <div class="q-card-title">
             <div class="row justify-content-between">
@@ -212,10 +212,10 @@
     </div>
   </div>
   <!-- 小故事/形象 storys -->
-  <div class="container-fluid">
+  <div class="container pb-4">
     <div class="row align-items-center">
-      <div class="col-12 col-md-6">
-        <div class="context-area p-5">
+      <div class="col-12 col-md-6" style="display: flex;align-items: stretch;">
+        <div class="context-area p-5" style="width:100%">
           <div>
             <div class="pb-2">
               自然孕育了我們，<br>
@@ -233,19 +233,19 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6">
-        <img class="img-fluid" src="../assets/images/green.png" alt="">
+      <div class="col-12 col-md-6" style="display: flex;align-items: stretch;">
+        <img class="img-fluid" style="object-fit: cover;" src="../assets/images/green.png" alt="">
       </div>
     </div>
   </div>
   <!-- 關於我們 about -->
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-6">
-        <img class="img-fluid" style="height: 300px;" src="../assets/images/jyrsj.png" alt="" srcset="">
+      <div class="col-12 col-md-6" style="display: flex;align-items: stretch;">
+        <img class="img-fluid" style="object-fit: cover;height: 100%;" src="../assets/images/jyrsj.png" alt="" srcset="">
       </div>
-      <div class="col-12 col-md-6">
-        <div class="context-area p-4" style="height: 300px;">
+      <div class="col-12 col-md-6" style="display: flex;align-items: stretch;">
+        <div class="context-area p-4">
           <div>
             <h5>關於瑤草琪花</h5>
             每一株植物都有著獨特的故事，<br>
@@ -361,7 +361,7 @@ import CFooter from '../components/CFooter.vue';
 export default {
   data() {
     return {
-      recentProducts: {},
+      recentProducts: [],
     }
   },
   components: {
@@ -369,6 +369,14 @@ export default {
     CFooter,
   },
   methods: {
+    async handleProductClick(product) {
+      await this.$router.push(`/product/${product.id}`);
+      await this.$router.go();
+    },
+    async handleCategoryClick(category) {
+      await this.$router.push({ path: "/products", query: { category } });
+      await this.$router.go();
+    },
     async getProducts() {
       const response = await axios({
         method: 'get',

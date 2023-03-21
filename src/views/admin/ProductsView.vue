@@ -18,7 +18,7 @@
               <td>圖片</td>
               <td>名稱</td>
               <td>分類</td>
-              <td>單位(個/unit)</td>
+              <td>單位</td>
               <td>原價</td>
               <td>售價</td>
               <td>是否啟用</td>
