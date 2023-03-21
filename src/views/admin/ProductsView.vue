@@ -1,7 +1,7 @@
 <template>
-  <ModalProductDelete :product="product" @on_finish="getAllProducts()" ref="adminDeleteProduct"></ModalProductDelete>
-  <ModalProductEdit :product="product" :status="status" @on_finish="getAllProducts()" ref="adminEditProduct">
-  </ModalProductEdit>
+  <CModalProductDelete :product="product" @on_finish="getAllProducts()" ref="cModalProductDelete"></CModalProductDelete>
+  <CModalProductEdit :product="product" :status="status" @on_finish="getAllProducts()" ref="cModalProductEdit">
+  </CModalProductEdit>
   <div class="text-end mt-4">
     <button class="btn btn-outline-primary" @click="addProduct()">
       建立新的產品
@@ -63,8 +63,8 @@
 <script>
 import axios from "axios";
 
-import ModalProductDelete from "../../components/admin/ModalProductDelete.vue";
-import ModalProductEdit from "../../components/admin/ModalProductEdit.vue";
+import CModalProductDelete from "../../components/admin/CModalProductDelete.vue";
+import CModalProductEdit from "../../components/admin/CModalProductEdit.vue";
 import CPagination from "../../components/CPagination.vue";
 
 
@@ -84,24 +84,24 @@ export default {
     };
   },
   components: {
-    ModalProductDelete,
-    ModalProductEdit,
+    CModalProductDelete,
+    CModalProductEdit,
     CPagination,
   },
   methods: {
     async addProduct() {
       this.status = "new";
       this.product = {};
-      this.$refs.adminEditProduct.show();
+      this.$refs.cModalProductEdit.show();
     },
     async editProduct(product) {
       this.status = "edit";
       this.product = product;
-      this.$refs.adminEditProduct.show();
+      this.$refs.cModalProductEdit.show();
     },
     async delProduct(product) {
       this.product = product;
-      this.$refs.adminDeleteProduct.show();
+      this.$refs.cModalProductDelete.show();
     },
     // 取得產品資料 - 分頁
     async getAllProducts(page) {
@@ -114,8 +114,6 @@ export default {
       }).catch((error) => {
         console.log("error", error);
       });
-      // console.log("res", response.data.products[0]);
-      // console.log("res", response.data.products);
       this.products = response.data.products;
       this.pagination = response.data.pagination;
     },
