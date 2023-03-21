@@ -23,11 +23,6 @@ const router = createRouter({
           path: "/product/:id",
           component: () => import("../views/ProductView.vue"),
         },
-        // {
-        //   path: "/product/:id",
-        //   // path: "/product/:id",
-        //   component: () => import("../views/ProductsDetailView.vue"),
-        // },
         {
           path: "/cart",
           component: () => import("../views/CartView.vue"),
@@ -50,9 +45,20 @@ const router = createRouter({
       path: "/admin",
       component: () => import("../views/admin/IndexView.vue"),
       children: [
+        {
+          path: "/admin/orders",
+          component: () => import("../views/admin/OrdersView.vue"),
+        },
+        {
+          path: "/admin/coupons",
+          component: () => import("../views/admin/CouponsView.vue"),
+        },
+        {
+          path: "/admin/products",
+          component: () => import("../views/admin/ProductsView.vue"),
+        },
       ],
     },
   ],
 });
-
 export default router;

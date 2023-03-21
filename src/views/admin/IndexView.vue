@@ -1,7 +1,6 @@
 <template>
   <div class="container-fluid" v-if="visible">
-    <div>你在後台</div>
-    <!-- <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light">
       <div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
@@ -20,7 +19,7 @@
           </ul>
         </div>
       </div>
-    </nav> -->
+    </nav>
     <RouterView />
   </div>
 </template>
