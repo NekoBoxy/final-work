@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-2">
                       <RouterLink to="/products">
-                        <button type="button" class="btn btn-outline-primary">帶我回家</button>
+                        <button type="button" class="btn btn-primary">帶我回家</button>
                       </RouterLink>
                     </div>
                   </div>
@@ -217,16 +217,19 @@
       <div class="col-12 col-md-6">
         <div class="context-area p-5">
           <div>
-            生活在水林叢林裡，<br>
-            想找尋一點綠意，<br>
-            卻發現放眼望去都是沉重的顏色<br>
-            有多久沒有接觸花卉與植物了？<br>
-            <br>
-            <RouterLink to="/products">
-              <button class="button btn btn-primary">
-                帶我回家
-              </button>
-            </RouterLink>
+            <div class="pb-2">
+              自然孕育了我們，<br>
+              但生活在水林叢林裡，<br>
+              放眼望去都是沉重的顏色，<br>
+              有多久沒有親近鮮花與綠植了？<br>
+            </div>
+            <div>
+              <RouterLink to="/products">
+                <button class="button btn btn-primary">
+                  帶我回家
+                </button>
+              </RouterLink>
+            </div>
           </div>
         </div>
       </div>
@@ -245,10 +248,12 @@
         <div class="context-area p-4" style="height: 300px;">
           <div>
             <h5>關於瑤草琪花</h5>
-            <br>
-            想從生活中親近自然，最簡單的就是從自家做起。<br>
-            <br>
-            但居家空間有限，不如就以小巧的盆栽與花卉，來為自己的私空間妝點顏色吧。
+            每一株植物都有著獨特的故事，<br>
+            它們都是由專業的園藝師和花藝設計師細心培育而成。<br>
+            我們致力於將這份熱愛和用心傳達給每一位顧客，<br>
+            帶給您最美麗、最精緻、最獨特的作品。<br>
+            無論您的需求為何，<br>
+            我們都希望能為您提供最佳的選擇和最優質的服務。<br>
           </div>
         </div>
       </div>
