@@ -355,7 +355,7 @@ export default {
       this.orderId = res.data.orderId;
       this.$refs.profileForm.resetForm();
       await this.getCart();
-      await this.updateNum();
+      await this.updateNum(); // 購物車歸零
       const tabTrigger = new Tab(this.$refs["pay-tab"]);
       tabTrigger.show();
       this.$router.push({

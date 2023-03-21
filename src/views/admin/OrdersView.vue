@@ -119,9 +119,8 @@ export default {
           page: page || this.pagination.current_page
         }
       }).catch((error) => {
-        console.log("error", error.message);
+        alert("error", error.message);
       });
-      console.log(response.data);
       this.orders = response.data.orders;
       this.pagination = response.data.pagination;
     },
