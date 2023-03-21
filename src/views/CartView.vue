@@ -355,6 +355,7 @@ export default {
       this.orderId = res.data.orderId;
       this.$refs.profileForm.resetForm();
       await this.getCart();
+      await this.updateNum();
       const tabTrigger = new Tab(this.$refs["pay-tab"]);
       tabTrigger.show();
       this.$router.push({
