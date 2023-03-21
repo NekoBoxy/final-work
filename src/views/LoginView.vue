@@ -60,7 +60,7 @@ export default {
       });
       const { token, expired } = response.data;
       document.cookie = `hextoken=${token}; expires=${new Date(expired)}`;
-      this.$router.push({ path: "/admin" });
+      this.$router.push({ path: "/admin/products" });
     },
   },
 };
