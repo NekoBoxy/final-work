@@ -37,38 +37,58 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">資料序</th>
-                      <th scope="col">商品圖片</th>
-                      <th scope="col">商品名稱</th>
-                      <th scope="col">原價</th>
+                      <th scope="col" class="table-pc">資料序</th>
+                      <th scope="col" class="table-pc">商品圖片</th>
+                      <th scope="col">
+                        <span class="table-mobile">品名</span>
+                        <span class="table-pc">商品名稱</span>
+                      </th>
+                      <th scope="col" class="table-pc">原價</th>
                       <th scope="col">單價</th>
-                      <th scope="col">數量 / 單位</th>
-                      <th scope="col">金額小計</th>
+                      <th scope="col">
+                        <span class="table-mobile">數量</span>
+                        <span class="table-pc">數量 / 單位</span>
+                      </th>
+                      <th scope="col">
+                        <span class="table-mobile">金額</span>
+                        <span class="table-pc">金額小計</span>
+                      </th>
                       <th scope="col">取消</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(item, index) in carts" :key="item.id">
-                      <th scope="row"> {{ index + 1 }} </th>
-                      <td>
+                      <th scope="row" class="table-pc"> {{ index + 1 }} </th>
+                      <td class="table-pc">
                         <img :src="item.product.imageUrl" style="object-fit: cover; height: 150px; max-width: 150px;"
                           alt="" srcset="">
                       </td>
-                      <td>{{ item.product.title }}</td>
-                      <td>{{ item.product.origin_price }}</td>
+                      <td>
+                        <div class="table-mobile text-truncate" style="width: 100px;" :title="item.product.title">{{
+                          item.product.title }}
+                        </div>
+                        <div class="table-pc text-truncate" style="width: 250px;" :title="item.product.title">{{
+                          item.product.title }}
+                        </div>
+                      </td>
+                      <td class="table-pc">{{ item.product.origin_price }}</td>
                       <td>{{ item.product.price }}</td>
-                      <td style="width: 150px;">
-                        <div class="input-group input-group-sm">
-                          <div class="input-group mb-3">
-                            <input min="1" type="number" class="form-control"
-                              @blur="updateCart(item.id, item.product.id, item.qty)" v-model="item.qty">
-                            <span class="input-group-text" id="basic-addon2">{{ item.product.unit }}</span>
-                          </div>
+                      <td>
+                        <div class="d-flex d-lg-none mb-3" style="min-width: 110px;">
+                          <input min="1" type="number" class="form-control"
+                            @blur="updateCart(item.id, item.product.id, item.qty)" v-model="item.qty">
+                        </div>
+                        <div class="input-group mb-3 d-none d-lg-flex" style="max-width: 150px;">
+                          <input min="1" type="number" class="form-control"
+                            @blur="updateCart(item.id, item.product.id, item.qty)" v-model="item.qty">
+                          <span class="input-group-text table-pc">
+                            {{ item.product.unit }}
+                          </span>
                         </div>
                       </td>
                       <td>{{ item.total }} 元</td>
                       <td>
-                        <button type="button" class="btn btn-danger"
+                        <button type="button" class="btn btn-danger btn-sm"
                           @click="deleteCart(item.id, item.product.id)">刪除</button>
                       </td>
                     </tr>
@@ -408,7 +428,27 @@ export default {
 table {
   width: 100%;
   display: block;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   white-space: nowrap;
+}
+
+.table-pc {
+  display: none;
+}
+
+@media screen and (min-width: 993px) {
+  .table-pc {
+    display: table-cell;
+  }
+}
+
+.table-mobile {
+  display: table-cell;
+}
+
+@media screen and (min-width: 993px) {
+  .table-mobile {
+    display: none;
+  }
 }
 </style>

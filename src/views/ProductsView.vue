@@ -38,7 +38,7 @@
         <div class="row">
           <div class="col pb-3">
             <div class="row">
-              <div class="col-sm-12 col-md-4" v-for="item in products" :key="item.id">
+              <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in products" :key="item.id">
                 <div class="card mb-3">
                   <RouterLink :to="{ path: `/product/${item.id}` }">
                     <img :src="item.imageUrl" class="img-fluid card-img-top boxy"
