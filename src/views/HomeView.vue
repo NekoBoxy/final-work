@@ -1,117 +1,113 @@
 <template>
   <CNavbar></CNavbar>
   <!-- 輪播 Carousel -->
-  <div class="carouselArea">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 mx-auto">
-          <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="10000">
-                <img src="../assets/images/home004.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <div class="row justify-content-between align-items-center carousel-text">
-                    <div class="col-3">
-                      <span>為生活注入自然的氣息</span>
-                    </div>
-                    <div class="col-2">
-                      <RouterLink to="/products">
-                        <button type="button" class="btn btn-primary">帶我回家</button>
-                      </RouterLink>
-                    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="../assets/images/home004.png" class="d-block w-100 carousel-img-cover" alt="...">
+              <div class="carousel-caption">
+                <div class="row justify-content-between align-items-center carousel-text">
+                  <div class="col-12 col-md-9 col-lg-10">
+                    <span>為生活注入自然的氣息</span>
                   </div>
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="5000">
-                <img src="../assets/images/home002.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <div class="row justify-content-between align-items-center carousel-text">
-                    <div class="col-10">
-                      <span>兔年吉祥！新春限定優惠，即日起至2/15，輸入優惠碼 happyTUyear 全品項享八折優惠！</span>
-                    </div>
-                    <div class="col-2">
-                      <RouterLink to="/products">
-                        <button type="button" class="button btn btn-primary">
-                          帶我回家
-                        </button>
-                      </RouterLink>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="5000">
-                <img src="../assets/images/home001.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <div class="row justify-content-between align-items-center carousel-text">
-                    <div class="col-10">
-                      <span>塵世喧鬧中，尋一方心靈綠地</span>
-                    </div>
-                    <div class="col-2">
-                      <RouterLink to="/products">
-                        <button type="button" class="button btn btn-primary">
-                          帶我回家
-                        </button>
-                      </RouterLink>
-                    </div>
+                  <div class="col-12 col-md-3 col-lg-2">
+                    <RouterLink to="/products">
+                      <button type="button" class="btn btn-primary">帶我回家</button>
+                    </RouterLink>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="carousel-control-prev" style="margin-bottom: 78px" type="button"
-              data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g filter="url(#filter0_d_613_1336)">
-                  <circle cx="42" cy="40" r="30" fill="#FEFDFC" fill-opacity="0.87" />
-                  <path
-                    d="M33.75 40.1289C33.75 40.3021 33.7819 40.4661 33.8457 40.6211C33.9095 40.7669 34.0052 40.9036 34.1328 41.0312L44.9746 51.627C45.2207 51.873 45.5169 51.9961 45.8633 51.9961C46.1003 51.9961 46.3099 51.9414 46.4922 51.832C46.6836 51.7227 46.834 51.5723 46.9434 51.3809C47.0618 51.1986 47.1211 50.9889 47.1211 50.752C47.1211 50.4147 46.998 50.1185 46.752 49.8633L36.7988 40.1289L46.752 30.3945C46.998 30.1393 47.1211 29.8431 47.1211 29.5059C47.1211 29.2689 47.0618 29.0592 46.9434 28.877C46.834 28.6855 46.6836 28.5352 46.4922 28.4258C46.3099 28.3164 46.1003 28.2617 45.8633 28.2617C45.5169 28.2617 45.2207 28.3802 44.9746 28.6172L34.1328 39.2266C34.0052 39.3542 33.9095 39.4954 33.8457 39.6504C33.7819 39.7962 33.75 39.9557 33.75 40.1289Z"
-                    fill="#123025" fill-opacity="0.3" />
-                </g>
-                <defs>
-                  <filter id="filter0_d_613_1336" x="0" y="0" width="84" height="84" filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                      result="hardAlpha" />
-                    <feOffset dy="2" />
-                    <feGaussianBlur stdDeviation="6" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix type="matrix"
-                      values="0 0 0 0 0.0705882 0 0 0 0 0.188235 0 0 0 0 0.145098 0 0 0 0.5 0" />
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_613_1336" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_613_1336" result="shape" />
-                  </filter>
-                </defs>
-              </svg>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" style="margin-bottom: 78px" type="button"
-              data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g filter="url(#filter0_d_602_269)">
-                  <circle cx="42" cy="40" r="30" fill="#FEFDFC" fill-opacity="0.87" />
-                  <path
-                    d="M50.6074 39.1289C50.6074 38.9557 50.571 38.7962 50.498 38.6504C50.4342 38.4954 50.3385 38.3542 50.2109 38.2266L39.3828 27.6172C39.1367 27.3802 38.8359 27.2617 38.4805 27.2617C38.2526 27.2617 38.043 27.3164 37.8516 27.4258C37.6602 27.5352 37.5098 27.6855 37.4004 27.877C37.291 28.0592 37.2363 28.2689 37.2363 28.5059C37.2363 28.8431 37.3548 29.1393 37.5918 29.3945L47.5449 39.1289L37.5918 48.8633C37.3548 49.1185 37.2363 49.4147 37.2363 49.752C37.2363 49.9889 37.291 50.1986 37.4004 50.3809C37.5098 50.5723 37.6602 50.7227 37.8516 50.832C38.043 50.9414 38.2526 50.9961 38.4805 50.9961C38.8359 50.9961 39.1367 50.873 39.3828 50.627L50.2109 40.0312C50.3385 39.9036 50.4342 39.7669 50.498 39.6211C50.571 39.4661 50.6074 39.3021 50.6074 39.1289Z"
-                    fill="#123025" fill-opacity="0.3" />
-                </g>
-                <defs>
-                  <filter id="filter0_d_602_269" x="0" y="0" width="84" height="84" filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                      result="hardAlpha" />
-                    <feOffset dy="2" />
-                    <feGaussianBlur stdDeviation="6" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix type="matrix"
-                      values="0 0 0 0 0.0705882 0 0 0 0 0.188235 0 0 0 0 0.145098 0 0 0 0.5 0" />
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_602_269" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_602_269" result="shape" />
-                  </filter>
-                </defs>
-              </svg>
-              <span class="visually-hidden">Next</span>
-            </button>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img src="../assets/images/home002.png" class="d-block w-100 carousel-img-cover" alt="...">
+              <div class="carousel-caption">
+                <div class="row justify-content-between align-items-center carousel-text">
+                  <div class="col-12 col-md-9 col-lg-10">
+                    <span>新春限定優惠，即日起輸入優惠碼 happyTUyear 全品項享八折優惠！</span>
+                  </div>
+                  <div class="col-12 col-md-3 col-lg-2">
+                    <RouterLink to="/products">
+                      <button type="button" class="button btn btn-primary">
+                        帶我回家
+                      </button>
+                    </RouterLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img src="../assets/images/home001.png" class="d-block w-100 carousel-img-cover" alt="...">
+              <div class="carousel-caption">
+                <div class="row justify-content-between align-items-center carousel-text">
+                  <div class="col-12 col-md-9 col-lg-10">
+                    <span>塵世喧鬧中，尋一方心靈綠地</span>
+                  </div>
+                  <div class="col-12 col-md-3 col-lg-2">
+                    <RouterLink to="/products">
+                      <button type="button" class="button btn btn-primary">
+                        帶我回家
+                      </button>
+                    </RouterLink>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          <button class="carousel-control-prev" style="margin-bottom: 78px" type="button"
+            data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_613_1336)">
+                <circle cx="42" cy="40" r="30" fill="#FEFDFC" fill-opacity="0.87" />
+                <path
+                  d="M33.75 40.1289C33.75 40.3021 33.7819 40.4661 33.8457 40.6211C33.9095 40.7669 34.0052 40.9036 34.1328 41.0312L44.9746 51.627C45.2207 51.873 45.5169 51.9961 45.8633 51.9961C46.1003 51.9961 46.3099 51.9414 46.4922 51.832C46.6836 51.7227 46.834 51.5723 46.9434 51.3809C47.0618 51.1986 47.1211 50.9889 47.1211 50.752C47.1211 50.4147 46.998 50.1185 46.752 49.8633L36.7988 40.1289L46.752 30.3945C46.998 30.1393 47.1211 29.8431 47.1211 29.5059C47.1211 29.2689 47.0618 29.0592 46.9434 28.877C46.834 28.6855 46.6836 28.5352 46.4922 28.4258C46.3099 28.3164 46.1003 28.2617 45.8633 28.2617C45.5169 28.2617 45.2207 28.3802 44.9746 28.6172L34.1328 39.2266C34.0052 39.3542 33.9095 39.4954 33.8457 39.6504C33.7819 39.7962 33.75 39.9557 33.75 40.1289Z"
+                  fill="#123025" fill-opacity="0.3" />
+              </g>
+              <defs>
+                <filter id="filter0_d_613_1336" x="0" y="0" width="84" height="84" filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="2" />
+                  <feGaussianBlur stdDeviation="6" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.0705882 0 0 0 0 0.188235 0 0 0 0 0.145098 0 0 0 0.5 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_613_1336" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_613_1336" result="shape" />
+                </filter>
+              </defs>
+            </svg>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" style="margin-bottom: 78px" type="button"
+            data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_602_269)">
+                <circle cx="42" cy="40" r="30" fill="#FEFDFC" fill-opacity="0.87" />
+                <path
+                  d="M50.6074 39.1289C50.6074 38.9557 50.571 38.7962 50.498 38.6504C50.4342 38.4954 50.3385 38.3542 50.2109 38.2266L39.3828 27.6172C39.1367 27.3802 38.8359 27.2617 38.4805 27.2617C38.2526 27.2617 38.043 27.3164 37.8516 27.4258C37.6602 27.5352 37.5098 27.6855 37.4004 27.877C37.291 28.0592 37.2363 28.2689 37.2363 28.5059C37.2363 28.8431 37.3548 29.1393 37.5918 29.3945L47.5449 39.1289L37.5918 48.8633C37.3548 49.1185 37.2363 49.4147 37.2363 49.752C37.2363 49.9889 37.291 50.1986 37.4004 50.3809C37.5098 50.5723 37.6602 50.7227 37.8516 50.832C38.043 50.9414 38.2526 50.9961 38.4805 50.9961C38.8359 50.9961 39.1367 50.873 39.3828 50.627L50.2109 40.0312C50.3385 39.9036 50.4342 39.7669 50.498 39.6211C50.571 39.4661 50.6074 39.3021 50.6074 39.1289Z"
+                  fill="#123025" fill-opacity="0.3" />
+              </g>
+              <defs>
+                <filter id="filter0_d_602_269" x="0" y="0" width="84" height="84" filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="2" />
+                  <feGaussianBlur stdDeviation="6" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.0705882 0 0 0 0 0.188235 0 0 0 0 0.145098 0 0 0 0.5 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_602_269" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_602_269" result="shape" />
+                </filter>
+              </defs>
+            </svg>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
     </div>
@@ -423,50 +419,24 @@ export default {
   height: 100%;
 }
 
-/* QA 文字內容 */
-/* .QAArea .card-body {
-  text-align: left;
-  background-color: transparent; 
-} */
-
 .QAArea button {
   border: none;
 }
-
-/* 
-.card-body-latest-Area {
-  position: absolute;
-  bottom: 0px;
-  background: #457B5FDE;
-  right: 0%;
-  left: 0%;
-} */
-/* 
-.card-body-latest-Area .col-8 {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-} */
-
-/* 
-.card-body-latest-Area .col-4 {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-} */
-
-/* .card-img-top {
-  width: 100%;
-  height: 20vw;
-  object-fit: cover;
-} */
-
-/* .context-area .texts {
-} */
 
 .context-area {
   display: flex;
   justify-content: center;
   background-color: #FEFDFCDE;
+}
+
+.carousel-img-cover {
+  object-fit: cover;
+  height: 375px;
+}
+
+@media screen and (min-width: 769px) {
+  .carousel-img-cover {
+    height: 500px;
+  }
 }
 </style>
