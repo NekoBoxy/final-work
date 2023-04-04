@@ -1,5 +1,5 @@
 <template>
-  <CNavbar></CNavbar>
+  <CNavbar />
   <!-- 輪播 Carousel -->
   <div class="container">
     <div class="row">
@@ -221,7 +221,7 @@
             </div>
             <div>
               <RouterLink to="/products">
-                <button class="button btn btn-primary">
+                <button type="button" class="button btn btn-primary">
                   帶我回家
                 </button>
               </RouterLink>

@@ -1,7 +1,7 @@
 <template>
-  <CNavbar></CNavbar>
+  <CNavbar />
   <div>ContactView</div>
-  <CFooter></CFooter>
+  <CFooter />
 </template>
 
 <script>

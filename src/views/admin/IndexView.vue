@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible">
-    <CAdminNavbar></CAdminNavbar>
+    <CAdminNavbar />
     <RouterView />
   </div>
 </template>

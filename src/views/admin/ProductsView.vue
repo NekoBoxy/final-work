@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col text-end mt-4">
-        <button class="btn btn-outline-primary" @click="addProduct()">
+        <button type="button" class="btn btn-outline-primary" @click="addProduct()">
           建立新的產品
         </button>
       </div>
@@ -64,11 +64,9 @@
 
 <script>
 import axios from "axios";
-
 import CModalProductDelete from "../../components/admin/CModalProductDelete.vue";
 import CModalProductEdit from "../../components/admin/CModalProductEdit.vue";
 import CPagination from "../../components/CPagination.vue";
-
 
 export default {
   data() {
@@ -114,7 +112,7 @@ export default {
           page: page || this.pagination.current_page
         }
       }).catch((error) => {
-        console.log("error", error);
+        alert("error", error);
       });
       this.products = response.data.products;
       this.pagination = response.data.pagination;

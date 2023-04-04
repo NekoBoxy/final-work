@@ -1,5 +1,5 @@
 <template>
-  <CNavbar></CNavbar>
+  <CNavbar />
   <div class="container">
     <!-- 麵包屑 -->
     <div class="row">

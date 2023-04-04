@@ -3,7 +3,7 @@
   <CModalCouponsDelete :coupon="coupon" @on_finish="getCoupons" ref="adminDeleteCouponModal"></CModalCouponsDelete>
   <div class="container">
     <div class="text-end mt-4">
-      <button class="btn btn-outline-primary" @click="addCoupon">
+      <button type="button" class="btn btn-outline-primary" @click="addCoupon">
         建立新的優惠券
       </button>
     </div>

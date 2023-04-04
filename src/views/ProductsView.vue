@@ -1,5 +1,5 @@
 <template>
-  <CNavbar></CNavbar>
+  <CNavbar />
   <!-- 麵包屑 breadcrumb -->
   <div class="container">
     <div class="row">
@@ -106,7 +106,6 @@ export default {
           category: this.category
         }
       });
-      // console.log(response.data.products[0]);
       this.products = response.data.products;
       this.pagination = response.data.pagination;
     },

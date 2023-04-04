@@ -21,7 +21,7 @@
               </div>
               <hr />
               <div>
-                <button class="btn btn-outline-primary btn-sm d-block w-100" @click="addImage">
+                <button type="button" class="btn btn-outline-primary btn-sm d-block w-100" @click="addImage">
                   新增更多圖片
                 </button>
               </div>
@@ -32,7 +32,7 @@
                   <input type="text" class="form-control" placeholder="請輸入圖片連結" v-model="newProduct.imagesUrl[index]">
                 </div>
                 <img class="img-fluid" :src="imgUrl" :alt="imgUrl">
-                <button class="btn btn-outline-danger btn-sm d-block w-100" @click="removeImage(index)">
+                <button type="button" class="btn btn-outline-danger btn-sm d-block w-100" @click="removeImage(index)">
                   刪除圖片
                 </button>
               </div>

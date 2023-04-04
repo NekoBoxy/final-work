@@ -1,7 +1,7 @@
 <template>
-  <CNavbar></CNavbar>
+  <CNavbar />
   <div>AboutView</div>
-  <CFooter></CFooter>
+  <CFooter />
 </template>
 
 <script>

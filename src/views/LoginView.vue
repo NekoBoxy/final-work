@@ -1,5 +1,5 @@
 <template>
-  <CNavbar></CNavbar>
+  <CNavbar />
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-12" style="text-align: center;">

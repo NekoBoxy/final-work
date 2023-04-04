@@ -38,6 +38,7 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router); // 套用方法但沒套用元件,才需要在各頁import
+
 // vee validate
 app.component("v-form", Form);
 app.component("v-field", Field);

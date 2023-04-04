@@ -1,5 +1,5 @@
 <template>
-  <CNavbar></CNavbar>
+  <CNavbar />
   <!-- 結帳進度條 steps bar -->
   <div class="container">
     <div class="row">
@@ -302,7 +302,6 @@ export default {
       this.carts = response.data.data.carts;
       this.final_total = response.data.data.final_total;
       this.total = response.data.data.total;
-      // console.log("已取得購物車清單");
     },
     async updateCart(cart_id, product_id, qty) {
       await axios({
