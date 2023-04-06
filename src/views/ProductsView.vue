@@ -42,7 +42,7 @@
                 <div class="card mb-3">
                   <RouterLink :to="{ path: `/product/${item.id}` }">
                     <img :src="item.imageUrl" class="img-fluid card-img-top boxy"
-                      style="object-fit: cover; height: 300px;" alt="...">
+                      style="object-fit: cover; height: 300px;" alt="productImg">
                   </RouterLink>
                   <div class="card-body">
                     <h5 class="card-title text-truncate" :title="item.title">{{ item.title }}</h5>

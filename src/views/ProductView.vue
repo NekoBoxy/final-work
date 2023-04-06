@@ -20,7 +20,7 @@
     <!-- 產品內容 -->
     <div class="row pb-5">
       <div class="col-12 col-lg-6 gx-5 d-flex justify-content-center">
-        <img class="img-fluid" :src="product.imageUrl" style="object-fit: cover;" alt="">
+        <img class="img-fluid" :src="product.imageUrl" style="object-fit: cover;" alt="produteImg">
       </div>
       <div class="col-12 col-lg-6 gx-5">
         <div class="row">
@@ -81,7 +81,7 @@
       <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4" style="display: flex;align-items: stretch;"
         v-for="product in recentProducts" :key="product.id">
         <div class="card" style="width: 100%; cursor: pointer;" @click="handleProductClick(product)">
-          <img :src="product.imageUrl" class="card-img-top" alt="latest-area-img">
+          <img :src="product.imageUrl" class="card-img-top" alt="anotherImg">
           <div class="q-card-title">
             <div class="row justify-content-between">
               <div class="col text-start">

@@ -61,7 +61,7 @@
                       <th scope="row" class="table-pc"> {{ index + 1 }} </th>
                       <td class="table-pc">
                         <img :src="item.product.imageUrl" style="object-fit: cover; height: 150px; max-width: 150px;"
-                          alt="" srcset="">
+                          alt="listImg" srcset="">
                       </td>
                       <td>
                         <div class="table-mobile text-truncate" style="width: 100px;" :title="item.product.title">{{

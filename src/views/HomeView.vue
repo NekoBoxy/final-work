@@ -7,7 +7,7 @@
         <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-              <img src="../assets/images/home004.png" class="d-block w-100 carousel-img-cover" alt="...">
+              <img src="../assets/images/home004.png" class="d-block w-100 carousel-img-cover" alt="carouselImg1">
               <div class="carousel-caption">
                 <div class="row justify-content-between align-items-center carousel-text">
                   <div class="col-12 col-md-9 col-lg-10">
@@ -22,7 +22,7 @@
               </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-              <img src="../assets/images/home002.png" class="d-block w-100 carousel-img-cover" alt="...">
+              <img src="../assets/images/home002.png" class="d-block w-100 carousel-img-cover" alt="carouselImg2">
               <div class="carousel-caption">
                 <div class="row justify-content-between align-items-center carousel-text">
                   <div class="col-12 col-md-9 col-lg-10">
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-              <img src="../assets/images/home001.png" class="d-block w-100 carousel-img-cover" alt="...">
+              <img src="../assets/images/home001.png" class="d-block w-100 carousel-img-cover" alt="carouselImg3">
               <div class="carousel-caption">
                 <div class="row justify-content-between align-items-center carousel-text">
                   <div class="col-12 col-md-9 col-lg-10">
@@ -230,7 +230,7 @@
         </div>
       </div>
       <div class="col-12 col-md-6" style="display: flex;align-items: stretch;">
-        <img class="img-fluid" style="object-fit: cover;" src="../assets/images/green.png" alt="">
+        <img class="img-fluid" style="object-fit: cover;" src="../assets/images/green.png" alt="storysImg">
       </div>
     </div>
   </div>
@@ -238,7 +238,8 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-6" style="display: flex;align-items: stretch;">
-        <img class="img-fluid" style="object-fit: cover;height: 100%;" src="../assets/images/jyrsj.png" alt="" srcset="">
+        <img class="img-fluid" style="object-fit: cover;height: 100%;" src="../assets/images/jyrsj.png" alt="aboutImg"
+          srcset="">
       </div>
       <div class="col-12 col-md-6" style="display: flex;align-items: stretch;">
         <div class="context-area p-4">
