@@ -61,9 +61,9 @@
 <script>
 import axios from 'axios';
 import moment from "moment";
-import CPagination from '../../components/CPagination.vue';
-import CModalOrderDelete from '../../components/admin/CModalOrderDelete.vue';
-import CModalOrderList from '../../components/admin/CModalOrderList.vue';
+import CPagination from '@/components/CPagination.vue';
+import CModalOrderDelete from '@/components/admin/CModalOrderDelete.vue';
+import CModalOrderList from '@/components/admin/CModalOrderList.vue';
 
 export default {
   data() {

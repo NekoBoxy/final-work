@@ -56,9 +56,9 @@
 <script>
 import axios from "axios";
 import moment from "moment";
-import CPagination from "../../components/CPagination.vue";
-import CModalCouponsEdit from "../../components/admin/CModalCouponsEdit.vue";
-import CModalCouponsDelete from "../../components/admin/CModalCouponsDelete.vue";
+import CPagination from "@/components/CPagination.vue";
+import CModalCouponsEdit from "@/components/admin/CModalCouponsEdit.vue";
+import CModalCouponsDelete from "@/components/admin/CModalCouponsDelete.vue";
 
 export default {
   data() {

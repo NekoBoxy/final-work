@@ -7,7 +7,7 @@
 
 <script>
 import axios from "axios";
-import CAdminNavbar from "../../components/admin/CAdminNavbar.vue";
+import CAdminNavbar from "@/components/admin/CAdminNavbar.vue";
 
 export default {
   data() {

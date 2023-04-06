@@ -64,9 +64,9 @@
 
 <script>
 import axios from "axios";
-import CModalProductDelete from "../../components/admin/CModalProductDelete.vue";
-import CModalProductEdit from "../../components/admin/CModalProductEdit.vue";
-import CPagination from "../../components/CPagination.vue";
+import CModalProductDelete from "@/components/admin/CModalProductDelete.vue";
+import CModalProductEdit from "@/components/admin/CModalProductEdit.vue";
+import CPagination from "@/components/CPagination.vue";
 
 export default {
   data() {
