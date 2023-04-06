@@ -67,6 +67,8 @@ import axios from "axios";
 import CModalProductDelete from "@/components/admin/CModalProductDelete.vue";
 import CModalProductEdit from "@/components/admin/CModalProductEdit.vue";
 import CPagination from "@/components/CPagination.vue";
+import { mapActions } from "pinia";
+import { useLoaderStore } from "@/stores/loader";
 
 export default {
   data() {
@@ -89,6 +91,7 @@ export default {
     CPagination,
   },
   methods: {
+    ...mapActions(useLoaderStore, ["setLoader"]),
     async addProduct() {
       this.status = "new";
       this.product = {};
@@ -105,6 +108,7 @@ export default {
     },
     // 取得產品資料 - 分頁
     async getAllProducts(page) {
+      this.setLoader(true);
       const response = await axios({
         method: "get",
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/products/`,
@@ -116,10 +120,13 @@ export default {
       });
       this.products = response.data.products;
       this.pagination = response.data.pagination;
+      this.setLoader(false);
     },
   },
   async mounted() {
+    this.setLoader(true);
     await this.getAllProducts();
+    this.setLoader(false);
   },
 };
 </script>

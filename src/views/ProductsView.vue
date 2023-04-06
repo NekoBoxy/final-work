@@ -71,11 +71,9 @@ import CPagination from '../components/CPagination.vue';
 import axios from 'axios';
 import { mapActions } from "pinia";
 import { useCartStore } from "../stores/cart";
+import { useLoaderStore } from "../stores/loader";
 
 export default {
-  props: [
-
-  ],
   components: {
     CNavbar,
     CFooter,
@@ -97,7 +95,9 @@ export default {
   },
   methods: {
     ...mapActions(useCartStore, ["updateNum"]),
+    ...mapActions(useLoaderStore, ["setLoader"]),
     async getProducts(page) {
+      this.setLoader(true);
       const response = await axios({
         method: 'get',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/products`,
@@ -108,17 +108,21 @@ export default {
       });
       this.products = response.data.products;
       this.pagination = response.data.pagination;
+      this.setLoader(false);
     },
-    handleCategory(category) {
+    async handleCategory(category) {
+      this.setLoader(true);
       this.category = category;
       if (category) {
         this.$router.push({ path: "/products", query: { category } });
       } else {
         this.$router.push({ path: "/products" });
       }
-      this.getProducts();
+      await this.getProducts();
+      this.setLoader(false);
     },
     async addCart(product_id, qty = 1) {
+      this.setLoader(true);
       await axios({
         method: 'post',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
@@ -127,11 +131,14 @@ export default {
         }
       });
       await this.updateNum();
+      this.setLoader(false);
     },
   },
   async mounted() {
+    this.setLoader(true);
     this.category = this.$route.query.category;
-    this.getProducts();
+    await this.getProducts();
+    this.setLoader(false);
   },
 };
 </script>

@@ -64,6 +64,8 @@ import moment from "moment";
 import CPagination from '@/components/CPagination.vue';
 import CModalOrderDelete from '@/components/admin/CModalOrderDelete.vue';
 import CModalOrderList from '@/components/admin/CModalOrderList.vue';
+import { mapActions } from "pinia";
+import { useLoaderStore } from "@/stores/loader";
 
 export default {
   data() {
@@ -85,6 +87,7 @@ export default {
     CModalOrderDelete,
   },
   methods: {
+    ...mapActions(useLoaderStore, ["setLoader"]),
     showOrder(order) {
       this.order = order;
       this.$refs.CModalOrderList.show();
@@ -94,10 +97,13 @@ export default {
       this.$refs.CModalOrderDelete.show();
     },
     async handlePaidChange(newOrder) {
+      this.setLoader(true);
       newOrder.is_paid = !newOrder.is_paid;
       await this.updateOrder(newOrder);
+      this.setLoader(false);
     },
     async updateOrder(newOrder) {
+      this.setLoader(true);
       this.order = newOrder;
       await axios({
         method: 'put',
@@ -109,8 +115,10 @@ export default {
         alert(error.response.data.message);
       });
       await this.getAllOrders();
+      this.setLoader(false);
     },
     async getAllOrders(page) {
+      this.setLoader(true);
       const response = await axios({
         method: "get",
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/orders`,
@@ -122,13 +130,16 @@ export default {
       });
       this.orders = response.data.orders;
       this.pagination = response.data.pagination;
+      this.setLoader(false);
     },
     getDate(date) {
       return moment.unix(date).format("YYYY/MM/DD");
     },
   },
   async mounted() {
+    this.setLoader(true);
     await this.getAllOrders();
+    this.setLoader(false);
   },
 };
 </script>

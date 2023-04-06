@@ -274,8 +274,10 @@ import CFooter from '../components/CFooter.vue';
 
 import { Tab } from 'bootstrap';
 import axios from 'axios';
+
 import { mapActions } from "pinia";
 import { useCartStore } from "../stores/cart";
+import { useLoaderStore } from "../stores/loader";
 
 
 export default {
@@ -294,7 +296,9 @@ export default {
   },
   methods: {
     ...mapActions(useCartStore, ["updateNum"]),
+    ...mapActions(useLoaderStore, ["setLoader"]),
     async getCart() {
+      this.setLoader(true);
       const response = await axios({
         method: "get",
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
@@ -302,8 +306,10 @@ export default {
       this.carts = response.data.data.carts;
       this.final_total = response.data.data.final_total;
       this.total = response.data.data.total;
+      this.setLoader(false);
     },
     async updateCart(cart_id, product_id, qty) {
+      this.setLoader(true);
       await axios({
         method: 'put',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart/${cart_id}`,
@@ -312,8 +318,10 @@ export default {
         }
       });
       await this.getCart();
+      this.setLoader(false);
     },
     async deleteCart(cart_id, product_id) {
+      this.setLoader(true);
       await axios({
         method: 'delete',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart/${cart_id}`,
@@ -323,12 +331,14 @@ export default {
       });
       await this.getCart();
       await this.updateNum();
+      this.setLoader(false);
     },
     checkMobilePhone(value) {
       const mobilePhone = /^09[0-9]{8}$/;
       return mobilePhone.test(value) ? true : '需要正確的電話號碼';
     },
     async handleCouponSubmit(values) {
+      this.setLoader(true);
       await axios({
         method: 'post',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/coupon`,
@@ -342,8 +352,10 @@ export default {
       });
       this.$refs.couponForm.resetForm();
       await this.getCart();
+      this.setLoader(false);
     },
     async handleConfirmSubmit() {
+      this.setLoader(true);
       const tabTrigger = new Tab(this.$refs["profile-tab"]);
       tabTrigger.show();
       this.$router.push({
@@ -352,8 +364,10 @@ export default {
         }
       });
       document.documentElement.scrollTop = 0; // 捲到頂端
+      this.setLoader(false);
     },
     async handleProfileSubmit(values) {
+      this.setLoader(true);
       const res = await axios({
         method: 'post',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/order`,
@@ -384,8 +398,10 @@ export default {
         }
       });
       document.documentElement.scrollTop = 0;
+      this.setLoader(false);
     },
     async handlePaySubmit() {
+      this.setLoader(true);
       await axios({
         method: 'post',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/pay/${this.orderId}`,
@@ -401,10 +417,12 @@ export default {
         }
       });
       document.documentElement.scrollTop = 0;
+      this.setLoader(false);
     },
   },
   async mounted() {
-    this.getCart();
+    this.setLoader(true);
+    await this.getCart();
     this.step = this.$route.query.step;
     if (this.step === "profile") {
       const tabTrigger = new Tab(this.$refs["profile-tab"]);
@@ -420,6 +438,7 @@ export default {
       const tabTrigger = new Tab(this.$refs["confirm-tab"]);
       tabTrigger.show();
     }
+    this.setLoader(false);
   },
 };
 </script>

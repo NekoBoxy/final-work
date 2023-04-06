@@ -8,6 +8,9 @@
 <script>
 import axios from "axios";
 import CAdminNavbar from "@/components/admin/CAdminNavbar.vue";
+import { mapActions } from "pinia";
+import { useLoaderStore } from "@/stores/loader";
+
 
 export default {
   data() {
@@ -19,6 +22,7 @@ export default {
     CAdminNavbar,
   },
   methods: {
+    ...mapActions(useLoaderStore, ["setLoader"]),
     async checkLogin() {
       const hextoken = document.cookie.replace(
         /(?:(?:^|.*;\s*)hextoken\s*=\s*([^;]*).*$)|^.*$/,
@@ -42,7 +46,9 @@ export default {
     },
   },
   async mounted() {
+    this.setLoader(true);
     await this.checkLogin();
+    this.setLoader(false);
   },
 };
 </script>

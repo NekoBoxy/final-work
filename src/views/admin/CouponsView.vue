@@ -59,6 +59,10 @@ import moment from "moment";
 import CPagination from "@/components/CPagination.vue";
 import CModalCouponsEdit from "@/components/admin/CModalCouponsEdit.vue";
 import CModalCouponsDelete from "@/components/admin/CModalCouponsDelete.vue";
+import { mapActions } from "pinia";
+import { useLoaderStore } from "@/stores/loader";
+
+
 
 export default {
   data() {
@@ -81,6 +85,7 @@ export default {
     CModalCouponsEdit,
   },
   methods: {
+    ...mapActions(useLoaderStore, ["setLoader"]),
     addCoupon() {
       this.status = "new";
       this.coupon = {};
@@ -96,6 +101,7 @@ export default {
       this.$refs.adminDeleteCouponModal.show();
     },
     async getCoupons(page) {
+      this.setLoader(true);
       const res = await axios({
         method: 'get',
         url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/coupons`,
@@ -105,13 +111,16 @@ export default {
       });
       this.coupons = res.data.coupons;
       this.pagination = res.data.pagination;
+      this.setLoader(false);
     },
     getDate(date) {
       return moment.unix(date).format("YYYY/MM/DD");
     },
   },
   async mounted() {
+    this.setLoader(true);
     await this.getCoupons();
+    this.setLoader(false);
   }
 };
 </script>
