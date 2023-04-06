@@ -15,9 +15,8 @@ import * as bootstrap from "bootstrap";
 import App from "./App.vue";
 import router from "./router";
 
-import "./assets/main.css";
 // Import our custom CSS
-import "./scss/styles.scss";
+import "./assets/scss/styles.scss";
 
 // vee-validate
 Object.keys(AllRules).forEach(rule => {
