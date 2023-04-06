@@ -103,34 +103,38 @@ export default {
       this.setLoader(false);
     },
     async updateOrder(newOrder) {
-      this.setLoader(true);
-      this.order = newOrder;
-      await axios({
-        method: 'put',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/order/${this.order.id}`,
-        data: {
-          data: this.order,
-        }
-      }).catch((error) => {
+      try {
+        this.setLoader(true);
+        this.order = newOrder;
+        await axios({
+          method: 'put',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/order/${this.order.id}`,
+          data: {
+            data: this.order,
+          }
+        });
+        await this.getAllOrders();
+        this.setLoader(false);
+      } catch (error) {
         alert(error.response.data.message);
-      });
-      await this.getAllOrders();
-      this.setLoader(false);
+      }
     },
     async getAllOrders(page) {
-      this.setLoader(true);
-      const response = await axios({
-        method: "get",
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/orders`,
-        params: {
-          page: page || this.pagination.current_page
-        }
-      }).catch((error) => {
-        alert("error", error.message);
-      });
-      this.orders = response.data.orders;
-      this.pagination = response.data.pagination;
-      this.setLoader(false);
+      try {
+        this.setLoader(true);
+        const response = await axios({
+          method: "get",
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/orders`,
+          params: {
+            page: page || this.pagination.current_page
+          }
+        });
+        this.orders = response.data.orders;
+        this.pagination = response.data.pagination;
+        this.setLoader(false);
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
     getDate(date) {
       return moment.unix(date).format("YYYY/MM/DD");

@@ -374,15 +374,19 @@ export default {
       await this.$router.go();
     },
     async getProducts() {
-      const response = await axios({
-        method: 'get',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/products`
-      });
-      this.recentProducts = [
-        response.data.products[0],
-        response.data.products[1],
-        response.data.products[2],
-      ];
+      try {
+        const response = await axios({
+          method: 'get',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/products`
+        });
+        this.recentProducts = [
+          response.data.products[0],
+          response.data.products[1],
+          response.data.products[2],
+        ];
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
   },
   async mounted() {

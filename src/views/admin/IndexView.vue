@@ -24,25 +24,26 @@ export default {
   methods: {
     ...mapActions(useLoaderStore, ["setLoader"]),
     async checkLogin() {
-      const hextoken = document.cookie.replace(
-        /(?:(?:^|.*;\s*)hextoken\s*=\s*([^;]*).*$)|^.*$/,
-        "$1"
-      );
-      if (!hextoken) {
-        this.$router.push("/login");
-        return;
-      }
-      axios.defaults.headers.common["Authorization"] = hextoken;
-      await axios({
-        method: "post",
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/user/check`,
-      }).catch((error) => {
-        const errorMessage = error.response.data.message;
-        alert(errorMessage);
+      try {
+        const hextoken = document.cookie.replace(
+          /(?:(?:^|.*;\s*)hextoken\s*=\s*([^;]*).*$)|^.*$/,
+          "$1"
+        );
+        if (!hextoken) {
+          this.$router.push("/login");
+          return;
+        }
+        axios.defaults.headers.common["Authorization"] = hextoken;
+        await axios({
+          method: "post",
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/user/check`,
+        });
+        this.visible = true;
+      } catch (error) {
+        alert(error.response.data.message);
         document.cookie = "hextoken=;expired=";
         this.$router.push("/login");
-      });
-      this.visible = true;
+      }
     },
   },
   async mounted() {

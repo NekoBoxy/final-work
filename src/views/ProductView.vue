@@ -129,38 +129,50 @@ export default {
       await this.$router.go();
     },
     async getProduct() {
-      const { id } = this.$route.params;
-      const res = await axios({
-        method: 'get',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/product/${id}`,
-      });
-      this.product = res.data.product;
+      try {
+        const { id } = this.$route.params;
+        const res = await axios({
+          method: 'get',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/product/${id}`,
+        });
+        this.product = res.data.product;
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
     async getProducts() {
-      const response = await axios({
-        method: 'get',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/products`
-      });
-      const products = response.data.products.filter(product => {
-        return product.id !== this.id;
-      });
-      this.recentProducts = [
-        products[0],
-        products[1],
-        products[2],
-      ];
+      try {
+        const response = await axios({
+          method: 'get',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/products`
+        });
+        const products = response.data.products.filter(product => {
+          return product.id !== this.id;
+        });
+        this.recentProducts = [
+          products[0],
+          products[1],
+          products[2],
+        ];
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
     async handleAddCart() {
-      await axios({
-        method: 'post',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
-        data: {
+      try {
+        await axios({
+          method: 'post',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
           data: {
-            product_id: this.product.id,
-            qty: parseInt(this.qty, 10),
+            data: {
+              product_id: this.product.id,
+              qty: parseInt(this.qty, 10),
+            },
           },
-        },
-      });
+        });
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
   },
   mounted() {

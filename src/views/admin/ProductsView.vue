@@ -108,19 +108,21 @@ export default {
     },
     // 取得產品資料 - 分頁
     async getAllProducts(page) {
-      this.setLoader(true);
-      const response = await axios({
-        method: "get",
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/products/`,
-        params: {
-          page: page || this.pagination.current_page
-        }
-      }).catch((error) => {
-        alert("error", error);
-      });
-      this.products = response.data.products;
-      this.pagination = response.data.pagination;
-      this.setLoader(false);
+      try {
+        this.setLoader(true);
+        const response = await axios({
+          method: "get",
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/products/`,
+          params: {
+            page: page || this.pagination.current_page
+          }
+        });
+        this.products = response.data.products;
+        this.pagination = response.data.pagination;
+        this.setLoader(false);
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
   },
   async mounted() {

@@ -298,61 +298,78 @@ export default {
     ...mapActions(useCartStore, ["updateNum"]),
     ...mapActions(useLoaderStore, ["setLoader"]),
     async getCart() {
-      this.setLoader(true);
-      const response = await axios({
-        method: "get",
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
-      });
-      this.carts = response.data.data.carts;
-      this.final_total = response.data.data.final_total;
-      this.total = response.data.data.total;
-      this.setLoader(false);
+      try {
+        this.setLoader(true);
+        const response = await axios({
+          method: "get",
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
+        });
+        this.carts = response.data.data.carts;
+        this.final_total = response.data.data.final_total;
+        this.total = response.data.data.total;
+        this.setLoader(false);
+      } catch (error) {
+        const errorMessage = error.response.data.message;
+        alert(errorMessage);
+      }
     },
     async updateCart(cart_id, product_id, qty) {
-      this.setLoader(true);
-      await axios({
-        method: 'put',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart/${cart_id}`,
-        data: {
-          data: { product_id, qty }
-        }
-      });
-      await this.getCart();
-      this.setLoader(false);
+      try {
+        this.setLoader(true);
+        await axios({
+          method: 'put',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart/${cart_id}`,
+          data: {
+            data: { product_id, qty }
+          }
+        });
+        await this.getCart();
+        this.setLoader(false);
+      } catch (error) {
+        const errorMessage = error.response.data.message;
+        alert(errorMessage);
+      }
     },
     async deleteCart(cart_id, product_id) {
-      this.setLoader(true);
-      await axios({
-        method: 'delete',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart/${cart_id}`,
-        data: {
-          data: { id: product_id }
-        }
-      });
-      await this.getCart();
-      await this.updateNum();
-      this.setLoader(false);
+      try {
+        this.setLoader(true);
+        await axios({
+          method: 'delete',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart/${cart_id}`,
+          data: {
+            data: { id: product_id }
+          }
+        });
+        await this.getCart();
+        await this.updateNum();
+        this.setLoader(false);
+      } catch (error) {
+        const errorMessage = error.response.data.message;
+        alert(errorMessage);
+      }
     },
     checkMobilePhone(value) {
       const mobilePhone = /^09[0-9]{8}$/;
       return mobilePhone.test(value) ? true : '需要正確的電話號碼';
     },
     async handleCouponSubmit(values) {
-      this.setLoader(true);
-      await axios({
-        method: 'post',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/coupon`,
-        data: {
+      try {
+        this.setLoader(true);
+        await axios({
+          method: 'post',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/coupon`,
           data: {
-            code: values.code
+            data: {
+              code: values.code
+            }
           }
-        }
-      }).catch((error) => {
+        });
+        this.$refs.couponForm.resetForm();
+        await this.getCart();
+        this.setLoader(false);
+      } catch (error) {
         alert(error.response.data.message);
-      });
-      this.$refs.couponForm.resetForm();
-      await this.getCart();
-      this.setLoader(false);
+      }
     },
     async handleConfirmSubmit() {
       this.setLoader(true);
@@ -367,57 +384,61 @@ export default {
       this.setLoader(false);
     },
     async handleProfileSubmit(values) {
-      this.setLoader(true);
-      const res = await axios({
-        method: 'post',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/order`,
-        data: {
+      try {
+        this.setLoader(true);
+        const res = await axios({
+          method: 'post',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/order`,
           data: {
-            user: {
-              email: values.email,
-              name: values.name,
-              tel: values.mobilePhone,
-              address: values.address,
-            },
-            message: values.message,
+            data: {
+              user: {
+                email: values.email,
+                name: values.name,
+                tel: values.mobilePhone,
+                address: values.address,
+              },
+              message: values.message,
+            }
           }
-        }
-      }).catch((error) => {
+        });
+        this.orderId = res.data.orderId;
+        this.$refs.profileForm.resetForm();
+        await this.getCart();
+        await this.updateNum(); // 購物車歸零
+        const tabTrigger = new Tab(this.$refs["pay-tab"]);
+        tabTrigger.show();
+        this.$router.push({
+          path: "/cart", query: {
+            step: "pay",
+            orderId: this.orderId
+          }
+        });
+        document.documentElement.scrollTop = 0;
+        this.setLoader(false);
+      } catch (error) {
         alert(error.response.data.message);
-      });
-      this.orderId = res.data.orderId;
-      this.$refs.profileForm.resetForm();
-      await this.getCart();
-      await this.updateNum(); // 購物車歸零
-      const tabTrigger = new Tab(this.$refs["pay-tab"]);
-      tabTrigger.show();
-      this.$router.push({
-        path: "/cart", query: {
-          step: "pay",
-          orderId: this.orderId
-        }
-      });
-      document.documentElement.scrollTop = 0;
-      this.setLoader(false);
+      }
     },
     async handlePaySubmit() {
-      this.setLoader(true);
-      await axios({
-        method: 'post',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/pay/${this.orderId}`,
-      }).catch((error) => {
+      try {
+        this.setLoader(true);
+        await axios({
+          method: 'post',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/pay/${this.orderId}`,
+        });
+        this.$refs.payForm.resetForm();
+        const tabTrigger = new Tab(this.$refs["success-tab"]);
+        tabTrigger.show();
+        this.$router.push({
+          path: "/cart", query: {
+            step: "success"
+          }
+        });
+        document.documentElement.scrollTop = 0;
+        this.setLoader(false);
+      } catch (error) {
         alert(error.response.data.message);
-      });
-      this.$refs.payForm.resetForm();
-      const tabTrigger = new Tab(this.$refs["success-tab"]);
-      tabTrigger.show();
-      this.$router.push({
-        path: "/cart", query: {
-          step: "success"
-        }
-      });
-      document.documentElement.scrollTop = 0;
-      this.setLoader(false);
+      }
     },
   },
   async mounted() {

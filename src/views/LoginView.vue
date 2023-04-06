@@ -45,22 +45,21 @@ export default {
   },
   methods: {
     async handleLogin() {
-      const response = await axios({
-        method: "post",
-        url: `${import.meta.env.VITE_BASE_URL}/v2/admin/signin`,
-        data: {
-          username: this.username,
-          password: this.password,
-        },
-      }).catch((error) => {
-        const errorMessage = error.response.data.message;
-        alert(errorMessage);
-        this.username = "";
-        this.password = "";
-      });
-      const { token, expired } = response.data;
-      document.cookie = `hextoken=${token}; expires=${new Date(expired)}`;
-      this.$router.push({ path: "/admin/products" });
+      try {
+        const response = await axios({
+          method: "post",
+          url: `${import.meta.env.VITE_BASE_URL}/v2/admin/signin`,
+          data: {
+            username: this.username,
+            password: this.password,
+          },
+        });
+        const { token, expired } = response.data;
+        document.cookie = `hextoken=${token}; expires=${new Date(expired)}`;
+        this.$router.push({ path: "/admin/products" });
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
   },
 };

@@ -101,17 +101,21 @@ export default {
       this.$refs.adminDeleteCouponModal.show();
     },
     async getCoupons(page) {
-      this.setLoader(true);
-      const res = await axios({
-        method: 'get',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/coupons`,
-        params: {
-          page: page || this.pagination.current_page
-        }
-      });
-      this.coupons = res.data.coupons;
-      this.pagination = res.data.pagination;
-      this.setLoader(false);
+      try {
+        this.setLoader(true);
+        const res = await axios({
+          method: 'get',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/admin/coupons`,
+          params: {
+            page: page || this.pagination.current_page
+          }
+        });
+        this.coupons = res.data.coupons;
+        this.pagination = res.data.pagination;
+        this.setLoader(false);
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
     getDate(date) {
       return moment.unix(date).format("YYYY/MM/DD");

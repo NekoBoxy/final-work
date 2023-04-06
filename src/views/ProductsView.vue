@@ -97,41 +97,53 @@ export default {
     ...mapActions(useCartStore, ["updateNum"]),
     ...mapActions(useLoaderStore, ["setLoader"]),
     async getProducts(page) {
-      this.setLoader(true);
-      const response = await axios({
-        method: 'get',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/products`,
-        params: {
-          page: page || this.pagination.current_page,
-          category: this.category
-        }
-      });
-      this.products = response.data.products;
-      this.pagination = response.data.pagination;
-      this.setLoader(false);
+      try {
+        this.setLoader(true);
+        const response = await axios({
+          method: 'get',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/products`,
+          params: {
+            page: page || this.pagination.current_page,
+            category: this.category
+          }
+        });
+        this.products = response.data.products;
+        this.pagination = response.data.pagination;
+        this.setLoader(false);
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
     async handleCategory(category) {
-      this.setLoader(true);
-      this.category = category;
-      if (category) {
-        this.$router.push({ path: "/products", query: { category } });
-      } else {
-        this.$router.push({ path: "/products" });
+      try {
+        this.setLoader(true);
+        this.category = category;
+        if (category) {
+          this.$router.push({ path: "/products", query: { category } });
+        } else {
+          this.$router.push({ path: "/products" });
+        }
+        await this.getProducts();
+        this.setLoader(false);
+      } catch (error) {
+        alert(error.response.data.message);
       }
-      await this.getProducts();
-      this.setLoader(false);
     },
     async addCart(product_id, qty = 1) {
-      this.setLoader(true);
-      await axios({
-        method: 'post',
-        url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
-        data: {
-          data: { product_id, qty }
-        }
-      });
-      await this.updateNum();
-      this.setLoader(false);
+      try {
+        this.setLoader(true);
+        await axios({
+          method: 'post',
+          url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
+          data: {
+            data: { product_id, qty }
+          }
+        });
+        await this.updateNum();
+        this.setLoader(false);
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     },
   },
   async mounted() {
