@@ -326,8 +326,7 @@ export default {
         await this.getCart();
         this.setLoader(false);
       } catch (error) {
-        const errorMessage = error.response.data.message;
-        alert(errorMessage);
+        alert(error.response.data.message);
       }
     },
     async deleteCart(cart_id, product_id) {
@@ -344,8 +343,7 @@ export default {
         await this.updateNum();
         this.setLoader(false);
       } catch (error) {
-        const errorMessage = error.response.data.message;
-        alert(errorMessage);
+        alert(error.response.data.message);
       }
     },
     checkMobilePhone(value) {
