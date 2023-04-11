@@ -1,6 +1,5 @@
 <template>
   <CNavbar />
-  <div>ContactView</div>
   <CFooter />
 </template>
 
@@ -16,3 +15,5 @@ export default {
 };
 
 </script>
+
+<style scoped></style>
