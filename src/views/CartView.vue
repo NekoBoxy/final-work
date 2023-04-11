@@ -1,10 +1,19 @@
 <template>
   <CNavbar />
-  <!-- 結帳進度條 steps bar -->
+  <!-- steps -->
+  <div class="container d-flex justify-content-center">
+    <div class="progress-container">
+      <div id="progress" class="progress" :style="{ width: `${(currentStep - 1) * 33.3}%` }"></div>
+      <div class="circle" :class="{ active: currentStep === step }" v-for="step in 4" :key="step">
+        {{ step }}
+      </div>
+    </div>
+  </div>
+  <!-- tabs -->
   <div class="container">
     <div class="row">
       <div class="col">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none;">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="confirm-tab" ref="confirm-tab" data-bs-toggle="tab"
               data-bs-target="#confirm-tab-pane" type="button" role="tab" aria-controls="confirm-tab-pane"
@@ -287,6 +296,7 @@ export default {
   },
   data() {
     return {
+      currentStep: 1,
       step: "",
       carts: null,
       total: 0,
@@ -380,6 +390,7 @@ export default {
       });
       document.documentElement.scrollTop = 0; // 捲到頂端
       this.setLoader(false);
+      this.currentStep = 2;
     },
     async handleProfileSubmit(values) {
       try {
@@ -413,6 +424,7 @@ export default {
         });
         document.documentElement.scrollTop = 0;
         this.setLoader(false);
+        this.currentStep = 3;
       } catch (error) {
         alert(error.response.data.message);
       }
@@ -434,6 +446,7 @@ export default {
         });
         document.documentElement.scrollTop = 0;
         this.setLoader(false);
+        this.currentStep = 4;
       } catch (error) {
         alert(error.response.data.message);
       }
@@ -446,16 +459,20 @@ export default {
     if (this.step === "profile") {
       const tabTrigger = new Tab(this.$refs["profile-tab"]);
       tabTrigger.show();
+      this.currentStep = 2;
     } else if (this.step === "pay") {
       const tabTrigger = new Tab(this.$refs["pay-tab"]);
       tabTrigger.show();
       this.orderId = this.$route.query.orderId;
+      this.currentStep = 3;
     } else if (this.step === "success") {
       const tabTrigger = new Tab(this.$refs["success-tab"]);
       tabTrigger.show();
+      this.currentStep = 4;
     } else {
       const tabTrigger = new Tab(this.$refs["confirm-tab"]);
       tabTrigger.show();
+      this.currentStep = 1;
     }
     this.setLoader(false);
   },
@@ -465,7 +482,6 @@ export default {
 table {
   width: 100%;
   display: block;
-  /* overflow-x: auto; */
   white-space: nowrap;
 }
 
@@ -487,5 +503,76 @@ table {
   .table-mobile {
     display: none;
   }
+}
+
+/* steps */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: #85A896;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+
+div.progress {
+  background-color: #326A4D;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 3px;
+  z-index: -1;
+  transform: translateY(-50%);
+  transition: width 0.5s linear;
+}
+
+div.circle {
+  color: white;
+  background-color: #326A4D;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border 0.5s linear;
+}
+
+div.circle.active {
+  border: 3px solid #326A4D;
+  background-color: #326A4D;
+}
+
+/* 在 active 後的 div 套用顏色 */
+div.circle.active~div {
+  background-color: #85A896;
 }
 </style>
