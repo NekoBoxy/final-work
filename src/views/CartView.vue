@@ -1,7 +1,7 @@
 <template>
   <CNavbar />
   <!-- steps -->
-  <div class="container d-flex justify-content-center">
+  <div class="container container-steps d-flex justify-content-center">
     <div class="progress-container">
       <div id="progress" class="progress" :style="{ width: `${(currentStep - 1) * 33.3}%` }"></div>
       <div class="circle" :class="{ active: currentStep === step }" v-for="step in 4" :key="step">
@@ -38,15 +38,15 @@
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="confirm-tab-pane" role="tabpanel" aria-labelledby="confirm-tab"
             tabindex="0">
-            <div class="my-3">
+            <div class="my-3 d-flex justify-content-center">
               <h5>確認訂單資訊</h5>
             </div>
             <div class="row">
               <div class="col-12">
-                <table class="table">
+                <table class="table-main">
                   <thead>
                     <tr>
-                      <th scope="col" class="table-pc">資料序</th>
+                      <!-- <th scope="col" class="table-pc">資料序</th> -->
                       <th scope="col" class="table-pc">商品圖片</th>
                       <th scope="col">
                         <span class="table-mobile">品名</span>
@@ -65,9 +65,9 @@
                       <th scope="col">取消</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="align-items-center">
                     <tr v-for="(item, index) in carts" :key="item.id">
-                      <th scope="row" class="table-pc"> {{ index + 1 }} </th>
+                      <!-- <th scope="row" class="table-pc"> {{ index + 1 }} </th> -->
                       <td class="table-pc">
                         <img :src="item.product.imageUrl" style="object-fit: cover; height: 150px; max-width: 150px;"
                           alt="listImg" srcset="">
@@ -84,12 +84,12 @@
                       <td>{{ item.product.price }}</td>
                       <td>
                         <div class="d-flex d-lg-none mb-3" style="min-width: 110px;">
-                          <input min="1" type="number" class="form-control"
-                            @blur="updateCart(item.id, item.product.id, item.qty)" v-model="item.qty">
+                          <input min="1" type="number" class="form-control" step="1"
+                            @blur="updateCart(item.id, item.product.id, item.qty)" v-model.number="item.qty">
                         </div>
                         <div class="input-group mb-3 d-none d-lg-flex" style="max-width: 150px;">
-                          <input min="1" type="number" class="form-control"
-                            @blur="updateCart(item.id, item.product.id, item.qty)" v-model="item.qty">
+                          <input min="1" type="number" class="form-control" step="1"
+                            @blur="updateCart(item.id, item.product.id, item.qty)" v-model.number="item.qty">
                           <span class="input-group-text table-pc">
                             {{ item.product.unit }}
                           </span>
@@ -298,7 +298,7 @@ export default {
     return {
       currentStep: 1,
       step: "",
-      carts: null,
+      carts: [],
       total: 0,
       final_total: 0,
       orderId: "",
@@ -325,12 +325,19 @@ export default {
     },
     async updateCart(cart_id, product_id, qty) {
       try {
+        this.qty = parseInt(qty, 10);
+        this.carts = this.carts.map(item => {
+          if (item.id === cart_id) {
+            item.qty = this.qty;
+          }
+          return item;
+        });
         this.setLoader(true);
         await axios({
           method: 'put',
           url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart/${cart_id}`,
           data: {
-            data: { product_id, qty }
+            data: { product_id, qty: this.qty }
           }
         });
         await this.getCart();
@@ -478,10 +485,10 @@ export default {
   },
 };
 </script>
+
 <style scoped>
-table {
+.table-main {
   width: 100%;
-  display: block;
   white-space: nowrap;
 }
 
@@ -506,18 +513,8 @@ table {
 }
 
 /* steps */
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
 
-.container {
-  text-align: center;
+.container-steps {
   font-size: 20px;
   font-weight: bold;
 }
