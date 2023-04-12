@@ -119,7 +119,9 @@
     <div class="latest-area">
       <div class="container">
         <div class="row">
-          <div class="col-12 g-3 text-start"><span>最近新品</span></div>
+          <div class="col-12 g-3 text-start">
+            <h5>最近新品</h5>
+          </div>
         </div>
         <div class="row justify-content-center">
           <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4" style="display: flex;align-items: stretch;"
@@ -148,7 +150,9 @@
     <!-- 產品分類 category -->
     <div class="container">
       <div class="row">
-        <div class="col-12 g-3 text-start"><span>產品分類</span></div>
+        <div class="col-12 g-3 text-start">
+          <h5>產品分類</h5>
+        </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4">
@@ -264,7 +268,7 @@
       <div class="container">
         <div class="row">
           <div class="col g-3 ps-3 pb-3 text-start">
-            <span>常見問與答</span>
+            <h5>常見問與答</h5>
           </div>
         </div>
         <div class="row">
