@@ -165,7 +165,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="mobilePhone" class="form-label">收件人手機號碼</label>
-                    <v-field id="mobilePhone" name="mobilePhone" type="text" class="form-control" placeholder="請輸入手機號碼"
+                    <v-field id="mobilePhone" name="mobilePhone" type="tel" class="form-control" placeholder="請輸入手機號碼"
                       :class="{ 'is-invalid': errors['mobilePhone'] }" v-bind:rules="checkMobilePhone">
                     </v-field>
                     <error-message name="mobilePhone" class="invalid-feedback"></error-message>
