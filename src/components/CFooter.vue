@@ -2,7 +2,7 @@
   <div class="bottonArea">
     <div class="container">
       <div class="text-center">
-        <div class="row justify-content-center">
+        <div class="row mb-2 justify-content-center">
           <div class="col-auto">
             <RouterLink to="/">
               <svg width="34" height="30" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,9 +53,11 @@
             </a>
           </div>
         </div>
-        <div class="mt-2" style="text-align: center">
-          <div>此網頁僅供練習，不做任何商用</div>
-          <div>Copyright © 2023 CatBoxy</div>
+        <div class="row mb-1">
+          <div class="col">此網頁僅供練習，不做任何商用</div>
+        </div>
+        <div class="row mb-1">
+          <div class="col">Copyright © 2023 CatBoxy</div>
         </div>
       </div>
     </div>
@@ -74,6 +76,6 @@ export default {
   position: relative;
   bottom: 0;
   width: 100%;
-  height: 105px;
+  height: 110px;
 }
 </style>

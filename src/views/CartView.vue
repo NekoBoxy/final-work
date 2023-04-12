@@ -494,7 +494,7 @@ export default {
 
 <style scoped>
 .wrapper {
-  min-height: calc(100vh - 105px);
+  min-height: calc(100vh - 110px);
 }
 
 .table-main {
