@@ -524,7 +524,7 @@ export default {
 
 /* steps */
 .container-steps {
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: bold;
 }
 

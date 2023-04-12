@@ -182,7 +182,7 @@ button {
 
 .div-button {
   padding: 0px 15.667px 0px 15.667px;
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 .nav-pc {
