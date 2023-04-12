@@ -124,7 +124,7 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4" style="display: flex;align-items: stretch;"
+          <div class="col-12 col-md-6 col-lg-4 col-xxl-4 g-4" style="display: flex;align-items: stretch;"
             v-for="product in recentProducts" :key="product.id">
             <div class="card" style="width: 100%; cursor: pointer;" @click="handleProductClick(product)">
               <img :src="product.imageUrl" class="card-img-top" alt="latest-area-img">
@@ -155,7 +155,7 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4">
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-4 g-4">
           <div class="card" style="cursor: pointer;" @click="handleCategoryClick('盆栽')">
             <img src="../assets/images/nkut.png" class="card-img-top" alt="category-area-img">
             <div class="q-card-title">
@@ -174,7 +174,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4">
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-4 g-4">
           <div class="card" style="cursor: pointer;" @click="handleCategoryClick('盆花')">
             <img src="../assets/images/nyryj.png" class="card-img-top" alt="category-area-img">
             <div class="q-card-title">
@@ -193,7 +193,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4 pb-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-4 g-4 pb-3">
           <div class="card" style="cursor: pointer;" @click="handleCategoryClick('花束')">
             <img src="../assets/images/jrsj.png" class="card-img-top" alt="category-area-img">
             <div class="q-card-title">
