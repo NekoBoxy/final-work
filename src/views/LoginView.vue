@@ -1,26 +1,28 @@
 <template>
-  <CNavbar />
-  <div class="container">
-    <div class="row d-flex justify-content-center">
-      <div class="col-12" style="text-align: center;">
-        <h1 class="h3 mb-3 font-weight-normal">請先登入</h1>
-      </div>
-      <div class="col-12 col-sm-6">
-        <form id="form" class="form-signin" v-on:submit.prevent="handleLogin">
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="username" placeholder="name@example.com" v-model="username"
-              required />
-            <label for="username">Email address</label>
-          </div>
-          <div class="form-floating">
-            <input type="password" class="form-control" id="password" placeholder="Password" v-model="password"
-              required />
-            <label for="password">Password</label>
-          </div>
-          <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">
-            登入
-          </button>
-        </form>
+  <div class="wrapper">
+    <CNavbar />
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12" style="text-align: center;">
+          <h1 class="h3 mb-3 font-weight-normal">請先登入</h1>
+        </div>
+        <div class="col-12 col-sm-6 mb-3">
+          <form id="form" class="form-signin" v-on:submit.prevent="handleLogin">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="username" placeholder="name@example.com" v-model="username"
+                required />
+              <label for="username">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="password" placeholder="Password" v-model="password"
+                required />
+              <label for="password">Password</label>
+            </div>
+            <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">
+              登入
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -64,3 +66,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.wrapper {
+  min-height: calc(100vh - 105px);
+}
+</style>

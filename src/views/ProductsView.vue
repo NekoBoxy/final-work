@@ -1,67 +1,69 @@
 <template>
-  <CNavbar />
-  <!-- 麵包屑 breadcrumb -->
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <RouterLink to="/">首頁</RouterLink>
-            </li>
-            <li class="breadcrumb-item">
-              <RouterLink to="/products">產品一覽</RouterLink>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">{{ category || "全部" }}</li>
-          </ol>
-        </nav>
+  <div class="wrapper">
+    <CNavbar />
+    <!-- 麵包屑 breadcrumb -->
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <RouterLink to="/">首頁</RouterLink>
+              </li>
+              <li class="breadcrumb-item">
+                <RouterLink to="/products">產品一覽</RouterLink>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">{{ category || "全部" }}</li>
+            </ol>
+          </nav>
+        </div>
       </div>
-    </div>
-    <!-- 左側選單 -->
-    <div class="row">
-      <div class="col-12 col-md-2 d-flex flex-column">
-        <input type="radio" class="btn-check" name="options-outlined" id="outlined1" autocomplete="off" checked>
-        <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined1"
-          @click="handleCategory('')">全部</label>
-        <input type="radio" class="btn-check" name="options-outlined" id="outlined2" autocomplete="off">
-        <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined2"
-          @click="handleCategory('盆栽')">盆栽</label>
-        <input type="radio" class="btn-check" name="options-outlined" id="outlined3" autocomplete="off">
-        <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined3"
-          @click="handleCategory('盆花')">盆花</label>
-        <input type="radio" class="btn-check" name="options-outlined" id="outlined4" autocomplete="off">
-        <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined4"
-          @click="handleCategory('花束')">花束</label>
-      </div>
-      <!-- 右側產品內容 -->
-      <div class="col-12 col-md-10">
-        <div class="row">
-          <div class="col pb-3">
-            <div class="row">
-              <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in products" :key="item.id">
-                <div class="card mb-3">
-                  <RouterLink :to="{ path: `/product/${item.id}` }">
-                    <img :src="item.imageUrl" class="img-fluid card-img-top boxy"
-                      style="object-fit: cover; height: 300px;" alt="productImg">
-                  </RouterLink>
-                  <div class="card-body">
-                    <h5 class="card-title text-truncate" :title="item.title">{{ item.title }}</h5>
-                    <button type="button" class="btn btn-outline-primary" @click="addCart(item.id)">加入購物車</button>
+      <!-- 左側選單 -->
+      <div class="row">
+        <div class="col-12 col-md-2 d-flex flex-column">
+          <input type="radio" class="btn-check" name="options-outlined" id="outlined1" autocomplete="off" checked>
+          <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined1"
+            @click="handleCategory('')">全部</label>
+          <input type="radio" class="btn-check" name="options-outlined" id="outlined2" autocomplete="off">
+          <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined2"
+            @click="handleCategory('盆栽')">盆栽</label>
+          <input type="radio" class="btn-check" name="options-outlined" id="outlined3" autocomplete="off">
+          <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined3"
+            @click="handleCategory('盆花')">盆花</label>
+          <input type="radio" class="btn-check" name="options-outlined" id="outlined4" autocomplete="off">
+          <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined4"
+            @click="handleCategory('花束')">花束</label>
+        </div>
+        <!-- 右側產品內容 -->
+        <div class="col-12 col-md-10">
+          <div class="row">
+            <div class="col pb-3">
+              <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in products" :key="item.id">
+                  <div class="card mb-3">
+                    <RouterLink :to="{ path: `/product/${item.id}` }">
+                      <img :src="item.imageUrl" class="img-fluid card-img-top boxy"
+                        style="object-fit: cover; height: 300px;" alt="productImg">
+                    </RouterLink>
+                    <div class="card-body">
+                      <h5 class="card-title text-truncate" :title="item.title">{{ item.title }}</h5>
+                      <button type="button" class="btn btn-outline-primary" @click="addCart(item.id)">加入購物車</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <CPagination :total_pages="pagination.total_pages" @on_page="getProducts"></CPagination>
+          <div class="row">
+            <div class="col">
+              <CPagination :total_pages="pagination.total_pages" @on_page="getProducts"></CPagination>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <CFooter></CFooter>
+  <CFooter />
 </template>
 
 <script>
@@ -155,4 +157,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.wrapper {
+  min-height: calc(100vh - 105px);
+}
+</style>
