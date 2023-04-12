@@ -10,12 +10,10 @@
               <div class="carousel-item active" data-bs-interval="10000">
                 <img src="../assets/images/home004.png" class="d-block w-100 carousel-img-cover" alt="carouselImg1">
                 <div class="carousel-caption">
-                  <div class="row justify-content-between align-items-center carousel-text">
-                    <div class="col-12 col-md-9 col-lg-10">
-                      <span>為生活注入自然的氣息</span>
-                    </div>
-                    <div class="col-12 col-md-3 col-lg-2">
-                      <RouterLink to="/products">
+                  <div class="row justify-content-between carousel-text">
+                    <div class="col align-items-center">
+                      <span style="vertical-align: sub;">為生活注入自然的氣息</span>
+                      <RouterLink to="/products" style="float:right; clear: both;">
                         <button type="button" class="btn btn-primary">帶我回家</button>
                       </RouterLink>
                     </div>
@@ -25,12 +23,10 @@
               <div class="carousel-item" data-bs-interval="5000">
                 <img src="../assets/images/home002.png" class="d-block w-100 carousel-img-cover" alt="carouselImg2">
                 <div class="carousel-caption">
-                  <div class="row justify-content-between align-items-center carousel-text">
-                    <div class="col-12 col-md-9 col-lg-10">
-                      <span>新春限定優惠，即日起輸入優惠碼 happyTUyear 全品項享八折優惠！</span>
-                    </div>
-                    <div class="col-12 col-md-3 col-lg-2">
-                      <RouterLink to="/products">
+                  <div class="row justify-content-between carousel-text">
+                    <div class="col align-items-center">
+                      <span style="vertical-align: sub;">新春限定！即日起輸入優惠碼 happyTUyear 全品項享八折優惠！</span>
+                      <RouterLink to="/products" style="float:right; clear: both;">
                         <button type="button" class="button btn btn-primary">
                           帶我回家
                         </button>
@@ -42,12 +38,10 @@
               <div class="carousel-item" data-bs-interval="5000">
                 <img src="../assets/images/home001.png" class="d-block w-100 carousel-img-cover" alt="carouselImg3">
                 <div class="carousel-caption">
-                  <div class="row justify-content-between align-items-center carousel-text">
-                    <div class="col-12 col-md-9 col-lg-10">
-                      <span>塵世喧鬧中，尋一方心靈綠地</span>
-                    </div>
-                    <div class="col-12 col-md-3 col-lg-2">
-                      <RouterLink to="/products">
+                  <div class="row justify-content-between carousel-text">
+                    <div class="col align-items-center">
+                      <span style="vertical-align: sub;">塵世喧鬧中，尋一方心靈綠地</span>
+                      <RouterLink to="/products" style="float:right; clear: both;">
                         <button type="button" class="button btn btn-primary">
                           帶我回家
                         </button>
