@@ -1,1 +1,0 @@
-import{C as r,a as n}from"./CFooter-ca468329.js";import{_ as s,r as o,o as c,a as p,e,F as m}from"./index-c607938f.js";import"./cart-7307de5f.js";import"./axios-bff3f665.js";const _={components:{CNavbar:r,CFooter:n}};function C(i,f,l,d,u,F){const t=o("CNavbar"),a=o("CFooter");return c(),p(m,null,[e(t),e(a)],64)}const x=s(_,[["render",C]]);export{x as default};
