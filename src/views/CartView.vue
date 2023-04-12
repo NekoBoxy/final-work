@@ -150,7 +150,7 @@
             </div>
           </div>
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            <div class="my-3">
+            <div class="my-3 d-flex justify-content-center">
               <h5>填寫收件資訊</h5>
             </div>
             <div class="row">
@@ -199,7 +199,7 @@
             </div>
           </div>
           <div class="tab-pane fade" id="pay-tab-pane" role="tabpanel" aria-labelledby="pay-tab" tabindex="0">
-            <div class="my-3">
+            <div class="my-3 d-flex justify-content-center">
               <h5>填寫信用卡資訊</h5>
             </div>
             <div class="row">
@@ -262,7 +262,7 @@
             </div>
           </div>
           <div class="tab-pane fade" id="success-tab-pane" role="tabpanel" aria-labelledby="success-tab" tabindex="0">
-            <div class="my-3">
+            <div class="my-3 d-flex justify-content-center">
               <h5>完成訂購</h5>
             </div>
             <div>交易已完成，您可於三至五分鐘後至電子信箱收取訂單資訊郵件。</div>
