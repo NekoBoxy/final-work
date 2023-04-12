@@ -66,8 +66,7 @@
                     </tr>
                   </thead>
                   <tbody class="align-items-center">
-                    <tr v-for="(item, index) in carts" :key="item.id">
-                      <!-- <th scope="row" class="table-pc"> {{ index + 1 }} </th> -->
+                    <tr v-for="item in carts" :key="item.id">
                       <td class="table-pc">
                         <img :src="item.product.imageUrl" style="object-fit: cover; height: 150px; max-width: 150px;"
                           alt="listImg" srcset="">
@@ -315,7 +314,8 @@ export default {
           url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
         });
         this.carts = response.data.data.carts;
-        this.final_total = response.data.data.final_total;
+        // 無條件進位 math.ceil()
+        this.final_total = Math.ceil(response.data.data.final_total);
         this.total = response.data.data.total;
         this.setLoader(false);
       } catch (error) {
@@ -325,7 +325,10 @@ export default {
     },
     async updateCart(cart_id, product_id, qty) {
       try {
-        this.qty = parseInt(qty, 10);
+        // 取絕對值、轉型成十進位數值
+        this.qty = Math.abs(parseInt(qty, 10));
+        // 若輸入數值為零，強制轉換為一
+        this.qty = this.qty === 0 ? 1 : this.qty;
         this.carts = this.carts.map(item => {
           if (item.id === cart_id) {
             item.qty = this.qty;
