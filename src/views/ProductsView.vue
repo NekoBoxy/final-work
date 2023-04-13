@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
     <CNavbar />
-    <!-- 麵包屑 breadcrumb -->
     <div class="container">
+      <!-- 麵包屑 breadcrumb -->
       <div class="row">
         <div class="col">
           <nav aria-label="breadcrumb">
@@ -18,8 +18,8 @@
           </nav>
         </div>
       </div>
-      <!-- 左側選單 -->
       <div class="row">
+        <!-- 左側選單 -->
         <div class="col-12 col-md-2 d-flex flex-column">
           <input type="radio" class="btn-check" name="options-outlined" id="outlined1" autocomplete="off" checked>
           <label class="btn btn-outline-primary mb-2" style="min-width: 110px;" for="outlined1"
@@ -40,14 +40,37 @@
             <div class="col pb-3">
               <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in products" :key="item.id">
-                  <div class="card mb-3">
-                    <RouterLink :to="{ path: `/product/${item.id}` }">
-                      <img :src="item.imageUrl" class="img-fluid card-img-top boxy"
-                        style="object-fit: cover; height: 300px;" alt="productImg">
-                    </RouterLink>
+                  <div class="card mb-3" @click="handleProductClick(item)" style="cursor: pointer;">
+                    <img :src="item.imageUrl" class="img-fluid card-img-top boxy"
+                      style="object-fit: cover; height: 300px;" alt="productImg">
                     <div class="card-body">
-                      <h5 class="card-title text-truncate" :title="item.title">{{ item.title }}</h5>
-                      <button type="button" class="btn btn-outline-primary" @click="addCart(item.id)">加入購物車</button>
+                      <div class="row">
+                        <div class="col-12">
+                          <span class="card-title text-truncate" :title="item.title" style="font-size: 1.5rem;">{{
+                            item.title
+                          }}</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                          <div class="d-flex flex-column align-items-left">
+                            <div class="product-pc">
+                              <del style="font-size: 0.75rem;color: #123025A8;">{{ item.origin_price }}</del>
+                            </div>
+                            <div>
+                              <span style="font-size: 1rem;">{{ item.price + " 元" }}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-mobile col-6 justify-content-center p-1">
+                          <button type="button" class="btn btn-outline-primary" @click.stop="addCart(item.id)">
+                            <i class="bi bi-cart-plus"></i>
+                          </button>
+                        </div>
+                        <div class="product-pc col-6 justify-content-center p-1">
+                          <button type="button" class="btn btn-outline-primary btn-sm" @click.stop="addCart(item.id)">
+                            加入購物車
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -98,6 +121,10 @@ export default {
   methods: {
     ...mapActions(useCartStore, ["updateNum"]),
     ...mapActions(useLoaderStore, ["setLoader"]),
+    async handleProductClick(product) {
+      await this.$router.push(`/product/${product.id}`);
+      await this.$router.go();
+    },
     async getProducts(page) {
       try {
         this.setLoader(true);
@@ -160,5 +187,25 @@ export default {
 <style scoped>
 .wrapper {
   min-height: calc(100vh - 110px);
+}
+
+.product-pc {
+  display: none;
+}
+
+@media screen and (min-width: 1201px) {
+  .product-pc {
+    display: flex;
+  }
+}
+
+.product-mobile {
+  display: flex;
+}
+
+@media screen and (min-width: 1201px) {
+  .product-mobile {
+    display: none;
+  }
 }
 </style>

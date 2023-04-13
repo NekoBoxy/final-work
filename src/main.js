@@ -11,6 +11,8 @@ import zh_TW from './i18n/zh_TW.json';
 // Import all of Bootstrap's JS
 // eslint-disable-next-line no-unused-vars
 import * as bootstrap from "bootstrap";
+// 載入 bootstrap-icons
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import App from "./App.vue";
 import router from "./router";

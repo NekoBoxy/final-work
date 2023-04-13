@@ -10,10 +10,10 @@
         </div>
       </div>
     </div>
-    <!-- tabs -->
     <div class="container">
       <div class="row">
         <div class="col">
+          <!-- tabs -->
           <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none;">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="confirm-tab" ref="confirm-tab" data-bs-toggle="tab"

@@ -21,7 +21,7 @@
       <!-- 產品內容 -->
       <div class="row pb-5">
         <div class="col-12 col-lg-6 gx-5 d-flex justify-content-center">
-          <img class="img-fluid" :src="product.imageUrl" style="object-fit: cover;" alt="produteImg">
+          <img class="img-fluid" :src="product.imageUrl" style="object-fit: cover;" alt="product image">
         </div>
         <div class="col-12 col-lg-6 gx-5">
           <div class="row">
@@ -108,6 +108,8 @@
 <script>
 import CNavbar from '../components/CNavbar.vue';
 import CFooter from '../components/CFooter.vue';
+import { mapActions } from "pinia";
+import { useLoaderStore } from "../stores/loader";
 
 import axios from 'axios';
 
@@ -125,6 +127,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(useLoaderStore, ["setLoader"]),
     async handleProductClick(product) {
       await this.$router.push(`/product/${product.id}`);
       await this.$router.go();
@@ -176,10 +179,12 @@ export default {
       }
     },
   },
-  mounted() {
+  async mounted() {
+    this.setLoader(true);
     this.id = this.$route.params.id;
-    this.getProduct();
-    this.getProducts();
+    await this.getProduct();
+    await this.getProducts();
+    this.setLoader(false);
   },
 };
 </script>
