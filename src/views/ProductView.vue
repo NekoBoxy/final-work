@@ -163,6 +163,7 @@ export default {
     },
     async handleAddCart() {
       try {
+        this.setLoader(true);
         await axios({
           method: 'post',
           url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/cart`,
@@ -173,6 +174,8 @@ export default {
             },
           },
         });
+        this.qty = 1;
+        this.setLoader(false);
       } catch (error) {
         alert(error.response.data.message);
       }
