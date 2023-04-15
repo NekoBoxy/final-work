@@ -2,7 +2,7 @@
   <div class="wrapper">
     <CNavbar />
     <!-- steps -->
-    <div v-if="carts.length > 0 && !isCartEmpty">
+    <div v-if="showStep">
       <div class="container container-steps d-flex justify-content-center">
         <div class="progress-container">
           <div id="progress" class="progress" :style="{ width: `${(currentStep - 1) * 33.3}%` }"></div>
@@ -41,8 +41,7 @@
           <div class="tab-content mb-3" id="myTabContent">
             <div class="tab-pane fade show active" id="confirm-tab-pane" role="tabpanel" aria-labelledby="confirm-tab"
               tabindex="0">
-
-              <div v-if="carts.length > 0 && !isCartEmpty">
+              <div v-if="carts.length > 0 && isCartLoaded">
                 <div class="my-3 d-flex justify-content-center">
                   <h5>確認訂單資訊</h5>
                 </div>
@@ -158,6 +157,18 @@
                   </v-form>
                 </div>
               </div>
+              <div class="container" v-else-if="carts.length === 0 && isCartLoaded">
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-center mb-3 mt-3">
+                    <h5>購物車內沒有東西，帶個花花草草回家吧 <i class="bi bi-emoji-kiss"></i></h5>
+                  </div>
+                  <div class="col-12 d-flex justify-content-center mb-4">
+                    <RouterLink to="/products">
+                      <button type="button" class="btn btn-primary">去逛逛吧</button>
+                    </RouterLink>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
               <div class="my-3 d-flex justify-content-center">
@@ -167,28 +178,36 @@
                 <div class="col-12 justify-content-center">
                   <v-form v-on:submit="handleProfileSubmit" ref="profileForm" class="col" v-slot="{ errors }">
                     <div class="mb-3">
-                      <label for="name" class="form-label">收件人姓名</label>
+                      <label for="name" class="form-label">收件人姓名
+                        <span class="fw-light" style="color: #FF0000; font-size: 0.8rem;">*必填</span>
+                      </label>
                       <v-field id="name" name="name" type="text" class="form-control" placeholder="請輸入姓名"
                         :class="{ 'is-invalid': errors['name'] }" rules="required">
                       </v-field>
                       <error-message name="name" class="invalid-feedback"></error-message>
                     </div>
                     <div class="mb-3">
-                      <label for="mobilePhone" class="form-label">收件人手機號碼</label>
+                      <label for="mobilePhone" class="form-label">收件人手機號碼
+                        <span class="fw-light" style="color: #FF0000; font-size: 0.8rem;">*必填</span>
+                      </label>
                       <v-field id="mobilePhone" name="mobilePhone" type="tel" class="form-control" placeholder="請輸入手機號碼"
                         :class="{ 'is-invalid': errors['mobilePhone'] }" v-bind:rules="checkMobilePhone">
                       </v-field>
                       <error-message name="mobilePhone" class="invalid-feedback"></error-message>
                     </div>
                     <div class="mb-3">
-                      <label for="email" class="form-label">Email</label>
+                      <label for="email" class="form-label">Email
+                        <span class="fw-light" style="color: #FF0000; font-size: 0.8rem;">*必填</span>
+                      </label>
                       <v-field id="email" name="email" type="email" class="form-control" placeholder="請輸入 Email"
                         :class="{ 'is-invalid': errors['email'] }" rules="email|required">
                       </v-field>
                       <error-message name="email" class="invalid-feedback"></error-message>
                     </div>
                     <div class="mb-3">
-                      <label for="address" class="form-label">收件人地址</label>
+                      <label for="address" class="form-label">收件人地址
+                        <span class="fw-light" style="color: #FF0000; font-size: 0.8rem;">*必填</span>
+                      </label>
                       <v-field id="address" name="address" type="text" class="form-control" placeholder="請輸入地址"
                         :class="{ 'is-invalid': errors['address'] }" rules="required">
                       </v-field>
@@ -216,15 +235,19 @@
                 <div class="col-12 justify-content-center">
                   <v-form v-on:submit="handlePaySubmit" ref="payForm" class="col" v-slot="{ errors }">
                     <div class="mb-3">
-                      <label for="creditCard" class="form-label">信用卡號</label>
+                      <label for="creditCard" class="form-label">信用卡號
+                        <span class="fw-light" style="color: #FF0000; font-size: 0.8rem;">*必填</span>
+                      </label>
                       <v-field id="creditCard" name="creditCard" type="text" class="form-control"
-                        :class="{ 'is-invalid': errors['creditCard'] }" placeholder="請輸入信用卡號"
+                        :class="{ 'is-invalid': errors['creditCard'] }" placeholder="9999-9999-9999-9999"
                         :rules="{ required: true, regex: /^\d{4}-\d{4}-\d{4}-\d{4}$/ }"></v-field>
                       <error-message name="creditCard" class="invalid-feedback"></error-message>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <label for="firstName" class="form-label">持卡人姓名</label>
+                        <label for="firstName" class="form-label">持卡人姓名
+                          <span class="fw-light" style="color: #FF0000; font-size: 0.8rem;">*必填</span>
+                        </label>
                       </div>
                     </div>
                     <div class="row">
@@ -241,7 +264,9 @@
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <label for="month" class="form-label">有效期限</label>
+                        <label for="month" class="form-label">有效期限
+                          <span class="fw-light" style="color: #FF0000; font-size: 0.8rem;">*必填</span>
+                        </label>
                       </div>
                     </div>
                     <div class="row">
@@ -257,7 +282,9 @@
                       </div>
                     </div>
                     <div class="mb-3">
-                      <label for="security" class="form-label">安全碼</label>
+                      <label for="security" class="form-label">安全碼
+                        <span class="fw-light" style="color: #FF0000; font-size: 0.8rem;">*必填</span>
+                      </label>
                       <v-field id="security" name="security" type="text" class="form-control"
                         :class="{ 'is-invalid': errors['security'] }" placeholder="請輸入安全碼" rules="required"></v-field>
                       <error-message name="security" class="invalid-feedback"></error-message>
@@ -284,16 +311,8 @@
         </div>
       </div>
     </div>
-    <div class="container" v-if="carts.length === 0 && !isCartEmpty">
+    <div class="container" v-if="showLike">
       <div class="row">
-        <div class="col-12 d-flex justify-content-center mb-3 mt-3">
-          <h5>購物車內沒有東西，帶個花花草草回家吧 <i class="bi bi-emoji-kiss"></i></h5>
-        </div>
-        <div class="col-12 d-flex justify-content-center mb-4">
-          <RouterLink to="/products">
-            <button type="button" class="btn btn-primary">去逛逛吧</button>
-          </RouterLink>
-        </div>
         <div class="col">
           <div class="row">
             <div class="col d-flex justify-content-center">
@@ -347,7 +366,9 @@ export default {
   },
   data() {
     return {
-      isCartEmpty: true,
+      showStep: false,
+      showLike: false,
+      isCartLoaded: false,
       currentStep: 1,
       step: "",
       carts: [],
@@ -379,6 +400,10 @@ export default {
       } catch (error) {
         alert(error.response.data.message);
       }
+    },
+    async handleProductClick(product) {
+      await this.$router.push(`/product/${product.id}`);
+      await this.$router.go();
     },
     async getCart() {
       try {
@@ -435,6 +460,7 @@ export default {
         });
         await this.getCart();
         if (this.carts.length === 0) {
+          this.showLike = true;
           await this.getProducts();
         }
         await this.updateNum();
@@ -468,6 +494,7 @@ export default {
     },
     async handleConfirmSubmit() {
       this.setLoader(true);
+      this.showLike = false;
       const tabTrigger = new Tab(this.$refs["profile-tab"]);
       tabTrigger.show();
       this.$router.push({
@@ -541,26 +568,34 @@ export default {
   },
   async mounted() {
     this.setLoader(true);
-    await this.getCart();
-    if (this.carts.length === 0) {
-      await this.getProducts();
-    }
-    this.isCartEmpty = false;
     this.step = this.$route.query.step;
     if (this.step === "profile") {
+      this.showStep = true;
       const tabTrigger = new Tab(this.$refs["profile-tab"]);
       tabTrigger.show();
       this.currentStep = 2;
     } else if (this.step === "pay") {
+      this.showStep = true;
       const tabTrigger = new Tab(this.$refs["pay-tab"]);
       tabTrigger.show();
       this.orderId = this.$route.query.orderId;
       this.currentStep = 3;
     } else if (this.step === "success") {
+      this.showStep = true;
+      this.showLike = true;
       const tabTrigger = new Tab(this.$refs["success-tab"]);
       tabTrigger.show();
+      await this.getProducts();
       this.currentStep = 4;
     } else {
+      await this.getCart();
+      this.isCartLoaded = true;
+      if (this.carts.length === 0) {
+        this.showLike = true;
+        await this.getProducts();
+      } else {
+        this.showStep = true;
+      }
       const tabTrigger = new Tab(this.$refs["confirm-tab"]);
       tabTrigger.show();
       this.currentStep = 1;
