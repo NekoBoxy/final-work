@@ -49,7 +49,7 @@
                   </RouterLink>
                 </li>
                 <li class="nav-item nav-link menu-item">
-                  <RouterLink to="/cart">
+                  <RouterLink to="/cart" @click="handleGo('/cart')">
                     <CCart></CCart>
                   </RouterLink>
                 </li>
@@ -94,7 +94,7 @@
                   </RouterLink>
                 </li>
                 <li class="nav-item nav-link">
-                  <RouterLink to="/cart">
+                  <RouterLink to="/cart" @click="handleGo('/cart')">
                     購物車
                   </RouterLink>
                 </li>
@@ -141,7 +141,10 @@ export default {
     CCart,
   },
   methods: {
-
+    async handleGo(path) {
+      await this.$router.push(path);
+      await this.$router.go();
+    }
   },
   mounted() {
 
