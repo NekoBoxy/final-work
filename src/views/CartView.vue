@@ -45,7 +45,7 @@
                 </div>
                 <div class="row">
                   <div class="col-12">
-                    <table class="table-main">
+                    <table class="table-main table">
                       <thead>
                         <tr>
                           <!-- <th scope="col" class="table-pc">資料序</th> -->
