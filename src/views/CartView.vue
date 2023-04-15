@@ -45,7 +45,7 @@
                 </div>
                 <div class="row">
                   <div class="col-12">
-                    <table class="table-main table">
+                    <table class="table table-main">
                       <thead>
                         <tr>
                           <!-- <th scope="col" class="table-pc">資料序</th> -->
@@ -69,9 +69,12 @@
                       </thead>
                       <tbody class="align-items-center">
                         <tr v-for="item in carts" :key="item.id">
-                          <td class="table-pc">
-                            <img :src="item.product.imageUrl" style="object-fit: cover; height: 150px; max-width: 150px;"
-                              alt="listImg" srcset="">
+                          <td class="table-pc" style="width:200px">
+                            <!-- <img :src="item.product.imageUrl" style="object-fit: cover; height: 150px; max-width: 150px;"
+                              alt="listImg" srcset=""> -->
+                            <div style="height: 100px; background-size: cover; background-position: center"
+                              :style="{ 'background-image': `url(${item.product.imageUrl})` }">
+                            </div>
                           </td>
                           <td>
                             <div class="table-mobile text-truncate" style="width: 100px;" :title="item.product.title">{{
