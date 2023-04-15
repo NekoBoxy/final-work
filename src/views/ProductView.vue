@@ -115,6 +115,7 @@
 import CNavbar from '../components/CNavbar.vue';
 import CFooter from '../components/CFooter.vue';
 import { mapActions } from "pinia";
+import { useCartStore } from "../stores/cart";
 import { useLoaderStore } from "../stores/loader";
 
 import axios from 'axios';
@@ -133,6 +134,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(useCartStore, ["updateNum"]),
     ...mapActions(useLoaderStore, ["setLoader"]),
     async handleProductClick(product) {
       await this.$router.push(`/product/${product.id}`);
@@ -181,6 +183,7 @@ export default {
             },
           },
         });
+        await this.updateNum();
         this.qty = 1;
         this.setLoader(false);
       } catch (error) {
