@@ -28,18 +28,25 @@
             <div class="col-12">
               <h3>{{ product.title }}</h3>
             </div>
-            <div class="col-12 pb-1">
+            <div class="col-12 mb-2">
               <span class="badge bg-primary rounded-pill">{{ product.category }}</span>
             </div>
-            <div class="col-12 pb-1">
-              商品描述：
-              <div class="mb-2">
+            <div class="col-12 mb-2">
+              <h5>商品特點：</h5>
+              <div>
                 {{ product.description }}
               </div>
             </div>
-            <div class="col-12 pb-1">
-              商品內容：
+            <div class="col-12 mb-2">
+              <h5>商品細節：</h5>
               <div>{{ product.content }}</div>
+            </div>
+            <div class="col-12 mb-2">
+              <h5>常見問題：</h5>
+              <ul>
+                <li>植株是活生生的植物，每株型態會略有不同，出貨時與照片型態不同皆屬正常。</li>
+                <li>花卉、盆栽等屬於生鮮產品，不適用網路購物的七天鑑賞期。出貨後不可退換。</li>
+              </ul>
             </div>
             <div class="col-12 pb-1">
               <div class="h5" v-if="!product.price">{{ product.origin_price }} 元</div>
