@@ -40,9 +40,9 @@
             <div class="col pb-3">
               <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in products" :key="item.id">
-                  <div class="card mb-3" @click="handleProductClick(item)" style="cursor: pointer;">
-                    <img :src="item.imageUrl" class="img-fluid card-img-top boxy"
-                      style="object-fit: cover; height: 300px;" alt="productImg">
+                  <div class="card mb-3 card-shadow" @click="handleProductClick(item)" style="cursor: pointer;">
+                    <img :src="item.imageUrl" class="img-fluid card-img-top" style="object-fit: cover; height: 300px;"
+                      alt="productImg">
                     <div class="card-body">
                       <div class="row">
                         <div class="col-12">
@@ -207,5 +207,9 @@ export default {
   .product-mobile {
     display: none;
   }
+}
+
+.card-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>

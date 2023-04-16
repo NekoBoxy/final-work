@@ -120,7 +120,7 @@
         <div class="row justify-content-center">
           <div class="col-12 col-md-4 col-lg-4 col-xxl-4 g-4 mt-0" style="display: flex;align-items: stretch;"
             v-for="product in recentProducts" :key="product.id">
-            <div class="card" style="width: 100%; cursor: pointer;" @click="handleProductClick(product)">
+            <div class="card card-shadow" style="width: 100%; cursor: pointer;" @click="handleProductClick(product)">
               <img :src="product.imageUrl" class="card-img-top" alt="latest-area-img">
               <div class="q-card-title">
                 <div class="row justify-content-between">
@@ -150,7 +150,7 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-12 col-md-4 col-lg-4 col-xxl-4 g-4 mt-0">
-          <div class="card" style="cursor: pointer;" @click="handleCategoryClick('盆栽')">
+          <div class="card card-shadow" style="cursor: pointer;" @click="handleCategoryClick('盆栽')">
             <img src="../assets/images/nkut.png" class="card-img-top" alt="category-area-img">
             <div class="q-card-title">
               <div class="row justify-content-between">
@@ -169,7 +169,7 @@
           </div>
         </div>
         <div class="col-12 col-md-4 col-lg-4 col-xxl-4 g-4 mt-0">
-          <div class="card" style="cursor: pointer;" @click="handleCategoryClick('盆花')">
+          <div class="card card-shadow" style="cursor: pointer;" @click="handleCategoryClick('盆花')">
             <img src="../assets/images/nyryj.png" class="card-img-top" alt="category-area-img">
             <div class="q-card-title">
               <div class="row justify-content-between">
@@ -188,7 +188,7 @@
           </div>
         </div>
         <div class="col-12 col-md-4 col-lg-4 col-xxl-4 g-4 mt-0">
-          <div class="card" style="cursor: pointer;" @click="handleCategoryClick('花束')">
+          <div class="card card-shadow" style="cursor: pointer;" @click="handleCategoryClick('花束')">
             <img src="../assets/images/jrsj.png" class="card-img-top" alt="category-area-img">
             <div class="q-card-title">
               <div class="row justify-content-between">
@@ -449,5 +449,9 @@ export default {
 
 .wrapper {
   min-height: calc(100vh - 110px);
+}
+
+.card-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>

@@ -45,12 +45,11 @@
                 <div class="my-3 d-flex justify-content-center">
                   <h5>確認訂單資訊</h5>
                 </div>
-                <div class="row">
-                  <div class="col-12">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-12 col-md-8">
                     <table class="table table-main">
                       <thead>
                         <tr>
-                          <!-- <th scope="col" class="table-pc">資料序</th> -->
                           <th scope="col" class="table-pc">商品圖片</th>
                           <th scope="col">
                             <span class="table-mobile">品名</span>
@@ -72,8 +71,6 @@
                       <tbody class="align-items-center">
                         <tr v-for="item in carts" :key="item.id">
                           <td class="table-pc" style="width:200px">
-                            <!-- <img :src="item.product.imageUrl" style="object-fit: cover; height: 150px; max-width: 150px;"
-                              alt="listImg" srcset=""> -->
                             <div style="height: 100px; background-size: cover; background-position: center"
                               :style="{ 'background-image': `url(${item.product.imageUrl})` }">
                             </div>
@@ -111,50 +108,50 @@
                     </table>
                   </div>
                 </div>
-                <div class="row">
-                  <v-form v-on:submit="handleCouponSubmit" ref="couponForm" class="col">
-                    <div class="row">
-                      <label for="staticTotal" class="col-12 col-md-4 col-lg-3 col-form-label">訂單金額小計：</label>
-                      <div class="col-12 col-md-8 col-lg-9">
-                        <div class="mb-3">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-12 col-md-8">
+                    <v-form v-on:submit="handleCouponSubmit" ref="couponForm" class="col">
+                      <div class="row">
+                        <label for="staticTotal" class="col-12 col-md-4 col-lg-3 col-form-label">金額小計：</label>
+                        <div class="col-12 col-md-8 col-lg-9">
                           <input type="text" readonly class="form-control-plaintext" id="staticTotal"
                             :value="`${total} 元`">
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <label for="code" class="col-12 col-md-4 col-lg-3 col-form-label">使用優惠碼：</label>
-                      <div class="col-12 col-sm-6 col-md-3 col-lg-4 mb-3">
-                        <v-field id="code" name="code" type="text" class="form-control" placeholder="請輸入優惠碼"></v-field>
-                      </div>
-                      <div class="col-12 col-sm-6 col-md-5 col-lg-5 mb-3">
-                        <button type="submit" class="btn btn-primary">
-                          套用優惠碼
-                        </button>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <label for="staticTotal" class="col-12 col-md-4 col-lg-3 col-form-label">您的優惠折扣：</label>
-                      <div class="col-12 col-md-8 col-lg-9">
-                        <div class="mb-3">
-                          <input type="text" readonly class="form-control-plaintext" id="staticTotal"
-                            :value="final_total !== total ? `${parseInt(100 * final_total / total, 10)} ％` : '無'">
+                      <div class="row">
+                        <label for="code" class="col-12 col-md-4 col-lg-3 col-form-label">使用優惠碼：</label>
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-4 mb-3">
+                          <v-field id="code" name="code" type="text" class="form-control" placeholder="請輸入優惠碼"></v-field>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-5 col-lg-5 mb-3">
+                          <button type="submit" class="btn btn-primary">
+                            套用
+                          </button>
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <label for="staticTotal" class="col-12 col-md-4 col-lg-3 col-form-label">折扣後訂單總金額：</label>
-                      <div class="col-12 col-md-8 col-lg-9">
-                        <div class="mb-3">
-                          <input type="text" readonly class="form-control-plaintext" id="staticTotal"
-                            :value="`${final_total} 元`">
+                      <div class="row">
+                        <label for="staticTotal" class="col-12 col-md-4 col-lg-3 col-form-label">享有折扣：</label>
+                        <div class="col-12 col-md-8 col-lg-9">
+                          <div class="mb-3">
+                            <input type="text" readonly class="form-control-plaintext" id="staticTotal"
+                              :value="final_total !== total ? `${parseInt(100 * final_total / total, 10)} ％` : '無'">
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="text-end">
-                      <button type="button" class="btn btn-primary" @click="handleConfirmSubmit">下一步</button>
-                    </div>
-                  </v-form>
+                      <div class="row">
+                        <label for="staticTotal" class="col-12 col-md-4 col-lg-3 col-form-label">折後總金額：</label>
+                        <div class="col-12 col-md-8 col-lg-9">
+                          <div class="mb-3">
+                            <input type="text" readonly class="form-control-plaintext" id="staticTotal"
+                              :value="`${final_total} 元`">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-end">
+                        <button type="button" class="btn btn-primary" @click="handleConfirmSubmit">下一步</button>
+                      </div>
+                    </v-form>
+                  </div>
                 </div>
               </div>
               <div class="container" v-else-if="carts.length === 0 && isCartLoaded">
@@ -302,9 +299,9 @@
               <div class="my-3 d-flex justify-content-center">
                 <h5>完成訂購</h5>
               </div>
-              <div class="d-flex justify-content-center">交易已完成，您可於三至五分鐘後至電子信箱收取訂單資訊郵件。<br />
+              <div class="d-flex justify-content-center">交易已完成，<br />
                 謝謝您的購買與支持，小幫手正快馬加鞭包裝與出貨中。<br />
-                關於訂單若有任何需求，請洽0800-000-000，將由專人為您服務。
+                關於訂單若有任何需求，請洽 0800-000-000，將由專人為您服務。
               </div>
             </div>
           </div>
@@ -490,6 +487,8 @@ export default {
         this.setLoader(false);
       } catch (error) {
         alert(error.response.data.message);
+        this.$refs.couponForm.resetForm();
+        this.setLoader(false);
       }
     },
     async handleConfirmSubmit() {
@@ -546,6 +545,7 @@ export default {
     async handlePaySubmit() {
       try {
         this.setLoader(true);
+        this.showLike = true;
         await axios({
           method: 'post',
           url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/pay/${this.orderId}`,
@@ -559,6 +559,7 @@ export default {
           }
         });
         document.documentElement.scrollTop = 0;
+        await this.getProducts();
         this.setLoader(false);
         this.currentStep = 4;
       } catch (error) {
@@ -629,6 +630,7 @@ export default {
   display: table-cell;
 }
 
+/* 寬度小於 993 ,table-mobile=display: none; */
 @media screen and (min-width: 993px) {
   .table-mobile {
     display: none;

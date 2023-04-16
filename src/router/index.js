@@ -12,10 +12,6 @@ const router = createRouter({
           component: () => import("../views/HomeView.vue"),
         },
         {
-          path: "/about",
-          component: () => import("../views/AboutView.vue"),
-        },
-        {
           path: "/products",
           component: () => import("../views/ProductsView.vue"),
         },
@@ -26,10 +22,6 @@ const router = createRouter({
         {
           path: "/cart",
           component: () => import("../views/CartView.vue"),
-        },
-        {
-          path: "/contactus",
-          component: () => import("../views/ContactView.vue"),
         },
         {
           path: "/:pathMatch(.*)*",
