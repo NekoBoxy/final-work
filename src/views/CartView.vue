@@ -86,11 +86,11 @@
                           <td class="table-pc">{{ item.product.origin_price }}</td>
                           <td>{{ item.product.price }}</td>
                           <td>
-                            <div class="d-flex d-lg-none mb-3" style="min-width: 110px;">
+                            <div class="d-flex d-lg-none mb-3" style="max-width: 90px; min-width: 60px;">
                               <input min="1" type="number" class="form-control" step="1"
                                 @blur="updateCart(item.id, item.product.id, item.qty)" v-model.number="item.qty">
                             </div>
-                            <div class="input-group mb-3 d-none d-lg-flex" style="max-width: 150px;">
+                            <div class="input-group mb-3 d-none d-lg-flex" style="max-width: 150px; min-width: 110px;">
                               <input min="1" type="number" class="form-control" step="1"
                                 @blur="updateCart(item.id, item.product.id, item.qty)" v-model.number="item.qty">
                               <span class="input-group-text table-pc">
@@ -110,45 +110,43 @@
                 </div>
                 <div class="row d-flex justify-content-center">
                   <div class="col-12 col-md-8">
-                    <v-form v-on:submit="handleCouponSubmit" ref="couponForm" class="col">
+                    <v-form v-on:submit="handleCouponSubmit" ref="couponForm">
                       <div class="row">
-                        <label for="staticTotal" class="col-12 col-md-4 col-lg-3 col-form-label">金額小計：</label>
-                        <div class="col-12 col-md-8 col-lg-9">
-                          <input type="text" readonly class="form-control-plaintext" id="staticTotal"
-                            :value="`${total} 元`">
+                        <div class="col-12">
+                          <label for="staticTotal" class="col-form-label">訂單小計：</label>
+                          <div class="d-inline-block px-2">
+                            <input type="text" readonly class="form-control-plaintext" id="staticTotal"
+                              :value="`${total} 元`">
+                          </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <label for="code" class="col-12 col-md-4 col-lg-3 col-form-label">使用優惠碼：</label>
-                        <div class="col-12 col-sm-6 col-md-3 col-lg-4 mb-3">
-                          <v-field id="code" name="code" type="text" class="form-control" placeholder="請輸入優惠碼"></v-field>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-5 col-lg-5 mb-3">
-                          <button type="submit" class="btn btn-primary">
+                        <div class="col-12">
+                          <label for="code" class="col-form-label">優惠碼：</label>
+                          <div class="d-inline-block px-2" style="max-width: 230px; min-width: 150px;">
+                            <v-field id="code" name="code" type="text" class="form-control"
+                              placeholder="請輸入優惠碼"></v-field>
+                          </div>
+                          <button type="submit" class="btn btn-primary"
+                            style="display: table-cell; vertical-align:bottom">
                             套用
                           </button>
                         </div>
-                      </div>
-                      <div class="row">
-                        <label for="staticTotal" class="col-12 col-md-4 col-lg-3 col-form-label">享有折扣：</label>
-                        <div class="col-12 col-md-8 col-lg-9">
-                          <div class="mb-3">
+                        <div class="col-12">
+                          <label for="staticTotal" class="col-form-label">享有折扣：</label>
+                          <div class="d-inline-block px-2">
                             <input type="text" readonly class="form-control-plaintext" id="staticTotal"
                               :value="final_total !== total ? `${parseInt(100 * final_total / total, 10)} ％` : '無'">
                           </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <label for="staticTotal" class="col-12 col-md-4 col-lg-3 col-form-label">折後總金額：</label>
-                        <div class="col-12 col-md-8 col-lg-9">
-                          <div class="mb-3">
+                        <div class="col-12">
+                          <label for="staticTotal" class="col-form-label">折扣後小計：</label>
+                          <div class="d-inline-block px-2">
                             <input type="text" readonly class="form-control-plaintext" id="staticTotal"
                               :value="`${final_total} 元`">
                           </div>
                         </div>
-                      </div>
-                      <div class="text-end">
-                        <button type="button" class="btn btn-primary" @click="handleConfirmSubmit">下一步</button>
+                        <div class="text-end">
+                          <button type="button" class="btn btn-primary" @click="handleConfirmSubmit">下一步</button>
+                        </div>
                       </div>
                     </v-form>
                   </div>
