@@ -169,8 +169,8 @@
               <div class="my-3 d-flex justify-content-center">
                 <h5>填寫收件資訊</h5>
               </div>
-              <div class="row">
-                <div class="col-12 justify-content-center">
+              <div class="row d-flex justify-content-center">
+                <div class="col-12 col-md-8 justify-content-center">
                   <v-form v-on:submit="handleProfileSubmit" ref="profileForm" class="col" v-slot="{ errors }">
                     <div class="mb-3">
                       <label for="name" class="form-label">收件人姓名
@@ -226,8 +226,8 @@
               <div class="my-3 d-flex justify-content-center">
                 <h5>填寫信用卡資訊</h5>
               </div>
-              <div class="row">
-                <div class="col-12 justify-content-center">
+              <div class="row d-flex justify-content-center">
+                <div class="col-12 col-md-8 justify-content-center">
                   <v-form v-on:submit="handlePaySubmit" ref="payForm" class="col" v-slot="{ errors }">
                     <div class="mb-3">
                       <label for="creditCard" class="form-label">信用卡號
@@ -297,9 +297,12 @@
               <div class="my-3 d-flex justify-content-center">
                 <h5>完成訂購</h5>
               </div>
-              <div class="d-flex justify-content-center">交易已完成，<br />
-                謝謝您的購買與支持，小幫手正快馬加鞭包裝與出貨中。<br />
-                關於訂單若有任何需求，請洽 0800-000-000，將由專人為您服務。
+              <div class="d-flex justify-content-center">
+                <p>
+                  交易已完成，<br />
+                  謝謝您的購買與支持，小幫手正快馬加鞭包裝與出貨中。<br />
+                  關於訂單若有任何需求或疑問，請洽 0800-000-000，將由專人為您服務。
+                </p>
               </div>
             </div>
           </div>
