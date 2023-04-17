@@ -120,7 +120,7 @@
         <div class="row justify-content-center">
           <div class="col-12 col-md-4 col-lg-4 col-xxl-4 g-4 mt-0" style="display: flex;align-items: stretch;"
             v-for="product in recentProducts" :key="product.id">
-            <div class="card card-shadow" style="width: 100%; cursor: pointer;" @click="handleProductClick(product)">
+            <div class="card card-shadow" style="cursor: pointer;" @click="handleProductClick(product)">
               <img :src="product.imageUrl" class="card-img-top" alt="latest-area-img">
               <div class="q-card-title">
                 <div class="row justify-content-between">
@@ -422,9 +422,8 @@ export default {
 
 .card img {
   width: 100%;
-  max-height: 288px;
   object-fit: cover;
-  height: 100%;
+  aspect-ratio: 4/3;
 }
 
 .QAArea button {
