@@ -44,7 +44,7 @@
             <div class="col-12 mb-2">
               <h5>常見問題：</h5>
               <ul>
-                <li>植株是活生生的植物，每株型態會略有不同，出貨時與照片型態不同皆屬正常。</li>
+                <li>每株植物型態會略有不同，出貨時與照片型態不同皆屬正常。</li>
                 <li>花卉、盆栽等屬於生鮮產品，不適用網購七天鑑賞期。出貨後不可退換。</li>
               </ul>
             </div>
@@ -85,8 +85,8 @@
         </div>
       </div>
       <div class="row justify-content-center mb-3">
-        <div class="col-12 col-md-6 col-lg-4 col-xxl-5 g-4" style="display: flex;align-items: stretch;"
-          v-for="product in recentProducts" :key="product.id">
+        <div class="col-12 col-md-4 g-4" style="display: flex;align-items: stretch;" v-for="product in recentProducts"
+          :key="product.id">
           <div class="card" style="width: 100%; cursor: pointer;" @click="handleProductClick(product)">
             <img :src="product.imageUrl" class="card-img-top" alt="anotherImg">
             <div class="q-card-title">
