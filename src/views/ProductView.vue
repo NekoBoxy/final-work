@@ -13,7 +13,7 @@
               <li class="breadcrumb-item">
                 <RouterLink to="/products">產品一覽</RouterLink>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">商品細節</li>
+              <li class="breadcrumb-item active" aria-current="page">產品細節</li>
             </ol>
           </nav>
         </div>
@@ -32,13 +32,13 @@
               <span class="badge bg-primary rounded-pill">{{ product.category }}</span>
             </div>
             <div class="col-12 mb-2">
-              <h5>商品特點：</h5>
+              <h5>特點：</h5>
               <div>
                 {{ product.description }}
               </div>
             </div>
             <div class="col-12 mb-2">
-              <h5>商品細節：</h5>
+              <h5>細節：</h5>
               <div>{{ product.content }}</div>
             </div>
             <div class="col-12 mb-2">
