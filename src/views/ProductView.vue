@@ -21,9 +21,15 @@
       <!-- 產品內容 -->
       <div class="row pb-5">
         <div class="col-12 col-lg-6 gx-5 d-flex justify-content-center">
-          <img class="img-fluid" :src="product.imageUrl" style="object-fit: cover;" alt="product image">
+          <img class="img-fluid" :src="product.imageUrl" style="object-fit: cover;" alt="product image"
+            v-if="product.title">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg"
+            role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false" v-else>
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#868e96"></rect>
+          </svg>
         </div>
-        <div class="col-12 col-lg-6 gx-5">
+        <div class="col-12 col-lg-6 gx-5" v-if="product.title">
           <div class="row">
             <div class="col-12">
               <h3>{{ product.title }}</h3>
@@ -75,6 +81,18 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="col-12 col-lg-6 gx-5 placeholder-glow" v-else>
+          <span class="placeholder col-4"></span><br />
+          <span class="placeholder col-1"></span><br />
+          <span class="placeholder col-3"></span><br />
+          <span class="placeholder col-4"></span><br />
+          <span class="placeholder col-8"></span><br />
+          <span class="placeholder col-2"></span><br />
+          <span class="placeholder col-8"></span><br />
+          <span class="placeholder col-6"></span><br />
+          <span class="placeholder col-2"></span><br />
+          <span class="placeholder col-12"></span><br />
         </div>
       </div>
       <div class="row">
