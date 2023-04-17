@@ -52,12 +52,8 @@
                         </div>
                         <div class="col-6 d-flex align-items-center">
                           <div class="d-flex flex-column align-items-left">
-                            <div class="product-pc">
-                              <del style="font-size: 0.75rem;color: #123025A8;">{{ item.origin_price }}</del>
-                            </div>
-                            <div>
-                              <span style="font-size: 1rem;">{{ item.price + " 元" }}</span>
-                            </div>
+                            <del style="font-size: 0.75rem;color: #123025A8;">{{ item.origin_price }}</del>
+                            <span style="font-size: 1rem;">{{ item.price + " 元" }}</span>
                           </div>
                         </div>
                         <div class="product-mobile col-6 justify-content-center p-1">
