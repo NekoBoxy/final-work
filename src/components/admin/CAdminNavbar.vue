@@ -37,6 +37,9 @@
               <li class="nav-item nav-link p-3">
                 <RouterLink to="/admin/coupons">優惠碼一覽</RouterLink>
               </li>
+              <li class="nav-item nav-link p-3">
+                <RouterLink to="/" @click="handleLogout">登出</RouterLink>
+              </li>
             </ul>
           </div>
         </nav>
@@ -87,7 +90,11 @@
 
 <script>
 export default {
-
+  methods: {
+    handleLogout() {
+      document.cookie = "hextoken=;expired=";
+    },
+  },
 }
 </script>
 
