@@ -55,11 +55,11 @@
               </ul>
             </div>
             <div class="col-12 pb-1">
-              <div class="h5" v-if="!product.price">{{ product.origin_price }} 元</div>
-              <del class="h6" v-if="product.price"> {{ product.origin_price }} 元</del>
+              <div class="h5" v-if="!product.price">{{ new Intl.NumberFormat().format(product.origin_price) }} 元</div>
+              <del class="h6" v-if="product.price">{{ new Intl.NumberFormat().format(product.origin_price) }} 元</del>
             </div>
             <div class="col-12 pb-1">
-              <div class="h4" v-if="product.price">售價 {{ product.price }} 元</div>
+              <div class="h4" v-if="product.price">售價 {{ new Intl.NumberFormat().format(product.price) }} 元</div>
             </div>
             <div class="col-12 pb-1">
               <div class="input-group">

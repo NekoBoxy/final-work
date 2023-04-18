@@ -40,8 +40,8 @@
               <td>{{ product.title }}</td>
               <td>{{ product.category }}</td>
               <td>{{ product.unit }}</td>
-              <td>{{ product.origin_price }}</td>
-              <td>{{ product.price }}</td>
+              <td>{{ new Intl.NumberFormat().format(product.origin_price) }}</td>
+              <td>{{ new Intl.NumberFormat().format(product.price) }}</td>
               <td>
                 <span v-if="product.is_enabled">啟用</span>
                 <span v-else>未啟用</span>

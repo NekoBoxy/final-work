@@ -83,8 +83,8 @@
                               item.product.title }}
                             </div>
                           </td>
-                          <td class="table-pc">{{ item.product.origin_price }}</td>
-                          <td>{{ item.product.price }}</td>
+                          <td class="table-pc">{{ new Intl.NumberFormat().format(item.product.origin_price) }}</td>
+                          <td>{{ new Intl.NumberFormat().format(item.product.price) }}</td>
                           <td>
                             <div class="d-flex d-lg-none mb-3" style="max-width: 90px; min-width: 60px;">
                               <input min="1" type="number" class="form-control" step="1"
@@ -98,7 +98,7 @@
                               </span>
                             </div>
                           </td>
-                          <td>{{ item.total }} 元</td>
+                          <td>{{ new Intl.NumberFormat().format(item.total) }} 元</td>
                           <td>
                             <button type="button" class="btn btn-danger btn-sm"
                               @click="deleteCart(item.id, item.product.id)">刪除</button>
@@ -116,7 +116,7 @@
                           <label for="staticTotal" class="col-form-label">訂單小計：</label>
                           <div class="d-inline-block px-2">
                             <input type="text" readonly class="form-control-plaintext" id="staticTotal"
-                              :value="`${total} 元`">
+                              :value="`${new Intl.NumberFormat().format(total)} 元`">
                           </div>
                         </div>
                         <div class="col-12">
@@ -141,7 +141,7 @@
                           <label for="staticTotal" class="col-form-label">折扣後小計：</label>
                           <div class="d-inline-block px-2">
                             <input type="text" readonly class="form-control-plaintext" id="staticTotal"
-                              :value="`${final_total} 元`">
+                              :value="`${new Intl.NumberFormat().format(final_total)} 元`">
                           </div>
                         </div>
                         <div class="text-end">
@@ -422,7 +422,7 @@ export default {
     },
     async updateCart(cart_id, product_id, qty) {
       try {
-        // 取絕對值、轉型成十進位數值
+        // 取絕對值、轉型成數值(十進位)
         this.qty = Math.abs(parseInt(qty, 10));
         // 若輸入數值為零，強制轉換為一
         this.qty = this.qty === 0 ? 1 : this.qty;
@@ -546,7 +546,6 @@ export default {
     async handlePaySubmit() {
       try {
         this.setLoader(true);
-        this.showLike = true;
         await axios({
           method: 'post',
           url: `${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_BASE_PATH}/pay/${this.orderId}`,
@@ -560,6 +559,7 @@ export default {
           }
         });
         document.documentElement.scrollTop = 0;
+        this.showLike = true;
         await this.getProducts();
         this.setLoader(false);
         this.currentStep = 4;

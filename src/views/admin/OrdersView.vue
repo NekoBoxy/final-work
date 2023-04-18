@@ -27,7 +27,7 @@
                   {{ product.product.title }} 數量： {{ product.qty }} {{ product.product.unit }}
                 </div>
               </td>
-              <td>{{ order.total }}</td>
+              <td>{{ new Intl.NumberFormat().format(order.total) }}</td>
               <td>
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" role="switch" id="is_paid"

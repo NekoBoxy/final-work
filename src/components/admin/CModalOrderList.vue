@@ -61,7 +61,7 @@
                   </tr>
                   <tr>
                     <th scope="row">總金額</th>
-                    <td>{{ newOrder.total }}</td>
+                    <td>{{ new Intl.NumberFormat().format(newOrder.total) }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -71,7 +71,7 @@
                   <tr v-for="(product, key) in newOrder.products" :key="key">
                     <th scope="row">{{ product.product.title }}</th>
                     <td>{{ product.qty }} {{ product.product.unit }}</td>
-                    <td>{{ product.total }}</td>
+                    <td>{{ new Intl.NumberFormat().format(product.total) }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -93,7 +93,7 @@
             取消
           </button>
           <button type="button" class="btn btn-primary" @click="handleSubmit">
-            修改付款狀態
+            修改
           </button>
         </div>
       </div>
