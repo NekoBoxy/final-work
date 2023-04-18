@@ -3,10 +3,14 @@
   <CModalProductEdit :product="product" :status="status" @on_finish="getAllProducts()" ref="cModalProductEdit">
   </CModalProductEdit>
   <div class="container">
-    <div class="row">
-      <div class="col text-end mt-4">
+    <div class="row mb-2">
+      <!-- 假麵包屑 -->
+      <div class="col-8">
+        <span style="font-size: 1.5rem;">後台產品一覽</span>
+      </div>
+      <div class="col text-end d-inline-blpck">
         <button type="button" class="btn btn-outline-primary" @click="addProduct()">
-          建立新的產品
+          新增產品
         </button>
       </div>
     </div>

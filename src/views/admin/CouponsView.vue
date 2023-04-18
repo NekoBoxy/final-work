@@ -2,10 +2,15 @@
   <CModalCouponsEdit :coupon="coupon" @on_finish="getCoupons" :status="status" ref="adminCouponModal"></CModalCouponsEdit>
   <CModalCouponsDelete :coupon="coupon" @on_finish="getCoupons" ref="adminDeleteCouponModal"></CModalCouponsDelete>
   <div class="container">
-    <div class="text-end mt-4">
-      <button type="button" class="btn btn-outline-primary" @click="addCoupon">
-        建立新的優惠券
-      </button>
+    <div class="row mb-2">
+      <div class="col-8">
+        <span style="font-size: 1.5rem;">後台優惠碼一覽</span>
+      </div>
+      <div class="col text-end">
+        <button type="button" class="btn btn-outline-primary" @click="addCoupon">
+          新增優惠券
+        </button>
+      </div>
     </div>
     <div class="text-center">
       <div class="row">
