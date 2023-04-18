@@ -19,6 +19,7 @@
             <thead>
               <tr>
                 <th>名稱</th>
+                <th>優惠碼</th>
                 <th>折扣百分比</th>
                 <th>到期日</th>
                 <th>是否啟用</th>
@@ -28,6 +29,7 @@
             <tbody>
               <tr v-for="coupon in coupons" :key="coupon.id">
                 <td>{{ coupon.title }}</td>
+                <td>{{ coupon.code }}</td>
                 <td>{{ coupon.percent }}%</td>
                 <td>{{ getDate(coupon.due_date) }}</td>
                 <td>
