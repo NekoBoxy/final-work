@@ -41,10 +41,10 @@ const router = createRouter({
           path: "/admin/orders",
           component: () => import("../views/admin/OrdersView.vue"),
         },
-        // {
-        //   path: "/admin/coupons",
-        //   component: () => import("../views/admin/CouponsView.vue"),
-        // },
+        {
+          path: "/admin/coupons",
+          component: () => import("../views/admin/CouponsView.vue"),
+        },
         {
           path: "/admin/products",
           component: () => import("../views/admin/ProductsView.vue"),
